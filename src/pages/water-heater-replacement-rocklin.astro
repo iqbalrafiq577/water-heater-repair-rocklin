@@ -1,0 +1,380 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Figure from '../components/Figure.astro';
+import Split from '../components/Split.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Faq from '../components/Faq.astro';
+import ReviewSlider from '../components/ReviewSlider.astro';
+import CtaBand from '../components/CtaBand.astro';
+import AreasServed from '../components/AreasServed.astro';
+import ServiceLinks from '../components/ServiceLinks.astro';
+import SvcAbout from '../components/SvcAbout.astro';
+import NumCards from '../components/NumCards.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import ProblemsBand from '../components/ProblemsBand.astro';
+import PricingFactors from '../components/PricingFactors.astro';
+import TrustProof from '../components/TrustProof.astro';
+import RelatedServices from '../components/RelatedServices.astro';
+import Coverage from '../components/Coverage.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { site } from '../data/site';
+import { faqSchema, serviceSchema, breadcrumbSchema } from '../data/schema';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Water Heater Replacement', href: '/water-heater-replacement-rocklin' },
+];
+
+const faqs = [
+  { q: 'How long does a water heater last?',
+    a: 'Lifespan depends on the unit, water quality, usage and maintenance — a standard tank in Rocklin commonly runs around 10 to 13 years. Water in this part of Placer County tends to be hard, so sediment and anode rod wear decide most of it — an annually flushed tank often reaches 15, a neglected one can fail at 8. Heat pump units typically run 13 to 15 years, and tankless 18 to 20 if it is descaled.' },
+  { q: 'What are the signs a water heater is going out?',
+    a: 'Rusty or metallic-tasting hot water, rumbling or popping as it heats, hot water running out faster than it used to, rust streaks or moisture at the base, weeping from the T&P valve, and a pilot or burner that needs resetting more than once. Water underneath a heater can come from the tank, the fittings, the valves, the discharge line or simple condensation — we trace it before advising. If the storage tank itself is leaking, replacement is generally the only fix.' },
+  { q: 'Should I replace a 15 year old water heater?',
+    a: 'Usually yes, and ideally before it fails. A 15-year-old tank is generally a strong replacement candidate, though condition, corrosion, maintenance history and repair cost should decide it rather than age alone. Replacing it on a planned day costs the same as replacing it in an emergency, minus the flooded garage, the ruined storage boxes and the after-hours rate.' },
+  { q: 'How much does it cost to replace a water heater in California?',
+    a: 'In Rocklin and the wider Placer County area a standard 40 or 50 gallon gas tank replacement typically runs $1,400 to $2,600 all in — unit, labor, permit and the code items. 75 gallon and power vent units sit higher, and heat pump installs typically land between $3,000 and $5,500 before any utility rebate. You get a written figure before anything starts.' },
+  { q: 'Do I need a permit to replace a water heater in California?',
+    a: 'Yes. A water heater replacement is permitted work in California, and the new install is assessed against the applicable California Building Standards Code and local City of Rocklin requirements rather than matching whatever was there before. We pull the permit through the City of Rocklin and meet the inspector, and the permit stays on your property record — which matters when you sell.' },
+  { q: 'How long does a water heater replacement take?',
+    a: 'A like-for-like tank swap in an accessible garage is normally three to four hours, so you have hot water again the same afternoon. Add time if we are bringing the venting, gas connection or platform up to code, relocating the unit, or carrying a 75 gallon tank through a tight space.' },
+  { q: 'What size water heater do I need?',
+    a: 'Count people and bathrooms rather than square footage. As a rough guide, one or two people are usually comfortable on 30 to 40 gallons, three or four on a 50, and larger households or homes with a soaking tub often need 75 gallons or a tankless unit. We size on peak-hour demand, first-hour rating and recovery rate rather than household size alone — oversizing wastes standby energy, undersizing guarantees cold showers.' },
+  { q: 'Does homeowners insurance cover water heater replacement?',
+    a: 'Most policies will not pay for the heater itself when it simply wears out, but many do cover the resulting water damage to flooring, drywall and belongings. A correctly installed drain pan with a piped drain can help limit water damage, though coverage depends on your policy and the cause of the leak. Check your own policy wording — we can supply a written cause-of-failure note for the claim.' },
+  { q: 'Do you haul away the old unit?',
+    a: 'Yes. Draining, disconnecting, carrying out and recycling the old heater is part of the quoted price, not an add-on. Steel tanks go to a metal recycler, and we leave the space swept.' },
+  { q: 'Can you replace a water heater the same day?',
+    a: 'Often, yes — same-day replacement depends on equipment availability, what the installation needs and the day’s schedule. We carry common 40 and 50 gallon gas and electric tanks, so a failed unit called in during the morning can frequently be replaced that afternoon. Heat pump and 75 gallon units are typically next day, because we size and order those to the house.' },
+];
+
+const schema = [
+  serviceSchema({
+    name: 'Water Heater Replacement in Rocklin, CA',
+    description: 'Permitted, code-compliant water heater replacement in Rocklin, California. Correctly sized gas, electric and heat pump tanks, old unit removed and recycled, written pricing before work starts.',
+    path: '/water-heater-replacement-rocklin',
+    serviceType: 'Water heater replacement',
+    offers: [
+      { name: '30-40 gallon gas tank replacement', low: '1400', high: '2200' },
+      { name: '50 gallon gas tank replacement', low: '1600', high: '2600' },
+      { name: '75 gallon gas tank replacement', low: '2600', high: '4200' },
+      { name: '40-50 gallon electric tank replacement', low: '1300', high: '2300' },
+      { name: 'Heat pump (hybrid) water heater replacement', low: '3000', high: '5500' },
+      { name: 'Code upgrade package (drain pan, expansion tank, strapping)', low: '350', high: '900' },
+    ],
+  }),
+  faqSchema(faqs),
+  breadcrumbSchema(crumbs),
+];
+---
+<Base
+  title="Water Heater Replacement Rocklin, CA | Permitted Tank Swap"
+  description="Water heater replacement Rocklin, CA: correctly sized 40, 50 or 75 gallon tanks, permit pulled, code upgrades included and the old unit hauled away."
+  path="/water-heater-replacement-rocklin"
+  schema={schema}
+>
+  <Hero
+    eyebrow="Rocklin, CA · 95677 & 95765 · Permit pulled, old unit hauled away"
+    h1="Water Heater Replacement in Rocklin, California"
+    lede="Tank failed, or old enough that you would rather not gamble on another winter? We size it properly, pull the permit, bring the whole install up to current California code and take the old heater away with us — usually inside a single afternoon."
+    points={['Same-day swap often possible', 'Permit & inspection handled', 'Old unit removed & recycled', '6, 9 & 12 year warranty options']}
+    bg="/images/water-heater-replacement-rocklin-wall-mounted-tank.webp"
+    bgAlt="Newly replaced water heater fitted in a Rocklin, California home"
+    form={false}
+    center
+  />
+
+  <Breadcrumbs items={crumbs} />
+
+  <SvcAbout
+    heading="What water heater replacement actually covers"
+    img="/images/water-heater-replacement-rocklin-wall-mounted-tank.webp"
+    alt="Newly fitted wall-mounted water heater in a Rocklin, CA home"
+    ticks={[
+      'Correctly sized unit chosen on demand, not on the gallons printed on the old tank',
+      'Permit pulled and the inspection met through the City of Rocklin',
+      'Code items priced in from the start — strapping, pan, expansion tank, T&P discharge',
+      'Old heater drained, carried out and recycled the same day',
+    ]}
+    ctaLabel="Get a written price →"
+    ctaHref="/contact-us"
+  >
+    <p>
+      This page covers swapping an existing water heater for a new one in the same location.
+      That is a different job from a first-time installation in a spot that has never had a
+      heater — different gas, venting and drainage work — which is its own service.
+    </p>
+    <p>
+      A replacement is not simply carrying a new cylinder in and reconnecting two flex lines.
+      In California the new install is assessed against current code rather than matching
+      whatever the last plumber left behind in 2009. Done properly it is invisible. Done badly
+      it fails inspection, voids the manufacturer warranty, or quietly floods a garage five
+      years from now.
+    </p>
+    <p>
+      Water heaters are the only thing we work on, so this is a job we do regularly across
+      Whitney Ranch, Stanford Ranch, Sunset Whitney and Clover Valley. If you are still weighing
+      it up, read <a href="/blog/repair-or-replace-water-heater">repair or replace</a> first —
+      and if the unit is only a few years old a <a href="/">water heater repair</a> may genuinely
+      be the better buy.
+    </p>
+  </SvcAbout>
+
+  <NumCards
+    kicker="Our standard"
+    heading="How we tell a repair from a replacement"
+    intro="This distinction decides the whole job, so it is the first thing we check."
+    items={[
+      { title: 'How old is the tank?', text: 'Under about eight years, repair almost always wins — the tank has life left and parts are cheap relative to a new unit. Past twelve, money spent on parts goes into a cylinder already beyond its design life.' },
+      { title: 'Is the repair past half the price?', text: 'If the repair estimate comes to more than roughly half the installed cost of a replacement, replace it. A gas control valve on an eleven-year-old tank is the classic example.' },
+      { title: 'Is the leak from the tank itself?', text: 'Water from the vessel — not the T&P valve, not a union, not condensation — means the inner shell has corroded through, and no part fixes that. We trace the source before advising.' },
+      { title: 'What do we check before quoting?', text: 'Gas line, vent, electrical supply, pan, drain and access. Those decide what the code items cost, which is the part most quotes leave out until the afternoon.' },
+    ]}
+  />
+
+  <ProcessSteps
+    heading="How replacement day runs"
+    img="/images/water-heater-repair-rocklin-technician-servicing-unit.webp"
+    alt="Plumber fitting a replacement water heater in a Rocklin, California home"
+    steps={[
+      { title: 'Phone call and sizing', text: 'We ask about people, bathrooms, tub volume, fuel type and where the unit lives. That is usually enough to give you a realistic range before we arrive.' },
+      { title: 'On-site check and written price', text: 'We look at gas line, vent, electrical supply, pan, drain and access, then hand you a fixed written price with the code items itemised. Nothing starts until you approve it.' },
+      { title: 'Permit pulled', text: 'Filed with the City of Rocklin in our name, with the inspection scheduled as part of the job.' },
+      { title: 'Old unit out', text: 'Fuel and water isolated, tank drained or pumped, connections broken cleanly, heater dollied out with the floor protected.' },
+      { title: 'New unit in, to code', text: 'Platform and drain pan, strapping, T&P discharge to an approved point, expansion tank where required, sediment trap, new connectors, vent connector correctly pitched.' },
+      { title: 'Fill, purge and test', text: 'Tank filled and air purged, gas leak-tested, thermostat set to 120 degrees, draft and combustion verified on gas units, T&P inspected.' },
+      { title: 'Walkthrough and paperwork', text: 'We show you the shutoffs, leave the manual, complete the warranty registration, give you the permit number, haul the old unit away and sweep up.' },
+    ]}
+  />
+
+  <NumCards
+    kicker="What is included"
+    heading="What a code-compliant California replacement includes"
+    intro="These are assessed against your actual installation — we identify which ones apply before quoting."
+    items={[
+      { title: 'Seismic restraint', text: 'California requires approved restraint on applicable tank-type heaters, anchored into structure rather than drywall. Quantity and placement follow the current code.' },
+      { title: 'T&P discharge', text: 'Full-size rigid pipe running downhill the whole way to an approved termination, with the correct sizing, slope and clearance. No reducing, no threaded end, no valve.' },
+      { title: 'Thermal expansion control', text: 'Required where the plumbing system is closed, which covers many Rocklin homes with a pressure regulator at the meter. We check the pressure rather than assume.' },
+      { title: 'Gas, venting and clearances', text: 'Sediment trap at the gas connection, verified combustion air, correct vent rise and pitch, and whatever ignition-source elevation the location calls for.' },
+    ]}
+    alt_bg={true}
+  />
+
+  <section class="section">
+    <div class="wrap prose prose--wide">
+      <div class="sec-head">
+        <div>
+          <p class="kicker">Sizing</p>
+          <h2 id="sizing" style="margin:0">Choosing the Right Size: 30, 40, 50 or 75 Gallon</h2>
+        </div>
+        <p class="sec-head__intro">
+          Size by people and simultaneous demand, not floor area. Most hot water complaints are
+          sizing decisions, not faulty equipment.
+        </p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <caption class="note" style="caption-side:bottom;text-align:left;padding:10px 16px">
+            A starting point. We confirm on site before anything is ordered.
+          </caption>
+          <thead><tr><th scope="col">Household</th><th scope="col">Bathrooms</th><th scope="col">Tank size</th><th scope="col">Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1–2 people</td><td>1</td><td>30–40 gallon</td><td>30 suits a condo or ADU; 40 gives headroom.</td></tr>
+            <tr><td>2–3 people</td><td>1–2</td><td>40 gallon</td><td>The most common Rocklin fit — usually stocked.</td></tr>
+            <tr><td>3–4 people</td><td>2</td><td>50 gallon</td><td>Shower and dishwasher at once.</td></tr>
+            <tr><td>5 or more people</td><td>2–3</td><td>75 gallon</td><td>Or a high-recovery 50. Check gas line and vent.</td></tr>
+            <tr><td>Any size with a soaking tub</td><td>2–3+</td><td>75 gallon or tankless</td><td>A 70 gallon tub outruns a 50.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <p>
+          Recovery rate matters as much as capacity — we quote first-hour rating, not the number on
+          the sticker.
+        </p>
+      </div>
+
+
+      <div class="sec-head" style="margin-top:56px">
+        <div>
+          <p class="kicker">Fuel type</p>
+          <h2 id="fuel" style="margin:0">Gas, Electric or Heat Pump</h2>
+        </div>
+        <p class="sec-head__intro">
+          What is already in the garage usually decides this. Here is what each one needs and costs
+          to run.
+        </p>
+      </div>
+      <div class="grid grid--3">
+        <article class="card">
+          <h3>Atmospheric gas</h3>
+          <p>What most Rocklin garages have. Cheapest, quick recovery, works in a power cut. Needs a sound flue and correctly sized gas line.</p>
+        </article>
+        <article class="card">
+          <h3>Power vent gas</h3>
+          <p>For interior closets and long horizontal vent runs. Costs more and needs an outlet, but solves awkward locations.</p>
+        </article>
+        <article class="card">
+          <h3>Electric</h3>
+          <p>No venting, no combustion air. Runs on a dedicated 240 volt circuit — we verify breaker and wiring capacity before quoting.</p>
+        </article>
+        <article class="card">
+          <h3>Heat pump / hybrid</h3>
+          <p>Far lower running cost and rebate-eligible, but needs air volume, headroom and a condensate drain.</p>
+        </article>
+        <article class="card">
+          <h3>High-recovery gas</h3>
+          <p>A 50 gallon tank with a bigger burner — large-family demand without re-sizing the vent and platform for a 75.</p>
+        </article>
+        <article class="card">
+          <h3>Tankless</h3>
+          <p>Endless hot water, longer service life, different install. See <a href="/tankless-water-heater-replacement-rocklin">tankless replacement →</a></p>
+        </article>
+      </div>
+      <div class="callout">
+        <p>
+          We do not switch your fuel type to make the job easier. If a change genuinely suits the
+          house we show you the numbers; if not, we fit like for like.
+        </p>
+      </div>
+
+
+      <div class="sec-head" style="margin-top:56px">
+        <div>
+          <p class="kicker">After the swap</p>
+          <h2 id="disposal" style="margin:0">The Old Unit, and What Happens Afterwards</h2>
+        </div>
+        <p class="sec-head__intro">
+          Removal, recycling and warranty paperwork are inside the quoted job — not add-ons found at
+          the end of the afternoon.
+        </p>
+      </div>
+
+      <div class="twoup">
+        <article>
+          <h3>Removing the old heater</h3>
+          <ul class="ticks ticks--dark">
+            <li>Fuel and water isolated, tank drained or pumped out</li>
+            <li>Connections broken cleanly — no nipples snapped off in the wall</li>
+            <li><strong>Haul-away and recycling inside the quoted price</strong></li>
+            <li>Space swept; we show you any stain or damp on the slab first</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Warranty afterwards</h3>
+          <ul class="ticks ticks--dark">
+            <li>Six year tank and parts warranty standard; nine and twelve year available</li>
+            <li>Manufacturer registration completed, model and serial handed to you</li>
+            <li><strong>Our own labor warranty covers the installation</strong></li>
+            <li>Annual flush reminder set — <a href="/water-heater-maintenance-rocklin">or we show you how</a></li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="note" style="margin-top:26px">
+        Brand-new heater rather than a swap — a new build, a second unit, or a heater moved out of a
+        closet? That is covered on our
+        <a href="/water-heater-installation-rocklin">water heater installation</a> page.
+      </p>
+
+    </div>
+  </section>
+
+  <BeforeAfter
+    serviceLabel="Water heater replacement"
+    heading="Typical jobs, before and after."
+    items={[
+      {
+        title: 'Garage tank leaking onto the slab',
+        before: 'A twelve-year-old 50 gallon gas tank weeping at the base, with rust streaks down the jacket and a pan that had never been piped anywhere.',
+        after: 'Replaced like-for-like with a new 50 gallon unit, a piped pan, fresh strapping and the T&P discharge re-run to an approved point. Permit pulled and inspected.',
+        img: '/images/water-heater-leak-repair-rocklin-old-tank-pipework.webp',
+        alt: 'Corroded water heater pipework of the kind that commonly precedes a replacement',
+      },
+      {
+        title: 'Hot water running out mid-shower',
+        before: 'A 40 gallon tank in a four-person household, recovering too slowly to cover two showers and a dishwasher in the same hour.',
+        after: 'Sized on peak-hour demand and first-hour rating rather than gallons alone, and replaced with the capacity the house actually needed.',
+        img: '/images/water-heater-installation-rocklin-utility-room.webp',
+        alt: 'Water heater and laundry appliances in a Rocklin, California utility room',
+      },
+      {
+        title: 'Repair quote past half the price of new',
+        before: 'A failed gas control valve on an eleven-year-old cylinder, where the repair was real but the tank was already beyond its design life.',
+        after: 'Both numbers put side by side in writing, and the replacement fitted the same week with a fresh manufacturer warranty on the new unit.',
+        img: '/images/water-heater-repair-rocklin-plumber-diagnosing-unit.webp',
+        alt: 'Technician diagnosing a failed water heater before quoting a replacement',
+      },
+    ]}
+  />
+
+  <ProblemsBand
+    heading="What this service actually fixes"
+    intro="The specific situations a replacement solves, and what each one normally involves."
+    ctaLabel="Ask a technician →"
+    items={[
+      { title: 'A tank that has started leaking from the body', text: 'The inner shell has corroded through and no part fixes that. We make the unit safe, then quote the replacement with the code items already inside the figure.' },
+      { title: 'A heater past its design life you would rather not gamble on', text: 'Replacing on a planned day costs the same as replacing in an emergency, minus the flooded garage and the after-hours rate.' },
+      { title: 'A unit that never kept up with the household', text: 'Sized on peak-hour demand, first-hour rating and recovery rather than household size alone, so the new tank solves the problem you called about.' },
+    ]}
+  />
+
+  <PricingFactors
+    heading="Water Heater Replacement Pricing in Rocklin"
+    range="$1,300 – $5,500 depending on capacity, fuel type and code work"
+    factors={[
+      { title: 'Capacity and fuel type', text: 'A 40 or 50 gallon gas tank sits at the lower end. 75 gallon, power vent and heat pump units carry more equipment cost and more labor.' },
+      { title: 'What the existing install needs', text: 'Standard code-compliant items are included where they apply. Venting corrections, gas upsizing or a new drain route are identified and priced separately before work starts.' },
+      { title: 'Access and location', text: 'An accessible garage is the straightforward case. Attic, crawlspace and tight interior closets take longer and sit at the top of the range.' },
+    ]}
+  >
+      <h2 id="cost">What Water Heater Replacement Costs in Rocklin, CA</h2>
+      <div class="table-wrap">
+        <table>
+          <caption class="note" style="caption-side:bottom;text-align:left;padding:10px 16px">
+            Typical installed Rocklin pricing — unit, labor, permit and standard code items.
+            Your written estimate is confirmed on site before any work starts.
+          </caption>
+          <thead><tr><th scope="col">Replacement</th><th scope="col">Typical installed range</th></tr></thead>
+          <tbody>
+            <tr><td>30–40 gallon gas tank</td><td>$1,400 – $2,200</td></tr>
+            <tr><td>50 gallon gas tank</td><td>$1,600 – $2,600</td></tr>
+            <tr><td>75 gallon gas tank</td><td>$2,600 – $4,200</td></tr>
+            <tr><td>40–50 gallon electric tank</td><td>$1,300 – $2,400</td></tr>
+            <tr><td>Power vent gas tank</td><td>$2,400 – $4,000</td></tr>
+            <tr><td>Heat pump / hybrid (before any rebate)</td><td>$3,000 – $5,500</td></tr>
+            <tr><td>Tank to tankless conversion</td><td>$3,800 – $7,500</td></tr>
+            <tr><td>Additional code work beyond the standard items (pan, expansion tank, strapping, T&amp;P re-pipe)</td><td>$350 – $900</td></tr>
+            <tr><td>Relocating the heater to a different spot</td><td>$600 – $2,000 on top</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">
+        These are estimated installed ranges, not guaranteed quotes. Standard code-compliant items are
+        included where they apply; extra work needed because of existing site conditions is
+        identified and priced separately before we start. Ranges reflect Rocklin and Placer County
+        labor and material rates for 2026 and assume standard garage or utility-closet access. Attic and crawlspace locations, long vent re-runs
+        and gas line upsizing sit at the top of the range or above it. We quote your actual house,
+        not an average one.
+      </p>
+      <p>
+        Choosing a reliable local replacement service is not about having
+        the lowest number in a text message. It is about the figure you approve being the figure on
+        the invoice, with the permit and the code items already inside it rather than discovered
+        halfway through the afternoon.
+      </p>
+  </PricingFactors>
+
+  <TrustProof />
+  <ReviewSlider />
+  <Faq items={faqs} heading="Water Heater Replacement Questions Rocklin Homeowners Ask" />
+  <RelatedServices exclude="/water-heater-replacement-rocklin" />
+  <Coverage service="Water heater replacement" />
+  <CtaBand
+    heading="Need a water heater replaced in Rocklin? Get a written price today."
+    text="Call now to check same-day availability, or send a message with your household size and we will come back with sizing and a figure."
+  />
+  <ContactSection />
+</Base>

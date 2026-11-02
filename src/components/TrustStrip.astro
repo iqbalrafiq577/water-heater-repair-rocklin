@@ -1,0 +1,17 @@
+---
+export interface Props { items: { title: string; text: string }[] }
+const { items } = Astro.props;
+---
+<section class="tstrip">
+  <div class="wrap">
+    <div class="tstrip__grid">
+      {items.map((it, i) => (
+        <div class="tstrip__item">
+          <span class="tstrip__n">{String(i + 1).padStart(2, '0')}</span>
+          <strong>{it.title}</strong>
+          <span>{it.text}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

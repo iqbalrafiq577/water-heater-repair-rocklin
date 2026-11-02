@@ -1,0 +1,27 @@
+---
+export interface Props {
+  kicker?: string; heading?: string; intro?: string;
+  items: { img: string; alt: string }[];
+}
+const {
+  kicker = 'Recent work',
+  heading = 'Water Heater Work, Done Properly',
+  intro = 'A look at the kind of work a Rocklin call-out involves — diagnosis, pipework, code items and the finished install.',
+  items,
+} = Astro.props;
+---
+<section class="section">
+  <div class="wrap">
+    <div class="sec-center">
+      <p class="eyebrow">{kicker}</p>
+      <h2>{heading}</h2>
+      <p>{intro}</p>
+    </div>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px">
+      {items.map((it) => (
+        <img src={it.img} alt={it.alt} width="1500" height="1000" loading="lazy" decoding="async"
+             style="border-radius:var(--radius);width:100%;height:210px;object-fit:cover;box-shadow:var(--shadow)" />
+      ))}
+    </div>
+  </div>
+</section>

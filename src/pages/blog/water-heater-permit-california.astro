@@ -1,0 +1,178 @@
+---
+import Post from '../../layouts/Post.astro';
+import { getPost } from '../../data/posts';
+
+const post = getPost('water-heater-permit-california');
+
+const faqs = [
+  { q: 'Do you really need a permit to replace a water heater in California?',
+    a: 'Yes. Replacing a water heater is permitted work in California because it involves gas or electrical supply, pressurised hot water and a combustion appliance. Your local building department issues the permit and an inspector signs the job off.' },
+  { q: 'Who pulls the permit — me or the plumber?',
+    a: 'Normally the licensed contractor doing the work pulls it, and the cost is included in the quote. If someone offers to do the job cheaper by leaving the permit out, that is the part of the price you should be most suspicious of.' },
+  { q: 'What happens if a water heater was installed without a permit?',
+    a: 'Nothing immediately — which is why it is common. The problems surface later: at resale when a buyer or their inspector asks for records, on an insurance claim after water or fire damage, or when a future permit application brings the unpermitted work to light.' },
+  { q: 'Can an unpermitted water heater be made legal afterwards?',
+    a: 'Usually, yes. The building department can generally permit existing work retroactively, but the installation has to be brought up to current code first and anything concealed may need to be opened up for inspection. It is almost always more expensive than doing it right the first time.' },
+  { q: 'Does the inspector need access to the water heater?',
+    a: 'Yes. The inspector needs to see the unit, its connections, the venting and the relief valve discharge. Keep the area clear and accessible — a garage packed to the ceiling is the most common reason an inspection has to be rescheduled.' },
+];
+---
+<Post
+  image="/images/water-heater-installation-rocklin-connecting-tank-pipework.webp"
+  imageAlt="Water heater pipework connected to California code requirements during installation"
+  imageW={1600}
+  imageH={1068}
+  imageCaption="Inspectors check strapping, discharge, venting and clearances — not just the unit itself."
+  title={post.title}
+  description="Why a permit is normally required to replace a water heater in California, what the inspector checks on site, and the real consequences of skipping the paperwork."
+  path={`/blog/${post.slug}`}
+  published={post.published}
+  excerpt={post.excerpt}
+  faqs={faqs}
+  ctaHeading="Replacing a Water Heater and Want the Paperwork Right?"
+  ctaText="We pull the permit, do the work to code and meet the inspector. You end up with hot water and a clean record on the property."
+>
+  <p>
+    Almost every homeowner who has replaced a water heater in California has met the same pitch:
+    someone offering to do it for noticeably less, cash, this afternoon, no permit. It is tempting
+    precisely because nothing visibly bad happens afterwards. The water gets hot either way. What
+    you are actually buying is an undocumented gas appliance and a problem deferred to a worse
+    moment.
+  </p>
+
+  <h2>Why a Permit Is Required at All</h2>
+  <p>
+    A water heater is not a plug-in appliance. In a typical Rocklin home it ties into the gas
+    supply, vents combustion products, holds water under pressure at scalding temperature, and
+    sits in a seismically active state. Get any of those wrong and the failure modes are not
+    inconvenience &mdash; they are fire, carbon monoxide, flooding or a toppled tank tearing a gas
+    line off its fitting in an earthquake.
+  </p>
+  <p>
+    The permit and inspection process exists so that an independent set of eyes confirms the
+    install is safe before the job is considered finished. It also creates a record attached to
+    the property, which matters far more than people expect when the house changes hands or an
+    insurer asks questions.
+  </p>
+  <p>
+    Permits are administered locally, so the exact fee, the forms and the inspection process vary
+    between jurisdictions. Your building department is the authority on the specifics for your
+    address, and a contractor who works in your city every week will already know the local
+    routine.
+  </p>
+
+  <h2>What the Inspector Actually Checks</h2>
+  <p>
+    Inspections are more predictable than people fear. An inspector works through a short list of
+    items that cause real-world failures.
+  </p>
+
+  <h3>Seismic strapping</h3>
+  <p>
+    California requires storage water heaters to be braced against earthquake movement.
+    Conventionally that means two straps &mdash; one in the upper portion of the tank and one in
+    the lower &mdash; anchored into solid framing or masonry, not just into drywall. Inspectors
+    look at strap placement, the fixings used, and whether the straps are actually tight. A single
+    loose strap around the middle of the tank is one of the most common corrections written.
+  </p>
+
+  <h3>Temperature and pressure relief discharge</h3>
+  <p>
+    The T&amp;P valve is the safety device that prevents a water heater becoming a pressure
+    vessel. Its discharge pipe has to be the correct size, run downhill to an approved termination
+    where a discharge would be visible and would not scald anyone, and have no valve, no reduction
+    and no threaded end that could be capped. Inspectors check the routing, the material and the
+    termination point. Discharge piping that runs uphill, into a sealed container or nowhere at all
+    is an automatic correction.
+  </p>
+
+  <h3>Drain pan and pan drain</h3>
+  <p>
+    Where a leak could damage the building &mdash; interior closets, upstairs locations, above
+    finished space &mdash; the heater needs a pan beneath it, piped to a suitable drain point. A
+    pan with no outlet is a bathtub waiting to overflow, so the inspector looks for where the pan
+    actually drains to.
+  </p>
+
+  <h3>Thermal expansion control</h3>
+  <p>
+    If the water supply has a pressure regulator or a check valve, the house plumbing is a closed
+    system. Heated water expands and, with nowhere to go, pressure spikes every heating cycle.
+    That is what an expansion tank handles. Inspectors look for one where the system requires it,
+    correctly supported and installed in the right orientation for the model.
+  </p>
+
+  <h3>Combustion air</h3>
+  <p>
+    An atmospheric gas water heater burns air from the room it sits in. Shut it in a sealed closet
+    and it will starve, burn poorly and potentially spill combustion products into the house.
+    Inspectors check that the space has adequate combustion and ventilation air, whether that is
+    through the garage, through louvred openings or via ducted air. Converting a garage to a sealed
+    room with the heater still in it is a classic way to fail.
+  </p>
+
+  <h3>Venting and draft</h3>
+  <p>
+    On a gas unit, the inspector checks vent material, diameter, slope, connector length, clearance
+    to combustibles and whether the vent is correctly connected and supported. Common issues are
+    crushed or disconnected flex connectors, an undersized vent after someone fitted a larger
+    heater, too many elbows, and inadequate rise before the first turn. The point of all of it is
+    to confirm the appliance actually draws its exhaust outside rather than into the garage.
+  </p>
+
+  <h3>Gas supply, sediment trap and shutoff</h3>
+  <p>
+    The gas connection needs an accessible shutoff valve, an appropriate approved connector, and a
+    sediment trap (a drip leg) ahead of the appliance control to catch debris and moisture before
+    it reaches the gas valve. Inspectors also look for correctly made joints and a leak test. The
+    sediment trap is routinely left off by hurried installers and is one of the easiest items for
+    an inspector to spot.
+  </p>
+
+  <h3>Water connections and electrical</h3>
+  <p>
+    Expect a look at dielectric separation where dissimilar metals meet, accessible isolation on
+    the cold inlet, and &mdash; on electric and heat pump units &mdash; a proper disconnect and
+    bonding.
+  </p>
+
+  <h2>What Happens If You Skip It</h2>
+  <p>
+    The cost of skipping a permit is almost never paid on the day. It is paid later, in one of
+    these four ways.
+  </p>
+  <ol class="steps">
+    <li><strong>Resale friction</strong> California sellers have broad disclosure obligations about the condition of a property. An unpermitted gas appliance that shows up in a buyer home inspection becomes a negotiation item at the worst possible moment &mdash; and the usual outcome is you paying to permit and correct it under time pressure, or a price reduction.</li>
+    <li><strong>Insurance trouble</strong> If a water heater causes water damage, a fire or a carbon monoxide incident, the first thing an adjuster establishes is whether the installation was permitted and code compliant. Unpermitted work gives an insurer a straightforward basis to question or reduce a claim. You do not want to discover that argument exists after the damage.</li>
+    <li><strong>Warranty and liability gaps</strong> Manufacturers condition warranties on correct installation. An uninspected install by someone who may not have been licensed leaves you with nobody to stand behind the work, and no documentation to prove what was done.</li>
+    <li><strong>Future permits exposing it</strong> Apply to permit a remodel, a solar array or a panel upgrade and the inspector sees the whole property. Unpermitted work discovered then has to be resolved before the new project can proceed.</li>
+  </ol>
+  <p>
+    And the safety point, which is the real one: strapping, relief discharge, combustion air and
+    venting are not bureaucratic boxes. Each of them exists because of accidents. An inspector
+    looking over the work is the cheapest second opinion you will ever get on a gas appliance in
+    your home.
+  </p>
+
+  <h2>How the Process Goes on a Normal Job</h2>
+  <ol class="steps">
+    <li><strong>Permit at the time of work</strong> The contractor applies with the local building department. For a straight swap this is routine administration, not a design review.</li>
+    <li><strong>Install to current code</strong> Current requirements apply even if the old unit predated them &mdash; strapping, relief discharge, pan, expansion control, venting and gas connection all come up to standard.</li>
+    <li><strong>Inspection</strong> The inspector visits, works the list above, and signs off. Blocked access to the heater is the most common reason for a return visit.</li>
+    <li><strong>Final record</strong> The permit is closed out and the work is on record for the property.</li>
+  </ol>
+
+  <h2>Where We Come In</h2>
+  <p>
+    We pull the permit as part of every
+    <a href="/water-heater-replacement-rocklin">water heater replacement</a> and every
+    <a href="/water-heater-installation-rocklin">new water heater installation</a> we do in
+    Rocklin. It is in the quoted price, not a line added later, and we meet the inspector
+    ourselves.
+  </p>
+  <p>
+    If you have inherited an unpermitted install from a previous owner or contractor, say so when
+    you call. We can tell you plainly which items would fail an inspection today and price the
+    corrections &mdash; a far better position than finding out during escrow.
+  </p>
+</Post>

@@ -1,0 +1,102 @@
+---
+import { site } from '../data/site';
+import { services } from '../data/nav';
+
+export interface Props {
+  eyebrow?: string;
+  h1: string;
+  lede: string;
+  points?: string[];
+  bg?: string;
+  bgAlt?: string;
+  formHeading?: string;
+  formSub?: string;
+  formButton?: string;
+  formFine?: string;
+  /** Set false on secondary pages that do not need the lead form. */
+  form?: boolean;
+  /** Center the text column (used when there is no form beside it). */
+  center?: boolean;
+}
+
+const {
+  eyebrow,
+  h1,
+  lede,
+  points = [
+    'Same-day appointments across Rocklin',
+    'Written price before any work starts',
+    'Licensed, bonded and insured',
+    'Tank, tankless and heat pump units',
+  ],
+  bg = '/images/water-heater-repair-rocklin-plumbing-pipework.webp',
+  bgAlt = 'Water heater pipework in a Rocklin, California home',
+  formHeading = "Tell Us What's Wrong",
+  formSub = 'Tell us the symptom — we come back with a time and a price range.',
+  formButton = 'Request my quote',
+  formFine = 'No obligation. We only use this to contact you about your water heater.',
+  form = true,
+  center = false,
+} = Astro.props;
+---
+<section class:list={['hero', { 'hero--center': center }]}>
+  {/* Decorative background: the H1 beside it already carries the meaning,
+      so alt is empty — but the file name stays descriptive for image search. */}
+  <img class="hero__bg" src={bg} alt="" role="presentation" fetchpriority="high" decoding="async" data-desc={bgAlt} />
+  <div class="hero__veil"></div>
+
+  <div class="wrap">
+    <div>
+      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+      <h1>{h1}</h1>
+      <p class="lede">{lede}</p>
+      <div class="cta">
+        <a class="btn" href={site.phoneHref}>Call {site.phone}</a>
+        <a class="btn btn--ghost" href="/contact-us">Request a quote</a>
+      </div>
+      <p class="hero__fee">Free replacement quotes · {site.diagnosticFee} diagnostic credited toward the repair</p>
+      <ul class="trust">{points.map((p) => <li>{p}</li>)}</ul>
+    </div>
+
+    {form && (
+      <div class="leadform">
+        <h2>{formHeading}</h2>
+        <p class="sub">{formSub}</p>
+
+        {/*  ────────────────────────────────────────────────────────────
+             BEFORE LAUNCH: point `action` at the client's form handler
+             (Formspree / Netlify Forms / CRM endpoint), add spam
+             protection and a success state, then send a live test.
+             ──────────────────────────────────────────────────────────── */}
+        <form action="#" method="post">
+          <div class="field-row">
+            <div class="field">
+              <label for="hf-name">Name</label>
+              <input id="hf-name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+            </div>
+            <div class="field">
+              <label for="hf-phone">Phone</label>
+              <input id="hf-phone" name="phone" type="tel" autocomplete="tel" placeholder="Your phone number" required />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="hf-email">Email</label>
+              <input id="hf-email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required />
+            </div>
+            <div class="field">
+              <label for="hf-service">Service needed</label>
+              <select id="hf-service" name="service" required>
+                <option value="">Select service</option>
+                {services.map((s) => <option value={s.label}>{s.label}</option>)}
+                <option value="Not sure">Not sure — please advise</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn" type="submit">{formButton}</button>
+          <p class="fineprint">{formFine}</p>
+        </form>
+      </div>
+    )}
+  </div>
+</section>

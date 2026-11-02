@@ -1,0 +1,43 @@
+---
+import { site } from '../data/site';
+export interface Props { heading?: string; ticks?: string[]; ctaHref?: string; ctaLabel?: string }
+const {
+  heading = 'Why Rocklin Homeowners Call Us First',
+  ticks = [
+    'Water heaters only — not a general plumbing side line',
+    'Written price agreed before any work starts',
+    'Parts and labor itemised on every invoice',
+    'Emergency response available 24/7, all year',
+    'Replacements permitted and inspected to California code',
+  ],
+  ctaHref = '/contact-us',
+  ctaLabel = 'Get a free written estimate',
+} = Astro.props;
+---
+<section class="trustband">
+  <div class="wrap">
+    <div class="trustband__grid">
+      <div class="trustband__pics">
+        <img
+          src="/images/water-heater-repair-rocklin-technician-servicing-unit.webp"
+          alt="Plumber servicing a water heater in a Rocklin, California home"
+          width="1920" height="1080" loading="lazy" decoding="async"
+        />
+        <img
+          src="/images/water-heater-repair-rocklin-plumbing-pipework.webp"
+          alt="Water heater supply pipework and shut-off valves in a Rocklin, CA garage"
+          width="1500" height="1000" loading="lazy" decoding="async"
+        />
+      </div>
+      <div>
+        <p class="eyebrow">Why homeowners trust us</p>
+        <h2>{heading}</h2>
+        <ul class="ticks">{ticks.map((t) => <li>{t}</li>)}</ul>
+        <a class="btn btn--navy" href={ctaHref}>{ctaLabel}</a>
+        <p style="margin:16px 0 0;font-size:.92rem">
+          Or call <a href={site.phoneHref} style="color:#fff;font-weight:700">{site.phone}</a> — we answer around the clock.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

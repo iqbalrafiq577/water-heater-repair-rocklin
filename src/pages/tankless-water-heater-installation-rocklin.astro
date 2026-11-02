@@ -1,0 +1,485 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Figure from '../components/Figure.astro';
+import Split from '../components/Split.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Faq from '../components/Faq.astro';
+import ReviewSlider from '../components/ReviewSlider.astro';
+import CtaBand from '../components/CtaBand.astro';
+import AreasServed from '../components/AreasServed.astro';
+import ServiceLinks from '../components/ServiceLinks.astro';
+import SvcAbout from '../components/SvcAbout.astro';
+import NumCards from '../components/NumCards.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import ProblemsBand from '../components/ProblemsBand.astro';
+import PricingFactors from '../components/PricingFactors.astro';
+import TrustProof from '../components/TrustProof.astro';
+import RelatedServices from '../components/RelatedServices.astro';
+import Coverage from '../components/Coverage.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { site } from '../data/site';
+import { faqSchema, serviceSchema, breadcrumbSchema } from '../data/schema';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Tankless Water Heater Installation', href: '/tankless-water-heater-installation-rocklin' },
+];
+
+const faqs = [
+  { q: 'Are tankless water heaters worth it?',
+    a: 'For most Rocklin households, yes — but for the right reasons. You get endless hot water, you free up the floor space a tank took, and a well maintained unit lasts fifteen to twenty years instead of ten to thirteen. What you should not expect is a fast payback on energy savings alone. The gas savings are real but modest, and the conversion costs more up front than another tank. If you want endless hot water, space back, and a longer service life, it is worth it. If you only want the cheapest hot water for the next five years, a tank is still hard to beat.' },
+  { q: 'How much does tankless installation cost in Rocklin?',
+    a: 'A first-time tank-to-tankless conversion in Rocklin typically runs $3,800 to $7,500 all in — unit, gas line work, venting, condensate, permit and labor. A straightforward garage conversion on an already adequate gas line sits near the bottom. Add gas line upsizing from the meter, a long vent run, or a recirculation loop and you move up the range. We quote your actual house, not an average.' },
+  { q: 'Do I need a bigger gas line?',
+    a: 'Often, yes. A 40 or 50 gallon tank might draw around 40,000 BTU; a whole-home tankless unit can call for 150,000 to 199,000 BTU on demand. That is why the existing half-inch branch frequently will not do the job. We measure the run length, count every other gas appliance in the house, and check pressure static and under full load. Sometimes the existing line is genuinely fine. Sometimes it needs upsizing back toward the meter, and we would rather tell you that in the quote than discover it on install day.' },
+  { q: 'How long does installation take?',
+    a: 'A typical tank-to-tankless conversion is one full day. Add a half day if the gas line has to be upsized a long way, if the venting runs through finished ceilings, or if a condensate drain needs new plumbing. We confirm a realistic timeline in the written quote rather than promising a few hours and then camping in your garage.' },
+  { q: 'What size tankless do I need?',
+    a: 'Size by flow rate and temperature rise, not by the gallons on your old tank. Add up the fixtures you genuinely expect to run at once, then work out the rise needed from incoming water temperature to your target. Incoming water temperature varies by season, and every unit delivers fewer gallons per minute the bigger the rise it has to produce, so we measure or establish the winter design temperature before sizing. Many Rocklin homes are served by a single properly sized unit; larger houses running two showers at once may need more capacity or a second unit.' },
+  { q: 'Do tankless units need a permit in California?',
+    a: 'Yes. A water heater installation is permitted work in California, and a tank-to-tankless conversion touches gas, venting, water and electrical, so it is inspected as well. We pull the permit through the City of Rocklin as part of the job and meet the inspector. Skipping the permit creates a problem that surfaces when you sell the house or make an insurance claim.' },
+  { q: 'Indoor or outdoor install?',
+    a: 'Both work in Rocklin. Outdoor-rated units generally need no separate vent piping, which saves money and keeps the combustion out of the house, though manufacturer exhaust and air-clearance distances still apply, and our winters are mild enough that freeze protection on the unit is usually sufficient — though exposed pipework still needs insulating. Indoor units are protected from sun and weather, run quieter from outside the house, and are easier to service in bad weather, but they need a proper sealed vent and intake. We recommend based on where your gas, water and a condensate drain already are.' },
+];
+
+const schema = [
+  serviceSchema({
+    name: 'Tankless Water Heater Installation in Rocklin, CA',
+    description: 'First-time tankless water heater installation and tank-to-tankless conversion in Rocklin, California. Gas line sizing, dedicated venting, condensate drainage, scale protection, permit and inspection handled.',
+    path: '/tankless-water-heater-installation-rocklin',
+    serviceType: 'Tankless water heater installation',
+    offers: [
+      { name: 'In-home tankless assessment and sizing', low: '0', high: '150' },
+      { name: 'Tank-to-tankless conversion, non-condensing', low: '3800', high: '5800' },
+      { name: 'Tank-to-tankless conversion, condensing', low: '4500', high: '7500' },
+      { name: 'Gas line upsizing', low: '600', high: '2200' },
+      { name: 'Dedicated venting and termination', low: '400', high: '1200' },
+      { name: 'Condensate drain and neutraliser', low: '250', high: '750' },
+      { name: 'Scale filter or inline softener', low: '250', high: '900' },
+      { name: 'Recirculation pump and loop', low: '500', high: '1800' },
+    ],
+  }),
+  breadcrumbSchema(crumbs),
+  faqSchema(faqs),
+];
+---
+<Base
+  title="Tankless Water Heater Installation Rocklin, CA | Tank Conversions"
+  description="Tankless water heater installation in Rocklin, CA. Tank-to-tankless conversions with gas line, venting, condensate and permit handled properly."
+  path="/tankless-water-heater-installation-rocklin"
+  schema={schema}
+>
+  <Hero
+    eyebrow="Rocklin, CA · 95677 & 95765 · Open 24/7"
+    h1="Tankless Water Heater Installation in Rocklin, CA"
+    lede="Thinking about dropping the tank and going tankless? We size it for your actual house, do the gas line, venting and condensate properly, pull the City of Rocklin permit, and tell you honestly whether the switch is worth it for you."
+    points={['Free in-home sizing', 'Gas, venting and condensate done right', 'Permit and inspection included', 'Honest pros and cons']}
+    bg="/images/tankless-water-heater-rocklin-wall-mounted-unit.webp"
+    bgAlt="Wall-mounted tankless water heater installed in a Rocklin, CA home"
+    form={false}
+    center
+  />
+
+  <Breadcrumbs items={crumbs} />
+
+  <SvcAbout
+    heading="What tankless water heater installation actually covers"
+    img="/images/tankless-water-heater-rocklin-wall-mounted-unit.webp"
+    alt="Compact wall-mounted water heater freeing up floor space in a Rocklin, California home"
+    ticks={[
+      'Sized by flow rate and winter temperature rise, not by the gallons on the old tank',
+      'Gas line measured, tested under full load and upsized where the new unit calls for it',
+      'Dedicated venting, condensate drainage and electrical supply done properly',
+      'Permit pulled and the inspection met through the City of Rocklin',
+    ]}
+    ctaLabel="Get a written price →"
+    ctaHref="/contact-us"
+  >
+    <p>
+      If your house has a tank water heater today and you are considering switching — or you are
+      building, adding a unit, or plumbing hot water somewhere there has never been any — this is
+      the page you want. Everything below covers <strong>tankless water heater installation
+      Rocklin</strong> homeowners actually face: gas line sizing, new venting, condensate, sizing
+      by flow rate, and what install day looks like.
+    </p>
+    <p class="note">Going tankless frees floor space, but the gas line and venting have to be sized for it.</p>
+    <p>
+      A first-time conversion is the most involved of the three, and the quote
+      reflects that. The good news is that it is a one-time cost. Once the
+      infrastructure is in, every future swap on that wall is a straightforward job.
+    </p>
+    <p class="note">
+      Two neighboring jobs have their own pages, because the work and the price are
+      not the same. If your tankless unit is throwing an error code or has stopped
+      heating, you want
+      <a href="/tankless-water-heater-repair-rocklin">tankless water heater repair in Rocklin</a>.
+      If you already have a tankless unit and it has failed or aged out, you want
+      <a href="/tankless-water-heater-replacement-rocklin">tankless water heater replacement in Rocklin</a>
+      — the gas line, venting and bracket are usually already there, so that job is
+      considerably cheaper than a first-time conversion.
+    </p>
+  </SvcAbout>
+
+  <NumCards
+    kicker="Our standard"
+    heading="What really changes in a tank-to-tankless conversion"
+    intro="This is where most online price estimates fall apart. Replacing a tank with a tank is largely a plumbing job. Replacing a tank with a tankless unit changes five systems at once, and a quote that ignores any of them is not a real quote."
+    items={[
+      { title: 'Gas line sizing', text: 'A 50 gallon tank sips gas; a whole-home tankless unit can demand 150,000 to 199,000 BTU the moment a tap opens. We measure the run from the meter, count every appliance on it and test pressure under full load. Many Rocklin homes need the line upsized.' },
+      { title: 'Dedicated venting', text: 'A tankless unit cannot share the old atmospheric flue. It needs its own sealed vent and combustion air intake in a manufacturer-approved material and configuration for the model chosen, terminated at the required clearances from windows, doors and the gas meter.' },
+      { title: 'Condensate drain', text: 'Condensing units are the efficient ones, and the trade-off is that they produce acidic condensate. That needs a proper drain or pump and, for most drain connections, a neutraliser. Running it to a bucket or a random floor is not an install, it is a future callout.' },
+      { title: 'Electrical for the control board', text: 'Even a gas tankless unit needs power for its board, fan and igniter; old tank locations often have no outlet. We fit the outlet or circuit the manufacturer’s specifications and the applicable electrical code require. It also means no hot water in a power cut.' },
+    ]}
+  />
+
+  <ProcessSteps
+    heading="What install day looks like"
+    img="/images/water-heater-installation-rocklin-connecting-tank-pipework.webp"
+    alt="Plumber connecting pipework during a water heater installation in Rocklin, California"
+    steps={[
+      { title: 'Assessment and written quote', text: 'We come out, measure the gas line, look at vent routes and drain options, check the electrical, and size the unit against your real fixture use. You get one fixed written price covering all of it.' },
+      { title: 'Permit pulled', text: 'We file with the City of Rocklin before the work, not after.' },
+      { title: 'Old tank out', text: 'Water and gas isolated, tank drained, disconnected and removed, old flue made safe or removed, and the space cleaned up.' },
+      { title: 'Infrastructure in', text: 'Gas line sized and run, vent and intake installed and terminated, condensate drain and neutraliser fitted if the unit is condensing, electrical supply added.' },
+      { title: 'Unit mounted and plumbed', text: 'Bracket into solid structure, hot and cold connections, isolation and service valves fitted as standard, scale protection installed.' },
+      { title: 'Commission and test', text: 'Gas pressure checked static and under full load, combustion and venting verified, temperature rise measured at the fixtures, leak checks on every joint, controller set up.' },
+      { title: 'Inspection and handover', text: 'We meet the inspector, then walk you through operation, the controller, isolation valves and your annual descale schedule, and register the warranty.' },
+    ]}
+  />
+
+  <NumCards
+    kicker="What is included"
+    heading="What a permitted tankless conversion includes"
+    intro="These sit inside the quoted conversion price rather than turning up as extras on install day."
+    items={[
+      { title: 'Water quality and scale protection', text: 'We assess the incoming water quality and recommend manufacturer-approved scale protection where it is needed — a scale filter or inline treatment ahead of the unit, plus isolation valves for easy servicing. That is usually what gets a heater to its rated life.' },
+      { title: 'The plumbing itself', text: 'New hot and cold connections, isolation and service valves, the mounting bracket on a wall that can carry the load, and sometimes a pressure regulator or expansion control depending on what the house already has.' },
+      { title: 'Permit and inspection', text: 'We pull the permit, schedule the inspection, and are there for it. It is included in the quoted price, not an extra.' },
+      { title: 'Old tank removal and disposal', text: 'Water and gas isolated, the tank drained, disconnected and removed, the old flue made safe or removed, and the space cleaned up. Haul-away and recycling are included.' },
+    ]}
+    alt_bg={true}
+  />
+
+  <section class="section">
+    <div class="wrap prose prose--wide">
+      <div class="sec-head">
+        <div>
+          <p class="kicker">Mounting</p>
+          <h2 id="mounting" style="margin:0">Indoor or Outdoor Mounting</h2>
+        </div>
+        <p class="sec-head__intro">
+          Both are common in Rocklin. Where your gas, water and a drain already are usually
+          decides it.
+        </p>
+      </div>
+
+      <div class="twoup">
+        <article>
+          <h3>Outdoor-rated units</h3>
+          <ul class="ticks ticks--dark">
+            <li><strong>No separate vent piping — a real chunk of cost removed</strong></li>
+            <li>Every bit of combustion stays outside the house</li>
+            <li>Manufacturer exhaust and air-clearance distances still apply</li>
+            <li>Built-in freeze protection suits our winters, but it needs power</li>
+            <li>Exposed pipework still needs insulating; you service it in the weather</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Indoor units</h3>
+          <ul class="ticks ticks--dark">
+            <li>Garage or utility closet — out of the weather, easy to service</li>
+            <li><strong>Needs a sealed vent and intake, terminated to code</strong></li>
+            <li>Plus a condensate path if the unit is condensing</li>
+            <li>Easier where the old tank already sits in the garage</li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="note">
+        Installations follow the applicable California Building Standards Code, local City of
+        Rocklin requirements and the manufacturer's instructions. Rocklin requires a plumbing
+        permit; gas, venting and electrical requirements may also apply, and we confirm which
+        before starting.
+      </p>
+
+
+      <div class="sec-head" style="margin-top:56px">
+        <div>
+          <p class="kicker">Sizing</p>
+          <h2 id="sizing" style="margin:0">Sizing: Flow Rate and Rocklin Groundwater Temperature</h2>
+        </div>
+        <p class="sec-head__intro">
+          Forget gallons. A tankless unit is rated in gallons per minute at a given temperature
+          rise, and both halves matter.
+        </p>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <caption class="note" style="caption-side:bottom;text-align:left;padding:10px 16px">
+            We add up what you expect to run at once, then size for that combined flow in winter.
+          </caption>
+          <thead><tr><th scope="col">Fixture</th><th scope="col">Typical flow</th><th scope="col">Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Shower</td><td>1.5 – 2.5 GPM</td><td>Usually the sizing driver.</td></tr>
+            <tr><td>Kitchen tap</td><td>Around 1.5 GPM</td><td>Often running alongside a shower.</td></tr>
+            <tr><td>Tub filler</td><td>More than a shower</td><td>A soaking tub outruns most single units.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid grid--3">
+        <article class="card">
+          <h3>Temperature rise</h3>
+          <p>Every unit delivers fewer gallons per minute the bigger the rise. A headline flow rate drops noticeably on a cold February morning.</p>
+        </article>
+        <article class="card">
+          <h3>Winter design temperature</h3>
+          <p>Incoming water varies by season and by supply, and is far cooler in winter. We measure or establish the winter design figure before sizing.</p>
+        </article>
+        <article class="card">
+          <h3>One unit or two</h3>
+          <p>One properly sized unit serves many Rocklin homes. Two showers and a dishwasher together may need the largest unit, or two manifolded.</p>
+        </article>
+      </div>
+
+      <div class="callout">
+        <p>
+          Undersizing is the one tankless mistake no later service will fix — the unit runs flat
+          out, wears fast and disappoints every winter.
+        </p>
+      </div>
+
+
+      <div class="sec-head" style="margin-top:56px">
+        <div>
+          <p class="kicker">Recirculation</p>
+          <h2 id="recirculation" style="margin:0">Recirculation Options</h2>
+        </div>
+        <p class="sec-head__intro">
+          Endless hot water is not instant hot water. A long run to the master bathroom still means
+          waiting — two options fix that.
+        </p>
+      </div>
+
+      <div class="twoup">
+        <article>
+          <h3>Dedicated return line</h3>
+          <ul class="ticks ticks--dark">
+            <li>A small return pipe back to the unit, with a pump</li>
+            <li><strong>The best version — genuinely quick hot water at every fixture</strong></li>
+            <li>Right during a remodel or new build, while walls are open</li>
+            <li>Retrofitting into a finished house is the expensive part</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Comfort valve crossover</h3>
+          <ul class="ticks ticks--dark">
+            <li>Uses the existing cold line via a thermostatic valve at the furthest fixture</li>
+            <li><strong>Much cheaper, no new pipe, good enough for most homes</strong></li>
+            <li>Compromise: a slightly warm cold tap after the pump runs</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="callout">
+        <p>
+          Continuous recirculation raises energy use and equipment cycling, so we set it up
+          demand-based, scheduled or temperature-controlled where the unit supports it.
+        </p>
+      </div>
+
+
+      <div class="sec-head" style="margin-top:56px">
+        <div>
+          <p class="kicker">Permit</p>
+          <h2 id="permit" style="margin:0">Permit and Inspection in Rocklin</h2>
+        </div>
+        <p class="sec-head__intro">
+          California normally requires a permit, and a conversion is inspected more heavily than a
+          like-for-like swap.
+        </p>
+      </div>
+
+      <div class="twoup">
+        <article>
+          <h3>What the inspector checks</h3>
+          <ul class="ticks ticks--dark">
+            <li><strong>Gas line sizing and the pressure test</strong></li>
+            <li>Vent material and termination clearances</li>
+            <li>The condensate arrangement</li>
+            <li>Seismic and structural mounting</li>
+            <li>The electrical supply</li>
+          </ul>
+        </article>
+        <article>
+          <h3>What we handle</h3>
+          <ul class="ticks ticks--dark">
+            <li>Permit pulled with the City of Rocklin before the work</li>
+            <li>Inspection scheduled, and we are there for it</li>
+            <li><strong>Included in the quoted price, not an extra</strong></li>
+            <li>No unpermitted gas work surfacing in escrow or a claim</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="callout">
+        <p>
+          High-efficiency gas and heat pump units are sometimes covered by utility or state
+          incentive programs, and terms change regularly. We point you at the official source
+          rather than quote a rebate figure.
+        </p>
+      </div>
+
+
+      <div class="sec-head" style="margin-top:56px">
+        <div>
+          <p class="kicker">Honest view</p>
+          <h2 id="pros-cons" style="margin:0">The Honest Pros and Cons</h2>
+        </div>
+        <p class="sec-head__intro">
+          The real case for going tankless, and what we would rather you heard now than afterwards.
+        </p>
+      </div>
+
+      <div class="twoup">
+        <article>
+          <h3>Worth it for</h3>
+          <ul class="ticks ticks--dark">
+            <li><strong>Endless hot water — no one gets the cold shower</strong></li>
+            <li>Fifteen to twenty years of life, not ten to thirteen</li>
+            <li>A garage corner or closet handed back</li>
+            <li>Lower standby gas use — nothing kept hot overnight</li>
+            <li>No large tank waiting to fail onto your floor</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Be realistic about</h3>
+          <ul class="ticks ticks--dark">
+            <li>Higher up-front cost, and an energy payback measured in years</li>
+            <li><strong>Annual descaling is a genuine commitment on our water</strong></li>
+            <li>A short cold-water sandwich at the tap is normal</li>
+            <li>No hot water during a power cut</li>
+            <li>Low-flow fixtures can sit under the minimum activation flow</li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="note" style="margin-top:26px">
+        We talk people out of it too: moving within a couple of years, a gas service that cannot
+        support a whole-home unit, or wanting the cheapest hot water for five years. A well-installed
+        <a href="/water-heater-installation-rocklin">tank water heater installation</a> wins there.
+      </p>
+
+
+      <div class="sec-head" style="margin-top:56px">
+        <div>
+          <p class="kicker">Why us</p>
+          <h2 id="why-us" style="margin:0">Why Rocklin Homeowners Let Us Do the Conversion</h2>
+        </div>
+        <p class="sec-head__intro">
+          Water heaters are the only thing we work on, and a conversion is where that shows.
+        </p>
+      </div>
+
+      <div class="grid grid--3">
+        <article class="card"><h3>Licensed &amp; insured</h3><p>Licensed and fully insured, every conversion permitted and inspected through the City of Rocklin.</p></article>
+        <article class="card"><h3>Sized for your house</h3><p>We measure your gas line and your winter temperature rise rather than copy the size off the old tank.</p></article>
+        <article class="card"><h3>One fixed written price</h3><p>Gas, vent, condensate, electrical, permit and disposal all in the quote. Nothing discovered on install day.</p></article>
+        <article class="card"><h3>Straight answers</h3><p>If tankless is wrong for your home we say so — even though it is the bigger sale.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <BeforeAfter
+    serviceLabel="Tankless water heater installation"
+    heading="Typical jobs, before and after."
+    items={[
+      {
+        title: 'Garage tank converted to a wall-mounted unit',
+        before: 'A 50 gallon gas tank taking up the corner of the garage, fed by a branch line that was never sized for a whole-home tankless unit.',
+        after: 'Gas line measured and upsized back toward the meter, a sealed vent and intake terminated at the required clearances, condensate drain and neutraliser fitted, the unit bracketed into solid structure and the old tank taken away for recycling.',
+        img: '/images/tankless-water-heater-rocklin-wall-mounted-unit.webp',
+        alt: 'Wall-mounted tankless water heater installed in a Rocklin, California home',
+      },
+      {
+        title: 'Two showers at once on a cold February morning',
+        before: 'A unit about to be chosen on the gallons printed on the old tank, which would have run short of temperature rise on the coldest mornings of the year.',
+        after: 'Sized on combined flow at the winter design temperature instead, so the heater still reaches target temperature with two showers and a kitchen tap running.',
+        img: '/images/water-heater-installation-rocklin-connecting-tank-pipework.webp',
+        alt: 'Plumber connecting water heater pipework during an installation in Rocklin, California',
+      },
+      {
+        title: 'A long wait for hot water at the far bathroom',
+        before: 'A master bathroom at the opposite end of the house from the garage, where endless hot water still meant standing at the tap waiting for it.',
+        after: 'A comfort valve crossover at the furthest fixture, triggered on a timer rather than running constantly, giving quick hot water without new pipe through finished walls.',
+        img: '/images/water-heater-maintenance-rocklin-pressure-gauge-valves.webp',
+        alt: 'Valves and pressure gauge on water heater pipework in a Rocklin, California home',
+      },
+    ]}
+  />
+
+  <ProblemsBand
+    heading="What this service actually fixes"
+    intro="The situations a first-time tankless conversion solves, and what each one normally involves."
+    ctaLabel="Ask a technician →"
+    items={[
+      { title: 'A household that keeps running out of hot water', text: 'A tankless unit heats on demand, so no one gets the cold shower. We size it on the fixtures you genuinely expect to run at once and the temperature rise your incoming water actually needs in winter.' },
+      { title: 'A tank taking up floor space you want back', text: 'The unit mounts on a wall, indoors or outdoors, and the garage corner or closet the old cylinder occupied is handed back.' },
+      { title: 'A tank you would rather not wait to fail', text: 'Fifteen to twenty years of service life instead of ten to thirteen, lower standby gas use because nothing is kept hot overnight, and no large tank of water sitting there waiting to empty onto your floor.' },
+    ]}
+  />
+
+  <PricingFactors
+    heading="Tankless Water Heater Installation Pricing in Rocklin"
+    range="$3,800 – $7,500 depending on condensing type, gas line work and venting"
+    factors={[
+      { title: 'Condensing or non-condensing unit', text: 'A non-condensing conversion sits at the lower end. Condensing units are the efficient ones, and the trade-off is the vent material plus a condensate drain and neutraliser.' },
+      { title: 'Gas line and venting', text: 'We measure the run from the meter, count every appliance on it and test pressure under full load. Many Rocklin homes need the line upsized at least part of the way back, and an indoor unit needs its own sealed vent and intake.' },
+      { title: 'Recirculation and access', text: 'A comfort valve crossover is the cheaper route to quick hot water; a dedicated return line retrofitted into a finished house is the expensive part. Tight closets and long vent routes sit at the top of the range.' },
+    ]}
+  >
+      <h2>What Tankless Water Heater Installation Costs in Rocklin, CA</h2>
+      <div class="table-wrap">
+        <table>
+          <caption class="note" style="caption-side:bottom;text-align:left;padding:10px 16px">
+            Estimated ranges for a first-time conversion, not guaranteed local averages. The conversion price covers the listed standard installation components; additional charges apply only where site conditions need work beyond that scope. Your written estimate identifies all included work and any extra costs before anything starts.
+          </caption>
+          <thead><tr><th scope="col">Installation item</th><th scope="col">Typical range</th></tr></thead>
+          <tbody>
+            <tr><td>In-home assessment &amp; sizing</td><td>Free</td></tr>
+            <tr><td>Tank-to-tankless conversion, non-condensing (all in)</td><td>$3,800 – $5,800</td></tr>
+            <tr><td>Tank-to-tankless conversion, condensing (all in)</td><td>$4,500 – $7,500</td></tr>
+            <tr><td>Gas line upsizing (depends on run length)</td><td>$600 – $2,200</td></tr>
+            <tr><td>Dedicated vent &amp; termination (indoor unit)</td><td>$400 – $1,200</td></tr>
+            <tr><td>Condensate drain &amp; neutraliser</td><td>$250 – $750</td></tr>
+            <tr><td>Dedicated electrical circuit or outlet</td><td>$200 – $600</td></tr>
+            <tr><td>Scale filter or inline treatment</td><td>$250 – $900</td></tr>
+            <tr><td>Recirculation, comfort valve crossover</td><td>$500 – $1,000</td></tr>
+            <tr><td>Recirculation, dedicated return line</td><td>$900 – $1,800</td></tr>
+            <tr><td>Permit &amp; inspection</td><td>Included</td></tr>
+            <tr><td>Old tank removal &amp; disposal</td><td>Included</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">
+        Ranges reflect Rocklin and Placer County labor and material rates for 2026.
+        The conversion lines already include unit, labor, permit and standard
+        venting — the items below them are the variables that move your number within
+        the range.
+      </p>
+  </PricingFactors>
+
+  <TrustProof />
+  <ReviewSlider />
+  <Faq items={faqs} heading="Tankless Installation Questions We Get Asked Most" />
+  <RelatedServices exclude="/tankless-water-heater-installation-rocklin" />
+  <Coverage service="Tankless water heater installation" />
+  <CtaBand
+    heading="Thinking About Going Tankless in Rocklin?"
+    text="Call for a free in-home assessment and a fixed written price, or send a message and we will come back to you with a time."
+  />
+  <ContactSection />
+</Base>

@@ -1,0 +1,17 @@
+---
+export interface Props { heading?: string; img: string; alt: string; items: string[] }
+const { heading = 'What People Usually Want to Know', img, alt, items } = Astro.props;
+---
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="imgcopy">
+      <div class="imgcopy__media">
+        <img src={img} alt={alt} width="1500" height="1000" loading="lazy" decoding="async" />
+      </div>
+      <div class="imgcopy__body">
+        <h2>{heading}</h2>
+        <slot />
+      </div>
+    </div>
+  </div>
+</section>

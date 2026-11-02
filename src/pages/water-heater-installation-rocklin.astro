@@ -1,0 +1,476 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Figure from '../components/Figure.astro';
+import Split from '../components/Split.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Faq from '../components/Faq.astro';
+import ReviewSlider from '../components/ReviewSlider.astro';
+import CtaBand from '../components/CtaBand.astro';
+import AreasServed from '../components/AreasServed.astro';
+import ServiceLinks from '../components/ServiceLinks.astro';
+import SvcAbout from '../components/SvcAbout.astro';
+import NumCards from '../components/NumCards.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import ProblemsBand from '../components/ProblemsBand.astro';
+import PricingFactors from '../components/PricingFactors.astro';
+import TrustProof from '../components/TrustProof.astro';
+import RelatedServices from '../components/RelatedServices.astro';
+import Coverage from '../components/Coverage.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { site } from '../data/site';
+import { faqSchema, serviceSchema, breadcrumbSchema } from '../data/schema';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Water Heater Installation', href: '/water-heater-installation-rocklin' },
+];
+
+const faqs = [
+  { q: 'How much does a plumber charge to install a water heater?',
+    a: 'In Rocklin, labor alone on a straightforward tank install is typically $600 to $1,200, and most homeowners pay $1,400 to $2,600 all in for a 40 or 50 gallon gas unit including the heater, permit and code items. A first-time install in a location with no existing gas line, flue or drain costs more because there is more to build. Heat pump installs typically run $3,000 to $5,500 before any utility program.' },
+  { q: 'What size water heater do I need for my home?',
+    a: 'Count people and simultaneous demand, not square footage. One or two people are comfortable on 30 to 40 gallons, three or four on a 50, and five or more — or any home with a large soaking tub — wants 75 gallons, two units, or tankless. On a new install we also check the fixture count and the longest pipe run, because distance to the furthest tap changes how the system feels.' },
+  { q: 'How long does a water heater installation take?',
+    a: 'A new tank going into a prepared location is a half day. A genuine first-time install — running gas, adding a dedicated circuit, building a platform, cutting a new vent penetration or piping a condensate drain — is usually a full day, and occasionally two if the gas line has to be upsized back to the meter.' },
+  { q: 'Do I need a permit to install a water heater in California?',
+    a: 'Yes, and on a new install it matters more than on a swap because the gas, electrical and venting are all new work. We identify and obtain the permits your installation needs through the appropriate local authority, including the applicable plumbing and electrical permits, meet the inspector and hand you the permit number. An unpermitted heater can hold up escrow and can give an insurer a reason to argue about a claim. We also complete the manufacturer’s warranty registration where it is required and hand you the model and serial number with your documentation.' },
+  { q: 'What is an expansion tank and do I need one?',
+    a: 'Heated water expands, and if your house has a pressure regulator at the meter there is nowhere for that extra volume to go. The pressure spike stresses the tank, the T&P valve and every fixture in the house. A small expansion tank absorbs it. Many Rocklin homes are on a closed system, in which case an expansion tank is required by code rather than optional. We confirm whether yours needs one on site.' },
+  { q: 'Is a heat pump water heater worth it in Rocklin?',
+    a: 'Often yes, if the unit is going in a garage. It uses a fraction of the electricity of a conventional electric tank, Rocklin garages stay warm enough for it to work efficiently most of the year, and utility and state efficiency programs exist that can offset part of the cost — we point you at the current programs rather than quoting figures that change. The trade-offs are size, a condensate drain, some fan noise and a cooler garage.' },
+  { q: 'Do you install customer-supplied water heaters?',
+    a: 'Yes, with two conditions: the unit has to be correct for the location and sized properly for the house, and the manufacturer warranty is between you and them. We warrant our own installation work either way, and we will tell you before you buy if the model you are looking at will not pass inspection where you want it.' },
+  { q: 'Can a water heater be installed in a bedroom or a closet?',
+    a: 'A conventional gas heater cannot go in a bedroom or bathroom, and a closet install has to be a sealed-combustion or direct-vent unit with a self-closing door and the right clearances. Electric and heat pump units have different rules again — heat pumps need air volume, so a tight closet is usually the wrong home for one. We check this before quoting rather than after.' },
+  { q: 'Can you move my water heater to the garage?',
+    a: 'Usually, and it is one of the most popular jobs we do. Moving a heater out of an interior hall closet can free up storage, move the combustion appliance away from living space and make future service far easier, provided the new location meets the applicable safety and code requirements. It means new water lines, a new gas run, a new vent path and a raised platform with a pan — so it is a planned job, not a same-day one.' },
+  { q: 'What temperature should a new water heater be set to?',
+    a: 'We typically commission residential heaters at 120 degrees, adjusting where the manufacturer’s instructions, the household’s needs or applicable health and safety requirements call for something different. It is hot enough for showers and dishwashers, cool enough to reduce scald risk, and it slows scale build-up in our water. If you want it higher for a specific reason we will set it and explain the trade-off.' },
+];
+
+const schema = [
+  serviceSchema({
+    name: 'Water Heater Installation in Rocklin, CA',
+    description: 'New water heater installation in Rocklin, California — gas, electric, heat pump and point-of-use units for new builds, conversions, added units and relocations. Permitted and code compliant.',
+    path: '/water-heater-installation-rocklin',
+    serviceType: 'Water heater installation',
+    offers: [
+      { name: 'New 40-50 gallon gas water heater installation', low: '1400', high: '2600' },
+      { name: 'New electric water heater installation', low: '1300', high: '2400' },
+      { name: 'Heat pump (hybrid) water heater installation', low: '3000', high: '5500' },
+      { name: 'Point-of-use / under-sink water heater installation', low: '450', high: '1100' },
+      { name: 'Water heater relocation (closet to garage)', low: '1800', high: '4500' },
+      { name: 'Expansion tank installation', low: '200', high: '450' },
+      { name: 'Drain pan and piped drain installation', low: '200', high: '600' },
+      { name: 'Earthquake strapping to current code', low: '120', high: '300' },
+    ],
+  }),
+  faqSchema(faqs),
+  breadcrumbSchema(crumbs),
+];
+---
+<Base
+  title="Water Heater Installation Rocklin, CA | New Installs"
+  description="Water heater installation Rocklin, CA for new builds, conversions, added units and relocations. Gas, electric and heat pump units fitted to California code."
+  path="/water-heater-installation-rocklin"
+  schema={schema}
+>
+  <Hero
+    eyebrow="Rocklin, CA · 95677 & 95765 · New installs, conversions & relocations"
+    h1="Water Heater Installation Rocklin, CA"
+    lede="New build, an added unit, a fuel conversion, or finally getting the heater out of that hallway closet? We design the install around your house — gas sizing, venting, electrical, pan and drain — pull the permit and commission it properly."
+    points={['Gas, electric & heat pump', 'Permit & inspection handled', 'Gas line & vent sizing done properly', 'Commissioned and explained']}
+    bg="/images/water-heater-installation-rocklin-connecting-tank-pipework.webp"
+    bgAlt="Installer fitting a new water heater in Rocklin, California"
+    form={false}
+    center
+  />
+
+  <Breadcrumbs items={crumbs} />
+
+  <SvcAbout
+    heading="What water heater installation actually covers"
+    img="/images/water-heater-installation-rocklin-utility-room.webp"
+    alt="Water heater installed in a bright utility room next to laundry appliances in Rocklin, California"
+    ticks={[
+      'Gas, electric, heat pump, direct-vent and point-of-use units',
+      'Gas load totalled, vent sized and drainage planned before anything is ordered',
+      'Permit pulled and the inspection met through the City of Rocklin',
+      'Laid out for safe clearances, servicing access and code compliance',
+    ]}
+    ctaLabel="Plan your installation →"
+    ctaHref="/contact-us"
+  >
+    <p>
+      <strong>Water heater installation Rocklin</strong> homeowners book with us is usually one of
+      four jobs: a heater going into a house or ADU that has never had one in that spot, a second
+      unit added because one tank cannot cover both ends of the house, a fuel or technology
+      conversion, or a heater being relocated out of an interior closet. All four are design work
+      before they are plumbing work — where the unit goes decides the venting, the gas sizing, the
+      drainage and sometimes the equipment itself.
+    </p>
+    <p>
+      We are a water-heater-only outfit, which is why we are usually the <strong>water heater
+      installer Rocklin</strong> builders and homeowners get handed when the location is awkward.
+      A tank in a tight garage corner with an existing hookup is simple. A heat pump going into a
+      laundry room, a direct-vent unit in a closet, or a 75 gallon tank in a house whose gas line
+      was sized for a 40 — those are the ones where getting it right at the planning stage saves
+      a failed inspection and a second trip.
+    </p>
+    <p>
+      Every quote tells you what equipment we recommend, why that location works, which code
+      items the install needs, and one fixed price covering all of it. If something about the
+      plan will not pass inspection, you hear it before you pay a deposit rather than when the
+      inspector arrives. And if a repair would serve you better than a new unit,
+      <a href="/">water heater repair</a> is right there too.
+    </p>
+  </SvcAbout>
+
+  <NumCards
+    kicker="Our standard"
+    heading="Why Rocklin homeowners pick us for a new install"
+    intro="A new install is held to current code from the first fitting, so the planning has to be right before anyone drills a hole."
+    items={[
+      { title: 'Licensed & insured', text: `Licensed and fully insured, and every install permitted and inspected through the City of Rocklin.` },
+      { title: 'Designed, then fitted', text: 'Gas load totalled, vent sized, drainage planned. Nothing gets improvised halfway through the afternoon.' },
+      { title: 'One trade, all day', text: 'Water heaters are all we do, so the awkward installs other outfits decline are the ones we are used to.' },
+      { title: 'Price before work', text: 'A written figure you approve, with the code items already inside it. The invoice matches it.' },
+    ]}
+  />
+
+  <ProcessSteps
+    heading="How a new installation runs"
+    img="/images/water-heater-installation-rocklin-connecting-tank-pipework.webp"
+    alt="Installer connecting the pipework on a newly fitted water heater in Rocklin, California"
+    steps={[
+      { title: 'Demand and location survey', text: 'We look at the house, not a catalog — occupants, fixtures, tub volume, pipe runs, available gas and electrical capacity, and every location you are considering.' },
+      { title: 'Equipment and design proposal', text: 'Recommended unit, proposed position, vent route, gas sizing calculation, drainage plan and the code items the install needs, as one fixed written price.' },
+      { title: 'Permit filed', text: 'Pulled through the City of Rocklin in our name, with the inspection booked in.' },
+      { title: 'Rough-in', text: 'Water lines, gas branch, electrical circuit, vent penetration, condensate route, platform and pan — all in before the unit arrives on site.' },
+      { title: 'Set and connect', text: 'Unit positioned, double strapped, T&P discharge piped to outside, expansion tank fitted and pre-charged to your measured static pressure, sediment trap and listed connectors installed.' },
+      { title: 'Commission and test', text: 'Fill and purge, gas leak test with gauge and soap, thermostat set to 120 degrees, draft and combustion verified on gas units, condensate flow checked on heat pumps, T&P exercised.' },
+      { title: 'Inspection and handover', text: 'We meet the inspector, then walk you through the shutoffs, the controls and the service intervals.' },
+    ]}
+  />
+
+  <NumCards
+    kicker="What is included"
+    heading="What we leave behind"
+    intro="We also label the isolation points — cold inlet, gas shutoff or breaker — and show whoever is home how to use them. Two minutes on the day of install is what turns a future leak into a mopped floor instead of a claim."
+    items={[
+      { title: 'The permit, closed out', text: 'Permit number, final inspection signed off, and the record attached to your property — the thing a buyer asks for later.' },
+      { title: 'Manual and spec sheet', text: 'Left with the unit, not taken away in the van. Model and serial noted on your invoice as well, so a warranty call never needs a torch and a ladder.' },
+      { title: 'Warranty registered', text: 'We register the unit with the manufacturer on the day and send you the confirmation. Unregistered heaters are where claims get difficult years later.' },
+      { title: 'A service plan', text: 'First flush date, anode rod interval, filter cleaning if it is a heat pump, and a written note of your static water pressure.' },
+    ]}
+    alt_bg={true}
+  />
+
+  <section class="section">
+    <div class="wrap prose prose--wide">
+      <div class="callout">
+        <p>
+          <strong>Swapping out a failed or aging heater instead?</strong> That is
+          <a href="/water-heater-replacement-rocklin">water heater replacement in Rocklin</a> —
+          faster, priced differently. This page covers installs where the location, fuel supply or
+          equipment type is new.
+        </p>
+      </div>
+
+      <div class="sec-head" style="margin-top:56px">
+        <div>
+          <p class="kicker">Equipment</p>
+          <h2 id="types" style="margin:0">Water Heaters We Install</h2>
+        </div>
+        <p class="sec-head__intro">
+          Gas, electric, heat pump, direct-vent and point-of-use. What the location allows narrows
+          the shortlist fast.
+        </p>
+      </div>
+      <div class="grid grid--3">
+        <article class="card">
+          <h3>Atmospheric gas tanks</h3>
+          <p>30 to 75 gallon — the Rocklin garage default where there is a vertical flue. Fast recovery, unaffected by power cuts. Needs real combustion air.</p>
+        </article>
+        <article class="card">
+          <h3>Power vent and direct vent gas</h3>
+          <p>Sealed or fan-assisted units venting horizontally through a wall. What makes interior closets, basements and long vent runs legal.</p>
+        </article>
+        <article class="card">
+          <h3>Electric tanks</h3>
+          <p>No flue, no combustion air, no gas run — good for ADUs, upstairs utility rooms and conversions. Needs a dedicated 240 volt circuit sized to the elements.</p>
+        </article>
+        <article class="card">
+          <h3>Heat pump / hybrid</h3>
+          <p>Lowest running cost on the market. Needs air volume, overhead clearance, a condensate route and a reachable filter.</p>
+        </article>
+        <article class="card">
+          <h3>Point-of-use and under-sink</h3>
+          <p>Small 2.5 to 20 gallon units for a detached office, bar sink, workshop or far-end guest suite.</p>
+        </article>
+        <article class="card">
+          <h3>Tankless</h3>
+          <p>Endless hot water, wall mounted, 20 year service life — but gas sizing and venting are the job. See <a href="/tankless-water-heater-installation-rocklin">tankless installation →</a></p>
+        </article>
+      </div>
+      <div class="callout">
+        <p>
+          We start with demand, not equipment: people, bathrooms, simultaneous showers, tub volume,
+          distance to the furthest tap. That answers the gallons; the location answers the venting.
+        </p>
+      </div>
+
+
+      <div class="sec-head" style="margin-top:56px">
+        <div>
+          <p class="kicker">California code</p>
+          <h2 id="code" style="margin:0">California Code: What Every Install Has to Meet</h2>
+        </div>
+        <p class="sec-head__intro">
+          A new install gets no grandfathering. These items decide whether a
+          <strong>water heater installation in Rocklin</strong> passes first time.
+        </p>
+      </div>
+      <div class="grid grid--3">
+        <article class="card">
+          <h3>Seismic strapping</h3>
+          <p>Approved restraint on applicable tank-type heaters: typically two straps, upper and lower third, the lower clear of the controls. Anchored into framing or masonry, never drywall. Placement follows current California Plumbing Code.</p>
+        </article>
+        <article class="card">
+          <h3>Temperature and pressure relief discharge</h3>
+          <p>The T&amp;P valve needs approved full-size rigid pipe, downhill the whole way, to an outdoor or code-approved termination. No reducing, no threaded end, no valve — otherwise it is an automatic correction notice.</p>
+        </article>
+        <article class="card">
+          <h3>Drain pan and drainage</h3>
+          <p>Where a leak could damage structure or finished space, the heater sits in a pan draining to an approved point. We design that route in from the start. Standalone drain pan work in Rocklin too.</p>
+        </article>
+        <article class="card">
+          <h3>Thermal expansion control</h3>
+          <p>Required where the plumbing system is closed — many Rocklin homes with a pressure regulator at the meter. We measure the pressure rather than assume, then pre-charge a correctly supported expansion tank to it.</p>
+        </article>
+        <article class="card">
+          <h3>Platform, clearances and location rules</h3>
+          <p>Garages must meet the applicable ignition-source elevation and vehicle-impact protection requirements; listed FVIR units may qualify for an exception. No conventional gas heater in a bedroom or bathroom; closets need the right combustion air, venting, door and clearances.</p>
+        </article>
+        <article class="card">
+          <h3>Service access</h3>
+          <p>Room to pull an element, swap an anode rod or reach a heat pump filter — checked before quoting.</p>
+        </article>
+      </div>
+
+
+      <div class="sec-head" style="margin-top:56px">
+        <div>
+          <p class="kicker">Gas and venting</p>
+          <h2 id="gas-vent" style="margin:0">Gas Line Sizing and Venting</h2>
+        </div>
+        <p class="sec-head__intro">
+          Where most new installs are won or lost. The pipe length alone means nothing — total
+          connected load and pressure drop decide it.
+        </p>
+      </div>
+      <div class="twoup">
+        <article>
+          <h3>Gas line sizing</h3>
+          <ul class="ticks ticks--dark">
+            <li>Connected load totalled for the whole house, not just the heater</li>
+            <li>Developed length measured including fittings, then the branch sized</li>
+            <li><strong>A 199,000 BTU appliance on a half-inch branch starves when the furnace fires</strong></li>
+            <li>Upsized back toward the meter where the numbers demand it</li>
+            <li>Sediment trap, listed connector and accessible shutoff at the appliance</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Venting</h3>
+          <ul class="ticks ticks--dark">
+            <li>Correct connector diameter, minimum rise, upward pitch, proper support</li>
+            <li>Termination above the roofline; shared flues sized for both appliances</li>
+            <li>Power vent or direct vent where no vertical flue is practical</li>
+            <li>Manufacturer clearances kept from windows, doors and air intakes</li>
+            <li><strong>Every gas install draft-tested before we leave</strong></li>
+          </ul>
+        </article>
+      </div>
+      <div class="callout">
+        <p>
+          A heater that makes hot water while spilling combustion gases is not a finished job.
+        </p>
+      </div>
+
+
+      <div class="sec-head" style="margin-top:56px">
+        <div>
+          <p class="kicker">Relocation</p>
+          <h2 id="relocation" style="margin:0">Moving a Heater from a Closet to the Garage</h2>
+        </div>
+        <p class="sec-head__intro">
+          Older Rocklin and Placer County homes often put the heater in an interior hall closet.
+          Moving it is a planned job, not a same-day one.
+        </p>
+      </div>
+      <div class="twoup">
+        <article>
+          <h3>Why move it</h3>
+          <ul class="ticks ticks--dark">
+            <li>You get the cupboard back</li>
+            <li>The gas appliance moves away from living space</li>
+            <li><strong>A future leak lands on a slab, not in flooring and drywall</strong></li>
+            <li>Every service call afterwards is simpler</li>
+          </ul>
+        </article>
+        <article>
+          <h3>What the work involves</h3>
+          <ul class="ticks ticks--dark">
+            <li>New hot and cold runs, plus a gas branch sized for the appliance</li>
+            <li>New vent path, raised platform, piped pan, expansion tank</li>
+            <li>Seismic strapping, and bollard protection if a car could reach it</li>
+            <li>Old closet capped off — gas sealed, vent penetration closed</li>
+            <li><strong>A full day, sometimes two, planned out before we start</strong></li>
+          </ul>
+        </article>
+      </div>
+      <div class="callout">
+        <p>
+          It works in reverse for an added unit. A master bath forty feet of pipe from the only
+          heater is often better served by a second small tank or a point-of-use unit at that end.
+        </p>
+      </div>
+
+
+      <div class="sec-head" style="margin-top:56px">
+        <div>
+          <p class="kicker">Heat pump</p>
+          <h2 id="heat-pump" style="margin:0">Heat Pump Water Heater Installation in Rocklin</h2>
+        </div>
+        <p class="sec-head__intro">
+          <strong>Heat pump water heater installation Rocklin CA</strong> inquiries have gone from
+          rare to routine, and for a garage install the logic is strong.
+        </p>
+      </div>
+      <div class="twoup">
+        <article>
+          <h3>Why a garage suits one</h3>
+          <ul class="ticks ticks--dark">
+            <li>Moves heat out of the surrounding air instead of using elements</li>
+            <li><strong>Substantially less electricity than an electric resistance tank</strong></li>
+            <li>Rocklin garages stay warm enough for the compressor to do most of the work</li>
+            <li>Actual savings depend on the unit, garage temperature and use</li>
+          </ul>
+        </article>
+        <article>
+          <h3>What the install needs</h3>
+          <ul class="ticks ticks--dark">
+            <li>Real air volume — a sealed, tight closet will not do</li>
+            <li>Overhead clearance for the compressor housing, and a reachable filter</li>
+            <li>A condensate drain or pump, plus a dedicated circuit</li>
+            <li><strong>Taller than the tank it replaces, and about as loud as a dishwasher</strong></li>
+            <li>Leaves the garage a few degrees cooler — a bonus in a Rocklin July</li>
+          </ul>
+        </article>
+      </div>
+      <p class="note" style="margin-top:26px">
+        Utility and California state efficiency programs for heat pump water heaters change
+        regularly. We will tell you which apply at your address and what they need, but we do not
+        quote rebate amounts — get those in writing from the program itself.
+      </p>
+      <p class="note">
+        Keeping a new heater healthy is short: the first flush on the date we give you, the anode
+        rod interval, the heat pump filter, and static water pressure — see
+        <a href="/water-heater-maintenance-rocklin">water heater maintenance</a>.
+      </p>
+    </div>
+  </section>
+
+  <BeforeAfter
+    serviceLabel="Water heater installation"
+    heading="Typical jobs, before and after."
+    items={[
+      {
+        title: 'Heater moved out of an interior hall closet',
+        before: 'A gas tank in a laundry closet off the hallway — a cupboard lost, a combustion appliance next to living space, and any future leak going into flooring and drywall rather than onto a slab.',
+        after: 'Relocated to the garage with new hot and cold runs, a gas branch sized for the appliance, a new vent path, a raised platform, a pan with a piped drain and seismic strapping. The old closet capped off properly and the cupboard back.',
+        img: '/images/water-heater-installation-rocklin-utility-room.webp',
+        alt: 'Water heater and laundry appliances in a Rocklin, California utility room',
+      },
+      {
+        title: 'A bigger unit on a gas line sized for a small one',
+        before: 'A high-input appliance proposed for a half-inch branch that was run for a 40,000 BTU tank — it would light, run, then starve the moment the furnace kicked in.',
+        after: 'Connected load totalled for the whole house, developed length measured including fittings, and the branch sized — or upsized back toward the meter — before the unit was ordered. Sediment trap, listed connector and accessible shutoff at the appliance.',
+        img: '/images/gas-water-heater-repair-rocklin-gas-pipework.webp',
+        alt: 'Gas pipework and connections at a water heater in Rocklin, California',
+      },
+      {
+        title: 'Hot water forty feet from the only tank',
+        before: 'A master bath or detached office at the far end of a long pipe run, waiting thirty seconds for hot water every time.',
+        after: 'A second small tank or a point-of-use unit at that end of the house, which often beats upsizing the main heater and adding a recirculation pump.',
+        img: '/images/water-heater-installation-rocklin-connecting-tank-pipework.webp',
+        alt: 'New water heater being connected during an installation in Rocklin, California',
+      },
+    ]}
+  />
+
+  <ProblemsBand
+    heading="What this service actually fixes"
+    intro="The four jobs homeowners and builders in Rocklin usually call a new installation for."
+    ctaLabel="Ask a technician →"
+    items={[
+      { title: 'A location that has never had a heater', text: 'A new build, an ADU or a spot with no gas line, flue or drain. There is more to build, so the venting, gas sizing and drainage get designed before the equipment is chosen.' },
+      { title: 'One tank that cannot cover both ends of the house', text: 'A second unit, or a point-of-use heater at the far end of a long pipe run, sized on the demand at that end rather than on the main tank.' },
+      { title: 'A fuel or technology conversion', text: 'Gas to electric, electric to heat pump, or tank to tankless. The equipment decides the circuit, the venting and the condensate route, so we check all three before quoting.' },
+    ]}
+  />
+
+  <PricingFactors
+    heading="Water Heater Installation Pricing in Rocklin"
+    range="$450 – $5,500 depending on equipment, location and the connections that have to be built"
+    factors={[
+      { title: 'Equipment and capacity', text: 'A 40 or 50 gallon gas or electric tank in a prepared location sits at the lower end. Power vent, direct vent and heat pump units carry more equipment cost and more labor.' },
+      { title: 'What the location has to have built', text: 'A gas branch run or upsize, a new dedicated 240 volt circuit, a vent penetration, a platform, a pan with a piped drain or a condensate route are each identified and priced before work starts.' },
+      { title: 'Access and position', text: 'An accessible garage is the straightforward case. Attic, crawlspace and second-floor locations, long vent or gas runs and concrete drain routing sit at the top of the range.' },
+    ]}
+  >
+      <h2 id="cost">What Water Heater Installation Costs in Rocklin</h2>
+      <div class="table-wrap">
+        <table>
+          <caption class="note" style="caption-side:bottom;text-align:left;padding:10px 16px">
+            Estimated installed ranges, not guaranteed quotes. Final pricing depends on equipment
+            selection, existing connections, gas and electrical upgrades, venting, drainage, permits
+            and site conditions. New-location installs vary more than swaps — your written
+            estimate is confirmed on site before work starts.
+          </caption>
+          <thead><tr><th scope="col">Installation</th><th scope="col">Typical installed range</th></tr></thead>
+          <tbody>
+            <tr><td>New 40–50 gallon gas tank, prepared location</td><td>$1,400 – $2,600</td></tr>
+            <tr><td>New 40–50 gallon electric tank</td><td>$1,300 – $2,400</td></tr>
+            <tr><td>Power vent or direct vent gas tank</td><td>$2,400 – $4,000</td></tr>
+            <tr><td>Heat pump / hybrid unit (before any program)</td><td>$3,000 – $5,500</td></tr>
+            <tr><td>Point-of-use / under-sink unit</td><td>$450 – $1,100</td></tr>
+            <tr><td>Relocation, closet to garage</td><td>$1,800 – $4,500</td></tr>
+            <tr><td>Gas branch run or upsize</td><td>$400 – $1,800</td></tr>
+            <tr><td>New dedicated 240 volt circuit</td><td>$450 – $1,600</td></tr>
+            <tr><td>Expansion tank</td><td>$200 – $450</td></tr>
+            <tr><td>Drain pan with piped drain</td><td>$200 – $600</td></tr>
+            <tr><td>Earthquake strapping to current code</td><td>$120 – $300</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">
+        Ranges reflect Rocklin and Placer County labor and material rates for 2026. Attic,
+        crawlspace and second-floor locations, long vent or gas runs and concrete drain routing sit
+        at the top of the range or above it.
+      </p>
+  </PricingFactors>
+
+  <TrustProof />
+  <ReviewSlider />
+  <Faq items={faqs} heading="Water Heater Installation Questions Rocklin Homeowners Ask" />
+  <RelatedServices exclude="/water-heater-installation-rocklin" />
+  <Coverage service="Water heater installation" />
+  <CtaBand
+    heading="Planning a new water heater install in Rocklin?"
+    text="Call now to talk through the location and sizing, or send a message with a photo of the space and we will come back with a plan and a price."
+  />
+  <ContactSection />
+</Base>

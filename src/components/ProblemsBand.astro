@@ -1,0 +1,35 @@
+---
+export interface Props {
+  kicker?: string; heading: string; intro?: string;
+  ctaLabel?: string; ctaHref?: string;
+  items: { title: string; text: string }[];
+}
+const {
+  kicker = 'Call before it gets worse', heading, intro,
+  ctaLabel = 'Ask a technician →', ctaHref = '/contact-us', items,
+} = Astro.props;
+---
+<section class="problems">
+  <div class="wrap">
+    <div class="problems__grid">
+      <div>
+        <p class="kicker">{kicker}</p>
+        <h2>{heading}</h2>
+        {intro && <p>{intro}</p>}
+        <a class="btn" href={ctaHref}>{ctaLabel}</a>
+      </div>
+      <ul class="problems__rows">
+        {items.map((it, i) => (
+          <li>
+            <span class="n">{String(i + 1).padStart(2, '0')}</span>
+            <div>
+              <h3>{it.title}</h3>
+              <p>{it.text}</p>
+            </div>
+            <span class="arr" aria-hidden="true">↗</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

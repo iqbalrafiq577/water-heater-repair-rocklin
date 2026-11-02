@@ -1,0 +1,432 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Figure from '../components/Figure.astro';
+import Split from '../components/Split.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Faq from '../components/Faq.astro';
+import ReviewSlider from '../components/ReviewSlider.astro';
+import CtaBand from '../components/CtaBand.astro';
+import AreasServed from '../components/AreasServed.astro';
+import ServiceLinks from '../components/ServiceLinks.astro';
+import SvcAbout from '../components/SvcAbout.astro';
+import NumCards from '../components/NumCards.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import ProblemsBand from '../components/ProblemsBand.astro';
+import PricingFactors from '../components/PricingFactors.astro';
+import TrustProof from '../components/TrustProof.astro';
+import RelatedServices from '../components/RelatedServices.astro';
+import Coverage from '../components/Coverage.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { site } from '../data/site';
+import { faqSchema, serviceSchema, breadcrumbSchema } from '../data/schema';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Water Heater Maintenance', href: '/water-heater-maintenance-rocklin' },
+];
+
+const faqs = [
+  { q: 'How often should a water heater be serviced?',
+    a: 'Once a year for a standard tank, and once a year for a tankless unit too. In the Rocklin and Placer County area the water is hard enough that annual is genuinely the right interval rather than a padded recommendation — we see measurable sediment in twelve months. If you are on a private well, or you have a 75 gallon or larger tank serving a big household, every six to nine months is better.' },
+  { q: 'What maintenance does a water heater need?',
+    a: 'A full annual service is a flush to clear sediment, an anode rod inspection with replacement where its condition and the manufacturer’s guidance call for it, a temperature and pressure relief valve test, a thermostat check and calibration to 120F, a burner and combustion inspection on a gas unit or an element and thermostat resistance check on an electric one, and an inspection of the earthquake straps, drain pan, expansion tank and venting. A tankless unit gets a descale and a filter screen clean instead of a flush; how often depends on water conditions, usage and the manufacturer’s maintenance schedule.' },
+  { q: 'What does a water heater flush cost in Rocklin?',
+    a: 'A flush and sediment removal on its own typically runs $120 to $250. A full tune-up that includes the flush, anode inspection, T&P test, thermostat calibration and a combustion or element check is usually $180 to $350. A tankless descale and service is $200 to $450 because it involves circulating descaling solution through the heat exchanger for an hour. Every figure is confirmed in writing before we start.' },
+  { q: 'Do I need to replace the anode rod?',
+    a: 'Only when it is spent, but you do need somebody to look. The anode is a sacrificial metal rod that corrodes so your tank does not. How fast it is consumed depends on water chemistry, tank design and usage, which is why it needs looking at rather than guessing. Replacing the rod at the right moment is one of the cheapest ways to protect a tank.' },
+  { q: 'What temperature should my water heater be set to?',
+    a: 'We set tanks to 120F. That is hot enough for showers and dishwashers, cool enough to reduce scald risk for children and older adults, and it slows both scale formation and standby heat loss. Going much below 120F is not advisable because it moves the tank into the range where bacteria survive more easily. Going to 140F buys you a little more effective capacity but costs more to run and scales up faster.' },
+  { q: 'Can I flush my water heater myself?',
+    a: 'You can, and plenty of homeowners do it well. Turn the gas control off or kill the breaker, shut the cold inlet, let the tank cool, connect a hose to the drain valve, open a hot tap to break the vacuum, then drain and refill. The honest warnings: old plastic drain valves often will not re-seal once sediment passes them, hardened sediment frequently blocks the drain and needs agitating, and refilling a gas tank without purging the air properly can leave you relighting a pilot. DIY covers the flush. It does not cover the anode rod, the T&P test or the combustion check, which are the parts that actually prevent failures.' },
+  { q: 'Does maintenance void or protect my warranty?',
+    a: 'It helps. Some manufacturers specify maintenance requirements or list exclusions relating to sediment and corrosion, so check your model’s warranty documentation for the conditions that apply to you. If you ever need to make a warranty claim, a documented service history is what makes it go smoothly. We leave a written service record after every visit for exactly that reason.' },
+  { q: 'Will maintenance fix a noisy water heater?',
+    a: 'Usually, yes. Popping, rumbling and kettling noises are hardened sediment on the bottom of the tank, with water flashing to steam underneath it. A proper flush with agitation clears most of it and the noise goes with it. If the noise persists after a flush, the sediment has cemented itself and the tank is on borrowed time — but you will at least know where you stand.' },
+  { q: 'How much longer will a maintained water heater last?',
+    a: 'We will not promise you a number, because installation quality, water chemistry and usage all matter. What we can say from the units we open up is that a tank flushed annually with the anode replaced when due routinely gets past the 10 to 13 year local average, and a neglected tank in hard water often does not reach ten. The maintenance costs a small fraction of a replacement either way.' },
+];
+
+const schema = [
+  serviceSchema({
+    name: 'Water Heater Maintenance in Rocklin, CA',
+    description: 'Annual water heater maintenance in Rocklin, California — tank flush and sediment removal, anode rod inspection and replacement, T&P valve test, thermostat calibration, combustion or element checks, and tankless descaling for hard Placer County water.',
+    path: '/water-heater-maintenance-rocklin',
+    serviceType: 'Water heater maintenance',
+    offers: [
+      { name: 'Tank flush and sediment removal', low: '120', high: '250' },
+      { name: 'Full water heater tune-up', low: '180', high: '350' },
+      { name: 'Anode rod inspection and replacement', low: '150', high: '300' },
+      { name: 'T&P relief valve test and replacement', low: '150', high: '300' },
+      { name: 'Tankless descale and service', low: '200', high: '450' },
+      { name: 'Thermal expansion tank check and replacement', low: '250', high: '500' },
+    ],
+  }),
+  breadcrumbSchema(crumbs),
+  faqSchema(faqs),
+];
+---
+<Base
+  title="Water Heater Maintenance Rocklin CA | Flush & Tune-Up"
+  description="Water heater maintenance in Rocklin, CA — annual flush, anode rod check, T&P test and tankless descale. Hard-water service that adds years to your unit."
+  path="/water-heater-maintenance-rocklin"
+  schema={schema}
+>
+  <Hero
+    eyebrow="Rocklin, CA · 95677 & 95765 · Annual service & flush"
+    h1="Water Heater Maintenance in Rocklin, CA"
+    lede="Water hardness varies with your supply, and mineral build-up is what shortens a tank's life. A flush, anode rod check and T&P inspection costs a fraction of a replacement and can help your water heater reach the life it was built for."
+    points={['Full tune-up, not just a flush','Anode rod inspected every visit','Tankless descaling','Written service record left behind']}
+    bg="/images/water-heater-maintenance-rocklin-pressure-gauge-valves.webp"
+    bgAlt="Water heater valves and gauge checked during a Rocklin, CA service"
+    form={false}
+    center
+  />
+
+  <Breadcrumbs items={crumbs} />
+
+  <SvcAbout
+    heading="What water heater maintenance actually covers"
+    img="/images/water-heater-maintenance-rocklin-annual-service.webp"
+    alt="Water heater opened up for its annual service in Rocklin, California, with the element and wiring exposed"
+    ticks={[
+      'Tank flushed with the sediment agitated loose, not just drained',
+      'Anode rod pulled and inspected for corrosion and material loss',
+      'T&P valve inspected, and tested where the manufacturer’s instructions allow',
+      'Written service record left behind after every visit',
+    ]}
+    ctaLabel="Book an annual service →"
+    ctaHref="/contact-us"
+  >
+    <p>Water heater maintenance has a reputation as an optional upsell. In a genuinely soft-water area, fair enough. Water hardness varies depending on your provider and household supply, though — we can check your conditions and recommend a schedule that suits them. Where minerals are present, every gallon through the tank leaves a little behind, and over a year that becomes a measurable layer on the bottom of the vessel.</p>
+    <p class="note">An annual flush and anode check is the cheapest way to delay a replacement.</p>
+    <p>
+      That layer does three things, all bad. It insulates the water from the burner, so the burner runs
+      longer and your gas bill creeps up. It traps heat against the steel, which stresses the glass
+      lining and accelerates corrosion from the inside. And it creates the popping and rumbling you can
+      hear from the hallway, which is water flashing to steam trapped underneath the sediment. None of
+      that is dramatic on any single day. All of it is why a tank that should have reached fifteen years
+      leaks at nine.
+    </p>
+    <p>
+      We open up a lot of failed tanks in Whitney Ranch, Stanford Ranch and Sunset Whitney, and the
+      pattern is boringly consistent. The ones that failed early were never flushed and nobody ever
+      looked at the anode rod. A water heater tune-up in Rocklin is the cheapest insurance in the house:
+      one visit a year, roughly the cost of a small repair, against a $1,400 to $3,600 replacement.
+    </p>
+  </SvcAbout>
+
+  <NumCards
+    kicker="Our standard"
+    heading="How we work a maintenance visit"
+    intro="A service visit is an inspection with a report at the end of it, not a sales call."
+    items={[
+      { title: 'Licensed & insured', text: `Licensed and fully insured, and water heaters are the only thing we work on.` },
+      { title: 'No upsell on a service visit', text: 'If the anode is fine we put it back and tell you so. You get a report, not a sales pitch.' },
+      { title: 'Documented every time', text: 'Anode condition, sediment, measured temperature and static pressure in writing — which matters for warranty claims.' },
+      { title: 'Tank and tankless', text: 'Flushes and tune-ups on gas, electric and heat pump tanks, plus full descaling on Navien, Rinnai, Noritz, Takagi and Rheem tankless units.' },
+    ]}
+  />
+
+  <ProcessSteps
+    heading="How an annual service visit runs"
+    img="/images/water-heater-repair-rocklin-technician-servicing-unit.webp"
+    alt="Technician servicing a water heater during an annual maintenance visit in Rocklin, California"
+    steps={[
+      { title: 'Isolate and let the tank cool', text: 'Gas control to OFF or the breaker off, the cold inlet valve closed and the tank left to cool properly before anything is opened up.' },
+      { title: 'Flush and draw the sediment off', text: 'Drained through a hose routed somewhere safe, with the sediment agitated loose rather than just letting clear water run, then refilled and purged before the heat goes back on.' },
+      { title: 'Anode rod and relief valve', text: 'The rod is pulled and inspected for corrosion and material loss, and replaced according to its condition and the manufacturer’s guidance. The T&P valve is inspected, and tested where the manufacturer’s instructions allow.' },
+      { title: 'Burner and combustion, or elements', text: 'On gas units: burner and flame pattern inspected, burner compartment and air inlet screen cleaned, flue draft confirmed, flammable-vapour sensor and thermocouple checked. On electric units: both elements resistance tested, thermostats checked, terminals and wiring inspected for heat damage or corrosion.' },
+      { title: 'Straps, pan and expansion tank', text: 'California requires water heaters to be properly anchored or strapped against earthquake movement, with strap count and placement set by the applicable code. We check the straps, the drain pan and line, and tap-test the expansion tank — a waterlogged one has stopped protecting your plumbing.' },
+      { title: 'Tankless descale where it applies', text: 'Isolation valves, pump and descaling solution circulated through the heat exchanger, inlet filter screen and air intake cleaned, flame rod inspected, error history read off the board.' },
+      { title: 'Written service record', text: 'Anode condition, sediment volume, measured temperature, static pressure and anything we are watching, left with you in writing. Useful for warranty claims and for knowing when to budget for a replacement.' },
+    ]}
+  />
+
+  <NumCards
+    kicker="What is included"
+    heading="What a full water heater service includes"
+    intro="A flush on its own is better than nothing, but it is not a service. These are the items that decide whether a tank reaches the life it was built for."
+    items={[
+      { title: 'Flush & sediment removal', text: 'Tank isolated and cooled, drained through a hose, sediment agitated loose rather than just letting clear water run, then refilled and purged. This is what fixes popping noises and recovers lost efficiency.' },
+      { title: 'Anode rod inspection', text: 'We pull the rod and inspect it for corrosion and material loss, then recommend replacement based on its condition and the manufacturer’s guidance. Where it is well consumed it is replaced on the spot. This item decides whether your tank corrodes through early.' },
+      { title: 'T&P relief valve test', text: 'Inspected, and tested where the manufacturer’s instructions allow — a deteriorated valve is recommended for replacement rather than cycled. Discharge pipe checked for routing, with no illegal caps or reductions. A seized relief valve on a pressurised tank is the one genuinely dangerous fault.' },
+      { title: 'Thermostat set to 120F', text: 'Checked against a measured outlet temperature, not just the dial position — dials drift. 120F is commonly used to reduce scald risk and energy use. The right setting also depends on the manufacturer’s instructions, who lives in the house and Legionella prevention.' },
+    ]}
+    alt_bg={true}
+  />
+
+  <section class="section">
+    <div class="wrap prose prose--wide">
+      <div class="sec-head">
+        <div>
+          <p class="kicker">The flush</p>
+          <h2 id="flush" style="margin:0">Water Heater Flush in Rocklin, CA — What Actually Comes Out</h2>
+        </div>
+        <p class="sec-head__intro">
+          How much comes out depends on the tank's age, the water conditions and its history. On a
+          neglected tank, usually a lot.
+        </p>
+      </div>
+
+      <div class="twoup">
+        <article>
+          <h3>What comes off the bottom</h3>
+          <ul class="ticks ticks--dark">
+            <li>On a ten year old tank, often a hardened crust, not loose grit</li>
+            <li><strong>It has to be broken up and drawn off, not just drained</strong></li>
+            <li>Enough of it can bury an electric unit's bottom element</li>
+          </ul>
+        </article>
+        <article>
+          <h3>What the flush tells us</h3>
+          <ul class="ticks ticks--dark">
+            <li>Rust-colored water — we check anode, tank and supply before concluding</li>
+            <li>Sulfur-like smells: bacterial activity, or reactions involving the anode rod</li>
+            <li><strong>A drain valve that will not re-seal is plastic on borrowed time</strong></li>
+            <li>Better swapped for brass than met over a <a href="/water-heater-leak-repair-rocklin">leak</a> later</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="callout">
+        <p>
+          A flush done once, late, is worth far less than one done yearly — a decade of baked-on
+          sediment has already done its damage.
+        </p>
+      </div>
+
+      <div class="sec-head" style="margin-top:56px">
+        <div>
+          <p class="kicker">Anode rod</p>
+          <h2 id="anode" style="margin:0">Anode Rod Replacement in Rocklin, CA</h2>
+        </div>
+        <p class="sec-head__intro">
+          The least understood part of a water heater, and the one that decides its lifespan.
+        </p>
+      </div>
+
+      <div class="grid grid--3">
+        <article class="card">
+          <h3>What it does</h3>
+          <p>A magnesium or aluminum rod threaded into the top of the tank. It corrodes preferentially so the steel does not.</p>
+        </article>
+        <article class="card">
+          <h3>When it runs out</h3>
+          <p>Corrosion then has nowhere to go but the tank wall — in hard water often inside four or five years, well inside the warranty period.</p>
+        </article>
+        <article class="card">
+          <h3>Why it gets missed</h3>
+          <p>Nothing looks wrong from the outside. The part costs little — clearance, the right tools and a breaker bar are the barrier.</p>
+        </article>
+      </div>
+
+      <div class="callout">
+        <p>
+          If you only ever pay for one piece of water heater maintenance, make it an anode rod
+          inspection around year four.
+        </p>
+      </div>
+
+
+      <div class="sec-head" style="margin-top:56px">
+        <div>
+          <p class="kicker">Service plan</p>
+          <h2 id="plan" style="margin:0">An Annual Service Plan Makes Sense for Most Homes</h2>
+        </div>
+        <p class="sec-head__intro">
+          The practical problem with annual maintenance is not cost, it is remembering. A standing visit
+          solves that.
+        </p>
+      </div>
+
+      <div class="grid grid--3">
+        <article class="card">
+          <h3>How it works</h3>
+          <p>We contact you when your unit is due, come out at a time that suits, do the full tune-up and leave the written record.</p>
+        </article>
+        <article class="card">
+          <h3>Nothing bundled in</h3>
+          <p>Nothing added that you did not ask for, and no contract that renews itself without you noticing.</p>
+        </article>
+        <article class="card">
+          <h3>Worth most for</h3>
+          <p>Several units, a tankless system needing descaling, or a rental where failure means an emergency callout. Quoted per unit, in writing.</p>
+        </article>
+      </div>
+
+      <div class="sec-head" style="margin-top:56px">
+        <div>
+          <p class="kicker">DIY or pro</p>
+          <h2 id="diy" style="margin:0">DIY Versus Professional Maintenance</h2>
+        </div>
+        <p class="sec-head__intro">
+          Plenty of homeowners flush their own tank, and do it well. The rest of the service is a
+          different matter.
+        </p>
+      </div>
+
+      <div class="twoup">
+        <article>
+          <h3>Flushing it yourself</h3>
+          <ul class="ticks ticks--dark">
+            <li>Gas control to OFF or breaker off, cold inlet closed, tank left to cool</li>
+            <li>Hose onto the drain valve, routed somewhere safe; open a hot tap to break the vacuum</li>
+            <li>Drain, agitate by briefly opening the cold inlet, then refill fully</li>
+            <li><strong>Never restore the heat until a hot tap is running steadily</strong></li>
+            <li>A dry-fired element is dead in seconds</li>
+          </ul>
+        </article>
+        <article>
+          <h3>What needs a professional</h3>
+          <ul class="ticks ticks--dark">
+            <li>Anode rod — clearance, a 1-1/16 inch socket, real torque, fragile tank threads</li>
+            <li>T&amp;P testing can leave an old valve weeping, so keep a spare on hand</li>
+            <li>Combustion and draft checks need instruments</li>
+            <li><strong>Element resistance testing — power disconnected, circuit verified de-energised</strong></li>
+            <li>A drain valve failing mid-flush: isolate and drain the tank first</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="callout">
+        <p>
+          A reasonable middle ground: flush it yourself between visits, and follow your manufacturer's
+          recommended schedule for the professional inspection — annually for many units.
+        </p>
+      </div>
+
+      <p class="note" style="margin-top:26px">
+        If your water heater is already leaking, smelling unusual or failing to heat properly, that is a
+        repair job rather than maintenance — see
+        <a href="/water-heater-repair-rocklin">water heater repair in Rocklin</a> for diagnostics.
+      </p>
+
+
+      <div class="sec-head" style="margin-top:56px">
+        <div>
+          <p class="kicker">Lifespan</p>
+          <h2 id="lifespan" style="margin:0">How Maintenance Extends the Life of Your Water Heater</h2>
+        </div>
+        <p class="sec-head__intro">
+          A standard tank in the Rocklin area averages about 10 to 13 years. Corrosion decides where in
+          that range you land.
+        </p>
+      </div>
+
+      <div class="twoup">
+        <article>
+          <h3>What annual maintenance addresses</h3>
+          <ul class="ticks ticks--dark">
+            <li>Sediment trapping heat against the steel — cleared by the flush</li>
+            <li><strong>A spent anode rod leaving the glass lining undefended</strong></li>
+            <li>Lost efficiency recovered and the rumbling quieted</li>
+            <li>A seeping fitting caught before it soaks the drywall</li>
+            <li>The relief valve confirmed working</li>
+          </ul>
+        </article>
+        <article>
+          <h3>The less obvious benefit</h3>
+          <ul class="ticks ticks--dark">
+            <li>A tank looked at every year does not surprise you</li>
+            <li><strong>We say a year or two out that you should start budgeting</strong></li>
+            <li>You choose a <a href="/water-heater-replacement-rocklin">replacement</a> on a Tuesday, with time to compare</li>
+            <li>Not at 7am on a Sunday with water running across the garage floor</li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="note" style="margin-top:26px">
+        If something is already wrong — no hot water, noises that survive a flush, an error code on a
+        tankless display — start with <a href="/">water heater repair</a> and we will diagnose it
+        first. Maintenance is for units that are working.
+      </p>
+    </div>
+  </section>
+
+  <BeforeAfter
+    serviceLabel="Water heater maintenance"
+    heading="Typical jobs, before and after."
+    items={[
+      {
+        title: 'A tank popping and rumbling from the hallway',
+        before: 'Hardened sediment sitting on the bottom of a tank that had never been flushed, with water flashing to steam underneath it and the burner running longer than it should.',
+        after: 'Flushed with the sediment agitated loose rather than just drained, then refilled and purged. A proper flush clears most of it and the noise usually goes with it.',
+        img: '/images/water-heater-maintenance-rocklin-pressure-gauge-valves.webp',
+        alt: 'Water heater valves and gauge checked during an annual service in Rocklin, California',
+      },
+      {
+        title: 'An anode rod well consumed inside the warranty period',
+        before: 'A rod pulled on a mid-life tank and found heavily corroded, leaving the corrosion nowhere to go but the tank wall.',
+        after: 'Replaced on the spot according to its condition and the manufacturer’s guidance, with the condition written into the service record for the next visit.',
+        img: '/images/electric-water-heater-repair-rocklin-parts-on-bench.webp',
+        alt: 'Water heater parts laid out on a bench during a Rocklin, California service visit',
+      },
+      {
+        title: 'A tankless unit losing output to scale',
+        before: 'A wall-hung unit never descaled since installation, with scale through the heat exchanger and a clogged inlet filter screen.',
+        after: 'Descaling solution circulated through the exchanger, filter screen and air intake cleaned, flame rod inspected and the error history read off the board.',
+        img: '/images/tankless-water-heater-repair-rocklin-control-panel.webp',
+        alt: 'Tankless water heater control panel checked during a descale and service in Rocklin, California',
+      },
+    ]}
+  />
+
+  <ProblemsBand
+    heading="What this service actually fixes"
+    intro="The situations an annual service puts right, and what each one normally involves."
+    ctaLabel="Ask a technician →"
+    items={[
+      { title: 'Popping, rumbling and kettling noises', text: 'Hardened sediment on the bottom of the tank with water flashing to steam underneath it. A proper flush with agitation clears most of it. If the noise survives the flush, the sediment has cemented itself and at least you know where you stand.' },
+      { title: 'A heater that costs more to run than it used to', text: 'Sediment insulates the water from the burner, so the burner runs longer and the gas bill creeps up. Clearing it recovers the efficiency you paid for.' },
+      { title: 'Corrosion nobody has looked at', text: 'A spent anode rod leaves the glass lining undefended and nothing looks wrong from the outside. We inspect the rod for corrosion and material loss and replace it according to its condition and the manufacturer’s guidance.' },
+    ]}
+  />
+
+  <PricingFactors
+    heading="Water Heater Maintenance Pricing in Rocklin"
+    range="$120 – $500 depending on the service, the unit and access"
+    factors={[
+      { title: 'Basic flush or full tune-up', text: 'A flush and sediment removal on its own sits at the bottom of the range. A full tune-up adds the anode inspection, the T&P inspection, thermostat calibration and the applicable safety checks.' },
+      { title: 'Tank or tankless', text: 'A tankless descale takes longer than a tank flush because descaling solution has to be circulated through the heat exchanger, so it sits higher. Isolation valves, where the unit does not already have them, are priced separately.' },
+      { title: 'Access and any parts needed', text: 'Standard garage or utility-closet access is the straightforward case. Tight attic and upstairs-platform installs sit higher. Parts and any additional repairs are quoted separately, in writing, before work begins.' },
+    ]}
+  >
+      <h2>What Water Heater Maintenance Costs in Rocklin, CA</h2>
+      <div class="table-wrap">
+        <table>
+          <caption class="note" style="caption-side:bottom;text-align:left;padding:10px 16px">
+            Our estimated service prices, not verified market averages — they vary by model, accessibility, parts required and site conditions. The basic flush covers tank draining and sediment removal; the full tune-up adds anode inspection, T&P inspection and the applicable safety checks. Parts and any additional repairs are quoted separately, in writing, before work begins.
+          </caption>
+          <thead><tr><th scope="col">Maintenance service</th><th scope="col">Typical range</th></tr></thead>
+          <tbody>
+            <tr><td>Tank flush &amp; sediment removal</td><td>$120 – $250</td></tr>
+            <tr><td>Full tune-up (flush, anode check, T&amp;P test, calibration, safety checks)</td><td>$180 – $350</td></tr>
+            <tr><td>Anode rod replacement</td><td>$150 – $300</td></tr>
+            <tr><td>T&amp;P relief valve replacement</td><td>$150 – $300</td></tr>
+            <tr><td>Brass drain valve upgrade</td><td>$150 – $300</td></tr>
+            <tr><td>Tankless descale &amp; service</td><td>$200 – $450</td></tr>
+            <tr><td>Tankless isolation valve kit fitted</td><td>$250 – $500</td></tr>
+            <tr><td>Thermal expansion tank replacement</td><td>$250 – $500</td></tr>
+            <tr><td>Earthquake strapping brought to code</td><td>$120 – $280</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">
+        Ranges reflect Rocklin and Placer County labor rates for 2026 and assume standard garage or
+        utility-closet access. Tight attic and upstairs-platform installs sit higher.
+      </p>
+  </PricingFactors>
+
+  <TrustProof />
+  <ReviewSlider />
+  <Faq items={faqs} heading="Water Heater Maintenance Questions Rocklin Homeowners Ask" />
+  <RelatedServices exclude="/water-heater-maintenance-rocklin" />
+  <Coverage service="Water heater maintenance" />
+  <CtaBand
+    heading="Book your annual water heater service in Rocklin."
+    text="A flush, an anode check and a T&P test now costs a fraction of a replacement later. Call us or send a message and we will find a time."
+  />
+  <ContactSection />
+</Base>

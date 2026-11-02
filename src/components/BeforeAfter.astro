@@ -1,0 +1,27 @@
+---
+import SecHead from './SecHead.astro';
+export interface Props {
+  kicker?: string; heading?: string; serviceLabel: string;
+  items: { title: string; before: string; after: string; img: string; alt: string; href?: string }[];
+}
+const { kicker = 'Real results', heading = 'Before and after.', serviceLabel, items } = Astro.props;
+---
+<section class="section" id="service-details">
+  <div class="wrap">
+    <SecHead kicker={kicker} heading={heading} />
+    {items.map((it, i) => (
+      <div class={`ba-row${i % 2 === 1 ? ' ba-row--rev' : ''}`}>
+        <div class="ba-row__media">
+          <img src={it.img} alt={it.alt} width="1500" height="1000" loading="lazy" decoding="async" />
+        </div>
+        <div>
+          <p class="kicker">{serviceLabel}</p>
+          <h3>{it.title}</h3>
+          <p>{it.before}</p>
+          <p><strong>After:</strong> {it.after}</p>
+          <a class="ba-link" href={it.href || '/contact-us'}>Book this service →</a>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

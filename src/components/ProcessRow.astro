@@ -1,0 +1,26 @@
+---
+export interface Props { kicker?: string; heading?: string; intro?: string; steps: { title: string; text: string }[] }
+const {
+  kicker = 'Our process', heading = 'How We Work',
+  intro = 'From your first call to the final walkthrough, here is what to expect when you book with us.',
+  steps,
+} = Astro.props;
+---
+<section class="section">
+  <div class="wrap">
+    <div class="sec-center">
+      <p class="eyebrow">{kicker}</p>
+      <h2>{heading}</h2>
+      <p>{intro}</p>
+    </div>
+    <div class="prow">
+      {steps.map((s, i) => (
+        <div class="prow__step">
+          <div class="prow__n">{i + 1}</div>
+          <h3>{s.title}</h3>
+          <p>{s.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

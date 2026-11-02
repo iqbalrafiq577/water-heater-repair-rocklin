@@ -1,0 +1,17 @@
+---
+import { site } from '../data/site';
+export interface Props { kicker?: string; heading?: string; service?: string }
+const { kicker = 'Coverage', heading = 'Service coverage', service = 'This service' } = Astro.props;
+---
+<section class="section coverage">
+  <div class="wrap">
+    <p class="kicker">{kicker}</p>
+    <h2>{heading}</h2>
+    <p>
+      {service} is available across {site.address.city}, California — ZIP codes
+      {' '}{site.zips.join(' and ')} — including {site.neighborhoods.slice(0, 4).join(', ')} and
+      the surrounding neighborhoods. Contact us to confirm availability at your address.
+    </p>
+    <ul class="chips">{site.neighborhoods.map((n) => <li>{n}</li>)}</ul>
+  </div>
+</section>

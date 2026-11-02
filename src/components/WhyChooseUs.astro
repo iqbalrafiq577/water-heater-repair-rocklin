@@ -1,0 +1,40 @@
+---
+export interface Props {
+  heading?: string;
+  cards: { title: string; text: string }[];
+  problemsHeading?: string; problemsIntro?: string;
+  problems?: string[]; ctaLabel?: string; ctaHref?: string;
+}
+const {
+  heading = 'Why Choose Us', cards,
+  problemsHeading = 'Common Problems We Solve',
+  problemsIntro = 'If any of these sound familiar, book a free check.',
+  problems = [], ctaLabel = 'Book a free check', ctaHref = '/contact-us',
+} = Astro.props;
+---
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="sec-center"><h2>{heading}</h2></div>
+    <div class="whycards">
+      {cards.map((c) => (
+        <article class="whycard">
+          <div class="whycard__ico" aria-hidden="true">✓</div>
+          <h3>{c.title}</h3>
+          <p>{c.text}</p>
+        </article>
+      ))}
+    </div>
+    {problems.length > 0 && (
+      <div class="cproblems">
+        <h2>{problemsHeading}</h2>
+        <p>{problemsIntro}</p>
+        <div class="cproblems__grid">
+          {problems.map((p) => (
+            <div class="cproblems__item"><span aria-hidden="true">●</span>{p}</div>
+          ))}
+        </div>
+        <a class="btn btn--navy" href={ctaHref}>{ctaLabel}</a>
+      </div>
+    )}
+  </div>
+</section>

@@ -1,0 +1,15 @@
+---
+import { site } from '../data/site';
+export interface Props { heading: string; text: string }
+const { heading, text } = Astro.props;
+---
+<section class="band">
+  <div class="wrap">
+    <h2>{heading}</h2>
+    <p>{text}</p>
+    <div class="cta" style="display:flex;gap:14px;flex-wrap:wrap;margin-top:18px">
+      <a class="btn" href={site.phoneHref}>Call {site.phone}</a>
+      <a class="btn btn--ghost" href="/contact-us">Book online</a>
+    </div>
+  </div>
+</section>

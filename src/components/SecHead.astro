@@ -1,0 +1,11 @@
+---
+export interface Props { kicker?: string; heading: string; intro?: string; id?: string }
+const { kicker, heading, intro, id } = Astro.props;
+---
+<div class="sec-head">
+  <div>
+    {kicker && <p class="kicker">{kicker}</p>}
+    <h2 id={id}>{heading}</h2>
+  </div>
+  {intro && <p class="sec-head__intro">{intro}</p>}
+</div>

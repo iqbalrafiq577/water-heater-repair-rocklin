@@ -1,0 +1,157 @@
+---
+// ============================================================================
+// LEGAL — REVIEW WITH YOUR OWN ATTORNEY BEFORE LAUNCH.
+// This is generic, plain-language boilerplate written for a California
+// home-services business. It is NOT legal advice and it has not been reviewed
+// by a lawyer. Before this site goes live, have a California attorney review
+// and amend it so that it accurately reflects what the business actually
+// collects, how it is stored, who it is shared with, and which privacy
+// statutes apply (CCPA/CPRA thresholds, TCPA consent language for SMS and
+// call recording, cookie/analytics disclosures). Update the "lastUpdated"
+// date whenever the text changes.
+// ============================================================================
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { site } from '../data/site';
+import { breadcrumbSchema } from '../data/schema';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Privacy Policy', href: '/privacy-policy' },
+];
+
+const schema = [breadcrumbSchema(crumbs)];
+const lastUpdated = 'October 31, 2026';
+---
+<Base
+  title="Privacy Policy | Water Heater Repair Rocklin, CA"
+  description="How we collect, use and protect the personal information you share with our Rocklin, CA water heater company, and the choices you have about it."
+  path="/privacy-policy"
+  schema={schema}
+  noindex={false}
+>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="section">
+    <div class="wrap prose">
+      <h1>Privacy Policy</h1>
+      <p class="note">Last updated: {lastUpdated}</p>
+
+      <p>
+        This policy explains what personal information {site.legalName} collects when you use this
+        website or hire us for water heater work, why we collect it, and what you can ask us to do
+        about it. We have tried to write it in plain English rather than legalese.
+      </p>
+
+      <h2>Who We Are</h2>
+      <p>
+        {site.legalName !== site.name ? `${site.legalName}, trading as ${site.name}` : site.name}, {site.address.street},
+        {site.address.city}, {site.address.region} {site.address.postalCode}. You can reach us on
+        <a href={site.phoneHref}>{site.phone}</a> or at
+        <a href={`mailto:${site.email}`}>{site.email}</a>. We are the party responsible for the
+        information described below.
+      </p>
+
+      <h2>What We Collect</h2>
+      <ul>
+        <li><strong>Information you give us.</strong> Your name, phone number, email address, service address, the type of water heater you have and the details of your inquiry — whether you call, email, text or use a form on this site. If you send us photographs of your equipment, we keep those too.</li>
+        <li><strong>Job and billing records.</strong> What we diagnosed, what we quoted, what we did, warranty and permit paperwork, and payment records. Card details are handled by our payment processor; we do not store full card numbers.</li>
+        <li><strong>Technical information.</strong> Standard web server and analytics data such as your IP address, browser and device type, the pages you viewed, and the site or search that sent you here.</li>
+      </ul>
+
+      <h2>Why We Use It</h2>
+      <ul>
+        <li>To answer your inquiry, quote work and book appointments.</li>
+        <li>To carry out the work, order the right parts, pull permits and honor warranties.</li>
+        <li>To invoice you and keep the tax, insurance and licensing records a California contractor is required to keep.</li>
+        <li>To follow up after a visit, remind you when annual maintenance is due, and respond to a complaint or a warranty claim.</li>
+        <li>To understand how this website is used so we can improve it.</li>
+      </ul>
+      <p>
+        We do not sell your personal information, and we do not rent or trade your contact details to
+        third-party marketers.
+      </p>
+
+      <h2>Who We Share It With</h2>
+      <p>
+        Only where it is needed to do the job or run the business: our scheduling and invoicing
+        software, our payment processor, parts suppliers and manufacturers when a warranty claim or a
+        special-order part requires it, the permitting authority on a replacement, our accountant and
+        insurer, and any subcontractor we use on your job. Each of those parties gets the minimum they
+        need. We will also disclose information where the law requires it, or to protect our legal
+        rights.
+      </p>
+
+      <h2>Calls, Texts and Marketing</h2>
+      <p>
+        If you give us your number, we may call or text you about your inquiry, your appointment or
+        your job. If you ask us to, we may also send occasional service reminders. You can opt out of
+        reminders at any time by telling the technician, replying to the message, or emailing us. Opting
+        out of marketing does not stop us contacting you about work in progress.
+      </p>
+
+      <h2>Cookies and Analytics</h2>
+      <p>
+        This site may use cookies and similar technologies for basic functionality and for aggregate
+        analytics about how pages are used. You can block or delete cookies in your browser settings;
+        the site will still work. Where we use a third-party analytics or advertising provider, that
+        provider's own privacy terms also apply to the data it collects.
+      </p>
+
+      <h2>How Long We Keep It</h2>
+      <p>
+        Inquiries that do not turn into work are kept for a limited period and then deleted. Job,
+        warranty, permit, tax and insurance records are kept for as long as California law and our
+        insurers require, which is normally several years after the work is finished.
+      </p>
+
+      <h2>Security</h2>
+      <p>
+        We use reasonable administrative and technical measures to protect your information, including
+        access controls on our systems and reputable third-party software for scheduling and payments.
+        No method of transmission or storage is completely secure, so we cannot guarantee absolute
+        security.
+      </p>
+
+      <h2>Your Choices and Rights</h2>
+      <p>
+        You can ask us for a copy of the personal information we hold about you, ask us to correct it,
+        or ask us to delete it where we are not required to keep it. California residents may have
+        additional rights under state privacy law, including the right to know what is collected and
+        the right to opt out of any sale or sharing of personal information. Again, we do not sell your
+        information. To make a request, email <a href={`mailto:${site.email}`}>{site.email}</a> or call
+        <a href={site.phoneHref}>{site.phone}</a>. We may need to verify your identity before we act,
+        and we will not treat you differently for exercising a privacy right.
+      </p>
+
+      <h2>Children</h2>
+      <p>
+        This website and our services are directed at adults. We do not knowingly collect personal
+        information from children. If you believe a child has given us information, contact us and we
+        will delete it.
+      </p>
+
+      <h2>Links to Other Sites</h2>
+      <p>
+        Where we link to a manufacturer, review platform or other third party, that site has its own
+        privacy practices and we are not responsible for them.
+      </p>
+
+      <h2>Changes to This Policy</h2>
+      <p>
+        If we change this policy we will update the date at the top of the page. Material changes will
+        be made clear on the page itself.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions about this policy, or about information we hold on you, can go to
+        <a href={`mailto:${site.email}`}>{site.email}</a>,
+        <a href={site.phoneHref}>{site.phone}</a>, or by post to {site.address.street},
+        {site.address.city}, {site.address.region} {site.address.postalCode}. Our
+        <a href="/terms">terms of service</a> and <a href="/contact-us">contact page</a> may also be
+        useful.
+      </p>
+    </div>
+  </section>
+</Base>

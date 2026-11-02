@@ -1,0 +1,31 @@
+---
+import { site } from '../data/site';
+export interface Props { kicker?: string; heading?: string; intro?: string; img?: string; alt?: string }
+const {
+  kicker = 'Where we work',
+  heading = `Serving ${site.address.city}, CA & Local Neighborhoods`,
+  intro = 'We cover the whole city and the neighborhoods around it, including:',
+  img = '/images/water-heater-installation-rocklin-utility-room.webp',
+  alt = 'Water heater and laundry appliances in a Rocklin, California utility room',
+} = Astro.props;
+---
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="wwork">
+      <div>
+        <p class="eyebrow">{kicker}</p>
+        <h2>{heading}</h2>
+        <p>{intro}</p>
+        <ul class="wwork__list">
+          {site.neighborhoods.map((n) => (
+            <li><span class="pin" aria-hidden="true">◉</span><span>{n}</span></li>
+          ))}
+        </ul>
+        <p style="margin-top:18px">ZIP codes {site.zips.join(' and ')}, plus nearby {site.nearbyCities.slice(0, 4).map((c) => c.name).join(', ')}.</p>
+      </div>
+      <div class="wwork__media">
+        <img src={img} alt={alt} width="1500" height="1000" loading="lazy" decoding="async" />
+      </div>
+    </div>
+  </div>
+</section>

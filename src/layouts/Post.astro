@@ -1,0 +1,106 @@
+---
+// =====================================================================
+//  BLOG POST LAYOUT
+//  Wraps Base, renders the breadcrumb trail, the article header and
+//  the post body, then the FAQ block and the closing CTA.
+//
+//  Pass `faqs` and the layout renders the visible Faq component AND
+//  emits the matching FAQPage node — so the markup and the structured
+//  data can never disagree. Use `schema` for any extra graph nodes.
+// =====================================================================
+import Base from './Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Faq from '../components/Faq.astro';
+import Figure from '../components/Figure.astro';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../data/schema';
+
+export interface Props {
+  title: string;
+  description: string;
+  path: string;
+  /** ISO date string, e.g. '2026-02-11' */
+  published: string;
+  /** ISO date string — only pass if the post has been revised. */
+  modified?: string;
+  excerpt: string;
+  /** Visible FAQs; also emitted as FAQPage schema. */
+  faqs?: { q: string; a: string }[];
+  faqHeading?: string;
+  /** Extra schema.org nodes appended to the graph. */
+  schema?: unknown[];
+  ctaHeading?: string;
+  ctaText?: string;
+  /** Lead image for the post. */
+  image?: string;
+  imageAlt?: string;
+  imageW?: number;
+  imageH?: number;
+  imageCaption?: string;
+}
+
+const {
+  title,
+  description,
+  path,
+  published,
+  modified,
+  excerpt,
+  faqs = [],
+  faqHeading = 'Questions Rocklin Homeowners Ask Us About This',
+  schema = [],
+  ctaHeading = 'Want a Straight Answer About Your Own Water Heater?',
+  ctaText = 'Call and describe what it is doing. We will tell you what it sounds like, what it usually costs, and whether it needs a visit at all.',
+  image,
+  imageAlt = '',
+  imageW = 1600,
+  imageH = 1067,
+  imageCaption,
+} = Astro.props;
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Advice', href: '/blog' },
+  { name: title },
+];
+
+const fmt = (iso: string) =>
+  new Date(`${iso}T12:00:00Z`).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC',
+  });
+
+const pageSchema = [
+  articleSchema({ title, description, path, published, modified }),
+  breadcrumbSchema(crumbs),
+  ...(faqs.length ? [faqSchema(faqs)] : []),
+  ...schema,
+];
+---
+<Base title={title} description={description} path={path} schema={pageSchema}>
+  <Breadcrumbs items={crumbs} />
+
+  <article class="section">
+    <div class="wrap prose">
+      <h1>{title}</h1>
+      <p class="note">
+        <time datetime={published}>Published {fmt(published)}</time>
+        {modified && <> &middot; <time datetime={modified}>Updated {fmt(modified)}</time></>}
+      </p>
+      <p><strong>{excerpt}</strong></p>
+      {image && (
+        <Figure src={image} alt={imageAlt} width={imageW} height={imageH} caption={imageCaption} eager />
+      )}
+    </div>
+
+    <div class="wrap prose">
+      <slot />
+    </div>
+  </article>
+
+  {faqs.length > 0 && <Faq items={faqs} heading={faqHeading} />}
+
+  <CtaBand heading={ctaHeading} text={ctaText} />
+</Base>

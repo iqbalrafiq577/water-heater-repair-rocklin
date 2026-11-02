@@ -1,0 +1,426 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Figure from '../components/Figure.astro';
+import Split from '../components/Split.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Faq from '../components/Faq.astro';
+import ReviewSlider from '../components/ReviewSlider.astro';
+import CtaBand from '../components/CtaBand.astro';
+import AreasServed from '../components/AreasServed.astro';
+import ServiceLinks from '../components/ServiceLinks.astro';
+import SvcAbout from '../components/SvcAbout.astro';
+import NumCards from '../components/NumCards.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import ProblemsBand from '../components/ProblemsBand.astro';
+import PricingFactors from '../components/PricingFactors.astro';
+import TrustProof from '../components/TrustProof.astro';
+import RelatedServices from '../components/RelatedServices.astro';
+import Coverage from '../components/Coverage.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { site } from '../data/site';
+import { faqSchema, serviceSchema, breadcrumbSchema } from '../data/schema';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Tankless Water Heater Repair', href: '/tankless-water-heater-repair-rocklin' },
+];
+
+const faqs = [
+  { q: 'How much does tankless water heater repair cost?',
+    a: 'Most tankless repairs in Rocklin fall between $180 and $950. A flame rod clean, igniter or flow sensor sits at the low end. A fan motor, gas valve or control board sits in the middle. A leaking or cracked heat exchanger often makes replacement the more economical option, particularly on an older unit — we assess the model, warranty, parts availability and repair cost before recommending either. A straight descale and service is typically $200 to $450. You get the figure in writing before any work starts, and the diagnostic fee comes off the price if you go ahead.' },
+  { q: 'Why does my tankless unit show an error code?',
+    a: 'An error code tells you which safety check the unit failed — it is a direction, not a diagnosis. Ignition and flame codes point at gas supply, the igniter or a dirty flame rod. Overheat codes usually mean scale inside the heat exchanger or restricted flow. Flow sensor codes mean the unit cannot confirm water is moving. Venting codes mean the exhaust or the air intake is blocked. We read the code, then test the part it is pointing at.' },
+  { q: 'How often should a tankless water heater be descaled?',
+    a: 'It depends on water hardness, household usage and what the manufacturer specifies. Annually is a sensible default; a hard-working family unit on harder water may want it more often, and a softener or dedicated scale filter can stretch the interval. Some manufacturers make maintenance part of their warranty conditions, so check your model’s warranty documentation for the schedule that applies.' },
+  { q: 'Why does my hot water go cold for a few seconds?',
+    a: 'That is the cold-water sandwich. The water already sitting in the pipe arrives hot, the cooled slug behind it arrives next, and the burner needs a moment to fire and catch up. A short burst of this is normal tankless behavior. A long cold gap, or one that keeps repeating through a shower, usually means a slow igniter, a failing flow sensor, or scale slowing the heat transfer.' },
+  { q: 'How long do tankless water heaters last?',
+    a: 'Tankless water heaters commonly last around fifteen to twenty years, depending on installation quality, water conditions, usage and maintenance. The heat exchanger usually sets the limit, and a neglected unit on harder water can fall well short of that.' },
+  { q: 'Can you repair any brand?',
+    a: 'We service popular tankless water heater brands, including Rinnai, Navien, Noritz, Takagi, Rheem and Bosch. Condensing and non-condensing, indoor and outdoor, natural gas and propane. The casings and code tables differ between brands but the failure points and the diagnostic logic are the same. We are an independent repair company, not a brand dealer.' },
+  { q: 'Is tankless repair worth it or should I replace?',
+    a: 'Under twelve years old with a sound heat exchanger, repair almost always wins — the parts are a fraction of the cost of a new unit. Past fifteen years, with a cracked or leaking heat exchanger, or when the repair quote passes about half the price of new, replacement is the better value. We give you both numbers and let you choose.' },
+];
+
+const schema = [
+  serviceSchema({
+    name: 'Tankless Water Heater Repair in Rocklin, CA',
+    description: 'Tankless water heater repair in Rocklin, California. Error codes, ignition and flame faults, flow sensors, venting alarms and scale build-up diagnosed and fixed on Rinnai, Navien, Noritz, Takagi, Rheem and Bosch units.',
+    path: '/tankless-water-heater-repair-rocklin',
+    serviceType: 'Tankless water heater repair',
+    offers: [
+      { name: 'Tankless diagnostic and error code reading', low: '90', high: '180' },
+      { name: 'Descale and full service', low: '200', high: '450' },
+      { name: 'Flame rod or igniter replacement', low: '220', high: '500' },
+      { name: 'Flow sensor replacement', low: '250', high: '550' },
+      { name: 'Fan or blower motor replacement', low: '400', high: '800' },
+      { name: 'Control board replacement', low: '450', high: '950' },
+      { name: 'Heat exchanger replacement', low: '900', high: '1800' },
+    ],
+  }),
+  breadcrumbSchema(crumbs),
+  faqSchema(faqs),
+];
+---
+<Base
+  title="Tankless Water Heater Repair Rocklin, CA | Error Codes Fixed"
+  description="Tankless water heater repair in Rocklin, CA. Error codes, ignition faults, scale and flow sensor problems fixed same day on all major brands."
+  path="/tankless-water-heater-repair-rocklin"
+  schema={schema}
+>
+  <Hero
+    eyebrow="Rocklin, CA · 95677 & 95765 · Open 24/7"
+    h1="Tankless Water Heater Repair in Rocklin, CA"
+    lede="Error code on the display, no hot water, or a shower that keeps going cold? We repair tankless units on every major brand across Rocklin — diagnosed properly, priced in writing, and usually finished on the first visit."
+    points={['Same-day callouts subject to availability', 'All major brands serviced', 'Descale and repair on the van', 'Written price before we start']}
+    bg="/images/tankless-water-heater-repair-rocklin-control-panel.webp"
+    bgAlt="Tankless water heater control panel being checked in Rocklin, CA"
+    form={false}
+    center
+  />
+
+  <Breadcrumbs items={crumbs} />
+
+  <SvcAbout
+    heading="What tankless water heater repair actually covers"
+    img="/images/tankless-water-heater-rocklin-wall-mounted-unit.webp"
+    alt="Wall-mounted tankless style water heater in a Rocklin, CA home ready for servicing"
+    ticks={[
+      'The error code read and the stored fault log pulled, not simply cleared',
+      'Rinnai, Navien, Noritz, Takagi, Rheem and Bosch — condensing and non-condensing',
+      'Descale gear, flow sensors, igniters and flame rods carried on the van',
+      'Written price before any work starts, diagnostic credited against the repair',
+    ]}
+    ctaLabel="Get a written price →"
+    ctaHref="/contact-us"
+  >
+    <p>If there is a tankless water heater on your wall and it has stopped behaving — an error code, no hot water, lukewarm water, a unit firing on and off — you are in the right place. This is our <strong>tankless water heater repair Rocklin</strong> page, and everything below is about diagnosing and fixing a unit that is already installed.</p>
+    <p class="note">Tankless units are repaired on site wherever the fault is not a failed heat exchanger.</p>
+    <p class="note">
+      Two other situations have their own pages, because the work and the pricing
+      are completely different. If you currently have a <strong>tank</strong>
+      heater and want to switch to tankless for the first time, read
+      <a href="/tankless-water-heater-installation-rocklin">tankless water heater installation in Rocklin</a>
+      — that job involves gas line sizing, new venting and a condensate drain.
+      If you already have tankless and the unit is finished or has aged out, read
+      <a href="/tankless-water-heater-replacement-rocklin">tankless water heater replacement in Rocklin</a>
+      — that is the straight swap, and it is the cheapest of the three.
+    </p>
+    <p>
+      Not sure which one you are? Call and describe what the unit is doing. A description of the symptoms and the error code helps us narrow down the likely cause —
+      a descale, a part, or a heater at the end of its life — before anyone drives out.
+    </p>
+  </SvcAbout>
+
+  <NumCards
+    kicker="Our standard"
+    heading="How we work a tankless call"
+    intro="A code tells you which safety check the unit failed — it narrows the search, it does not finish it. So the diagnosis comes before the price, and the price comes before the work."
+    items={[
+      { title: 'Licensed & insured', text: `Licensed and fully insured, and every gas appliance left tested rather than assumed.` },
+      { title: 'Tankless is not a sideline', text: 'We service these units every week, which is why descale gear, flow sensors and flame rods live on the van.' },
+      { title: 'Price before work', text: 'A written number you approve first. The invoice matches it. No extra line items appearing later.' },
+      { title: 'Straight answers', text: 'If a descale is all your unit needs, that is what we will sell you, even though it is the smaller job.' },
+    ]}
+  />
+
+  <ProcessSteps
+    heading="How a tankless repair visit goes"
+    img="/images/water-heater-repair-rocklin-plumber-diagnosing-unit.webp"
+    alt="Technician diagnosing a wall-mounted water heater in a Rocklin, California home"
+    steps={[
+      { title: 'You call, we book', text: 'Tell us the brand and the code on the display if there is one. We quote the diagnostic fee on the phone and give you a real arrival window.' },
+      { title: 'Read the history, not just the code', text: 'Most units store a fault log. We pull it, because a code that has fired forty times tells a very different story to one that fired once.' },
+      { title: 'Test the components', text: 'Gas pressure static and under load, flame signal, flow readings, fan operation, intake and exhaust. We test rather than swapping parts and hoping.' },
+      { title: 'Written price, your decision', text: 'Descale, repair or replace, with both numbers if it is close. Nothing starts until you say yes.' },
+      { title: 'Fix it, then prove it', text: 'Part replaced or exchanger descaled, then we run the unit through real demand, check the temperature rise across it, confirm clean combustion and venting, and clear the fault log.' },
+      { title: 'Walkthrough', text: 'We show you the failed part, tell you honestly how long the heater has left, and set a service interval that suits your water.' },
+    ]}
+  />
+
+  <NumCards
+    kicker="What is included"
+    heading="What we can put right on the first visit"
+    intro="Flame rods, flow sensors, igniters, fan motors, gas valves and heat exchangers fail for the same reasons in every brand — and most of them are a part, carried on the van."
+    items={[
+      { title: 'Ignition and flame parts', text: 'A worn igniter, a flame rod coated in deposits, a poor ground, or combustion air starved by a blocked intake screen. The low end of the price list, and a common reason a unit will not light or keeps losing flame.' },
+      { title: 'Flow sensors and inlet filters', text: 'A sticking turbine, grit from the street main, a clogged inlet filter screen or a genuinely dead sensor, so the unit cannot confirm water is moving. We see these a lot after any work on the water main.' },
+      { title: 'Fans, gas valves and control boards', text: 'On a unit under about twelve years old with a healthy exchanger these are all worth replacing — the parts are a fraction of the cost of a new heater.' },
+      { title: 'A proper descale, and valves if you need them', text: 'The exchanger circulated with a descaling solution long enough to genuinely dissolve the deposits rather than just rinse them, then the inlet filter screen and combustion air intake cleaned. If your unit has no isolation valves, we can add them.' },
+    ]}
+    alt_bg={true}
+  />
+
+  <section class="section">
+    <div class="wrap prose">
+      <h2>What Tankless Error Codes Actually Mean</h2>
+      <p>
+        Every brand numbers its faults differently, so the code itself is not worth
+        memorising. What matters is the family of fault it belongs to. A code tells
+        you which safety check the unit failed — it narrows the search, it does not
+        finish it. Here is what each family really points at.
+      </p>
+      <div class="grid grid--3" style="margin-top:22px">
+        <article class="card">
+          <h3>Ignition failure</h3>
+          <p>The unit called for flame and never got one. Causes run from a partly closed gas valve or an undersized gas supply, to a worn igniter, to a pressure drop when another appliance fires. On propane it is often a supply problem rather than a unit problem.</p>
+        </article>
+        <article class="card">
+          <h3>Flame loss</h3>
+          <p>It lit, then lost the flame signal. Usually a flame rod coated in deposits, a poor ground, condensate sitting where it should not be, or combustion air starved by a blocked intake screen.</p>
+        </article>
+        <article class="card">
+          <h3>Overheat / high limit</h3>
+          <p>The unit measured a temperature it is not allowed to reach. Scale lining the heat exchanger is the usual cause — it insulates the water from the copper, so the metal runs hot while your shower runs cool. Restricted flow does the same thing.</p>
+        </article>
+        <article class="card">
+          <h3>Flow sensor fault</h3>
+          <p>The unit cannot confirm water is moving through it. A sticking turbine, grit from the street main, a clogged inlet filter screen, or a genuinely dead sensor. We see these a lot after any work on the water main.</p>
+        </article>
+        <article class="card">
+          <h3>Venting or exhaust blockage</h3>
+          <p>Air pressure readings are out of range. A blocked exhaust termination, a bird or wasp nest in the intake, a vent joint that has pulled apart, a tiring fan motor, or debris drifted against an outdoor unit. Treat these as real safety codes.</p>
+        </article>
+        <article class="card">
+          <h3>Scale / service reminder</h3>
+          <p>Some units simply count operating hours and ask to be serviced. Others stay quiet until performance has already dropped. Either way the answer is a proper descale, not clearing the code.</p>
+        </article>
+      </div>
+      <p>
+        One thing we will not do is reset a code and leave. A reset makes the display
+        look healthy for a day or two and then the same fault returns, usually at a
+        worse moment. We find the reason the check failed first.
+      </p>
+
+      <h2>Hard Water in Placer County, and Why Descaling Matters</h2>
+      <p>
+        Mineral content in the local supply can contribute to scale build-up inside a tankless
+        heater, and how much depends on the water hardness where you are, how hard the unit works
+        and its maintenance history. Water in this part of Placer County often leaves visible
+        deposits on fixtures and glass, and a tankless heat exchanger is the harshest place in
+        the house for that water to end up. It gets pushed through narrow copper
+        passages and heated hard and fast, which is exactly the condition that drops
+        minerals out of solution onto hot metal.
+      </p>
+      <p>
+        A scaled exchanger then produces a set of symptoms that look like separate
+        problems. Flow through the unit drops, so the burner modulates strangely. Heat
+        transfer worsens, so the copper runs hotter than the water and the overheat
+        sensor trips. Gas consumption climbs for the same amount of hot water. The
+        unit gets noisier. And eventually the exchanger itself fails, which is the one
+        repair that normally ends the heater.
+      </p>
+      <p>
+        A descale is a service, not a repair. We isolate the unit at its service
+        valves, circulate a descaling solution through the exchanger long enough to
+        genuinely dissolve the deposits rather than just rinse them, flush it clean,
+        then clean the inlet filter screen and the combustion air intake while we are
+        in there. Descaling frequency depends on water hardness, household usage and the manufacturer's recommendations; annual service is a sensible starting point, and some units need it more often. If your unit has never been
+        descaled and it is more than three or four years old, that is where we start
+        — and a surprising number of heaters that arrive on our list as broken need
+        nothing else.
+      </p>
+      <p>
+        If your unit does not have isolation valves fitted, we can add them. It is a
+        small job that makes every future service faster and cheaper, and on a unit
+        you intend to keep it pays for itself.
+      </p>
+
+      <h2>Cold-Water Sandwich: Normal, or a Fault?</h2>
+      <p>
+        You open the hot tap, get a few seconds of hot, then a slug of cold, then hot
+        again. That is the cold-water sandwich. The water already sitting in the pipe
+        reaches you first, the cooled water behind it arrives next, and the burner
+        needs a moment to fire and catch up with the demand.
+      </p>
+      <p>
+        A brief version of this is ordinary tankless behavior and no repair removes
+        it completely — only a recirculation loop or a small buffer tank really
+        softens it. A brief cold interruption can be perfectly normal; pipe distance, plumbing layout, flow rate
+        and recirculation design all affect how long it lasts. Longer or increasingly frequent
+        interruptions are worth investigating, and the usual culprits are: a slow igniter, a
+        flow sensor misreading low demand, a scaled exchanger that cannot recover
+        temperature quickly, or low-flow fixtures that barely reach the minimum
+        activation flow the unit needs. All of those are repairable.
+      </p>
+
+      <h2>Short-Cycling and Other Odd Behavior</h2>
+      <p>
+        Short-cycling is a unit that fires, shuts down, and fires again within
+        seconds, often with an audible thump from the burner. The usual causes are
+        demand below the minimum activation flow — a trickling tap or a very
+        water-efficient shower head — a thermostatic mixing valve bleeding cold into
+        the hot line, scale restricting flow, or a flow sensor reporting noise rather
+        than real movement. A recirculation pump left on an aggressive timer will also
+        drive a unit into constant short bursts and shorten its life for no benefit.
+      </p>
+      <p>
+        Other symptoms worth a call: hot water that is strong at one fixture and weak
+        at another, a unit that copes alone but drops out the moment the dishwasher
+        starts, a rumble or kettling noise that is getting louder, or hot water that
+        overshoots then dives. One symptom is an emergency rather than a repair call: if you smell gas or suspect carbon
+        monoxide, leave the property immediately, do not operate electrical switches or use flames,
+        and call 911 or your gas utility from a safe location. Call us afterwards, once you are safe.
+      </p>
+
+      <p>
+        If the diagnosis points to replacement rather than repair, note that water heater
+        replacement in Rocklin requires a plumbing permit — we confirm the applicable permit
+        requirements before starting any replacement work.
+      </p>
+
+      <h2>Brands We Service in Rocklin</h2>
+      <p>
+        We work on <strong>Rinnai, Navien, Noritz, Takagi, Rheem and Bosch</strong>,
+        the brands we see most often in Rocklin homes — from the early non-condensing heaters
+        still running in Sunset Whitney garages to the condensing units going into Whitney Ranch
+        builds. We are
+        independent. No brand pays us and no brand decides what we recommend. Indoor
+        and outdoor, natural gas and propane. The code tables differ, but flame rods,
+        flow sensors, igniters, fan motors, gas valves and heat exchangers fail for
+        the same reasons in all of them.
+      </p>
+
+      <h2>Descale, Repair or Replace?</h2>
+      <p>
+        Three different answers, and the honest one depends on three things: the age
+        of the unit, whether the heat exchanger is sound, and what the repair costs
+        against a new heater.
+      </p>
+      <div class="grid grid--3" style="margin-top:22px">
+        <article class="card">
+          <h3>Descale</h3>
+          <p>Performance has faded, overheat codes show up under heavy use, gas use has crept upward, but no part has actually failed. The cheapest fix there is, and often the only one needed.</p>
+        </article>
+        <article class="card">
+          <h3>Repair</h3>
+          <p>A specific component has failed on a unit under about twelve years old with a healthy exchanger. Igniters, flame rods, flow sensors, fans, gas valves and boards are all worth replacing at that age.</p>
+        </article>
+        <article class="card">
+          <h3>Replace</h3>
+          <p>Heat exchanger cracked or leaking, unit past fifteen years, parts no longer made, or a repair quote above half the price of new. <a href="/tankless-water-heater-replacement-rocklin">Tankless replacement →</a></p>
+        </article>
+      </div>
+
+      <h2>When a Tankless Repair Is Not Worth It</h2>
+      <p>
+        We would rather sell you a repair — it is the easier job and the smaller
+        disruption. But there are four situations where we will tell you to stop
+        spending money on the unit you have.
+      </p>
+      <p>
+        <strong>A failed heat exchanger.</strong> It is the most expensive part in the
+        heater, and on an older unit the labor to fit one approaches the cost of a
+        new heater that arrives with a fresh warranty. If it is leaking internally,
+        that is normally the end of the road.
+      </p>
+      <p>
+        <strong>Several parts failing in sequence.</strong> A board in the spring, a
+        fan in the summer, a gas valve now. That is a unit telling you its service
+        life is over, not a run of bad luck.
+      </p>
+      <p>
+        <strong>Parts no longer stocked.</strong> Discontinued models eventually hit a
+        wall where the only boards available are used and unwarranted. We will not fit
+        those into a gas appliance.
+      </p>
+      <p>
+        <strong>It was never the right unit.</strong> Now and then we find an
+        undersized heater that has spent its entire life flat out, or one fitted to an
+        undersized gas line it never had a chance on. No repair fixes a specification
+        problem — in that case what you want is the
+        <a href="/tankless-water-heater-replacement-rocklin">replacement</a> page, and
+        a unit sized properly this time.
+      </p>
+    </div>
+  </section>
+
+  <BeforeAfter
+    serviceLabel="Tankless water heater repair"
+    heading="Typical jobs, before and after."
+    items={[
+      {
+        title: 'An overheat code under heavy use',
+        before: 'A unit tripping its high limit during long showers, with gas consumption crept upward and the heater getting noisier — performance faded, but no part actually failed.',
+        after: 'Isolated at its service valves and descaled properly, the inlet filter screen and combustion air intake cleaned, then run through real demand with the temperature rise checked and the fault log cleared.',
+        img: '/images/tankless-water-heater-repair-rocklin-control-panel.webp',
+        alt: 'Tankless water heater control panel being checked during a repair visit in Rocklin, California',
+      },
+      {
+        title: 'Ignition failure, no hot water',
+        before: 'The unit calling for flame and never getting one — anything from a partly closed gas valve or an undersized supply, to a worn igniter, to a pressure drop when another appliance fires.',
+        after: 'Gas pressure measured static and under load, the flame signal and ground checked, the failed part replaced rather than guessed at, and clean combustion and venting confirmed before we left.',
+        img: '/images/tankless-water-heater-rocklin-wall-mounted-unit.webp',
+        alt: 'Wall-mounted tankless style water heater in a Rocklin, California home',
+      },
+      {
+        title: 'Hot water going cold mid-shower',
+        before: 'Cold interruptions repeating through a shower rather than the brief slug at the start. The brief version is ordinary tankless behavior; a longer or increasingly frequent one is worth investigating.',
+        after: 'Flow readings, igniter timing and scale all checked — the usual culprits are a slow igniter, a flow sensor misreading low demand or a scaled exchanger — with the normal tankless behavior explained rather than sold against.',
+        img: '/images/water-heater-repair-rocklin-plumber-diagnosing-unit.webp',
+        alt: 'Technician diagnosing a water heater fault in a Rocklin, California home',
+      },
+    ]}
+  />
+
+  <ProblemsBand
+    heading="What this service actually fixes"
+    intro="Every brand numbers its faults differently, so what matters is the family of fault it belongs to. These are the three we are called out to most."
+    ctaLabel="Ask a technician →"
+    items={[
+      { title: 'An error code on the display', text: 'Ignition and flame codes point at gas supply, the igniter or a dirty flame rod. Venting codes mean the exhaust or air intake is blocked. We read the code, then test the part it is pointing at — one thing we will not do is reset it and leave.' },
+      { title: 'Performance that has quietly faded', text: 'Flow through the unit drops, heat transfer worsens, gas consumption climbs for the same amount of hot water and the heater gets noisier. Scale lining the heat exchanger is the usual cause, and a proper descale is the answer rather than clearing the code.' },
+      { title: 'Short-cycling and odd behavior', text: 'A unit that fires, shuts down and fires again within seconds, often with a thump from the burner — demand below the minimum activation flow, a mixing valve bleeding cold into the hot line, scale restricting flow, or a flow sensor reporting noise rather than real movement.' },
+    ]}
+  />
+
+  <PricingFactors
+    heading="Tankless Water Heater Repair Pricing in Rocklin"
+    range="$180 – $950 for most repairs, plus an $80 – $160 diagnostic; a heat exchanger runs $900 – $1,800"
+    factors={[
+      { title: 'What the diagnostic finds', text: 'A flame rod clean, igniter or flow sensor sits at the low end. A fan motor, gas valve or control board sits in the middle. A straight descale and service is typically $200 to $450.' },
+      { title: 'The part, the brand and the model', text: 'Parts cost differs between brands and models, and discontinued units eventually reach a point where the only boards available are used and unwarranted — we will not fit those into a gas appliance.' },
+      { title: 'Access and isolation valves', text: 'A unit with working isolation valves and reasonable access is the straightforward case. Heaters buried in a tight closet or mounted high in an attic sit at the upper end.' },
+    ]}
+  >
+      <h2>What Tankless Water Heater Repair Costs in Rocklin, CA</h2>
+      <div class="table-wrap">
+        <table>
+          <caption class="note" style="caption-side:bottom;text-align:left;padding:10px 16px">
+            These are our estimated service price ranges, not guaranteed market averages. Final pricing depends on the heater model, parts, labor, accessibility and what the diagnostic finds. Your written estimate is confirmed on site and specifies what is included before any work starts.
+          </caption>
+          <thead><tr><th scope="col">Tankless job</th><th scope="col">Typical range</th></tr></thead>
+          <tbody>
+            <tr><td>Diagnostic and error code reading (credited against repair)</td><td>$80 – $160</td></tr>
+            <tr><td>Descale &amp; full service</td><td>$200 – $450</td></tr>
+            <tr><td>Flame rod or igniter</td><td>$220 – $500</td></tr>
+            <tr><td>Flow sensor</td><td>$250 – $550</td></tr>
+            <tr><td>Inlet filter, isolation valves, minor plumbing</td><td>$180 – $420</td></tr>
+            <tr><td>Fan or blower motor</td><td>$400 – $800</td></tr>
+            <tr><td>Gas valve assembly</td><td>$400 – $850</td></tr>
+            <tr><td>Control board</td><td>$450 – $950</td></tr>
+            <tr><td>Heat exchanger</td><td>$900 – $1,800</td></tr>
+            <tr><td>Emergency / after-hours callout</td><td>$150 – $400</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">
+        Ranges reflect Rocklin and Placer County labor rates for 2026 and assume a
+        unit with working isolation valves and reasonable access. Heaters buried in a
+        tight closet or mounted high in an attic sit at the upper end.
+      </p>
+  </PricingFactors>
+
+  <TrustProof />
+  <ReviewSlider />
+  <Faq items={faqs} heading="Tankless Repair Questions We Get Asked Most" />
+  <RelatedServices exclude="/tankless-water-heater-repair-rocklin" />
+  <Coverage service="Tankless water heater repair" />
+  <CtaBand
+    heading="Error Code on Your Tankless Unit? Let us read it properly."
+    text="Call to check same-day diagnostic availability in Rocklin, or send a message and we will come back to you with a time. Repair timing depends on the fault, parts availability and technician scheduling."
+  />
+  <ContactSection />
+</Base>

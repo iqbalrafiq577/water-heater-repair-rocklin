@@ -1,0 +1,32 @@
+---
+import { services } from '../data/nav';
+import Icon from './Icon.astro';
+export interface Props { exclude?: string; heading?: string; eyebrow?: string; intro?: string }
+const {
+  exclude = '',
+  heading = 'Water Heater Services in Rocklin, CA',
+  eyebrow = 'Our Services',
+  intro = 'One trade, done properly. Whatever your unit is doing, there is a page here that explains exactly how we handle it and what it normally costs.',
+} = Astro.props;
+const list = services.filter((s) => s.href !== exclude);
+---
+<section class="section section--alt">
+  <div class="wrap">
+    <p class="eyebrow">{eyebrow}</p>
+    <h2>{heading}</h2>
+    {intro && <p style="margin-bottom:38px">{intro}</p>}
+    <div class="grid grid--3">
+      {list.map((s) => (
+        <article class="svc">
+          <div class="svc__media">
+            <img src={s.img} alt={s.alt} width="1600" height="900" loading="lazy" decoding="async" />
+            <span class="svc__icon"><Icon name={s.icon} /></span>
+          </div>
+          <h3><a href={s.href}>{s.label}</a></h3>
+          <p>{s.short}</p>
+          <a class="more" href={s.href}>Learn More</a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

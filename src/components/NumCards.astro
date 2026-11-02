@@ -1,0 +1,23 @@
+---
+import SecHead from './SecHead.astro';
+export interface Props {
+  kicker?: string; heading: string; intro?: string; alt_bg?: boolean;
+  items: { title: string; text: string }[];
+}
+const { kicker, heading, intro, alt_bg = false, items } = Astro.props;
+---
+<section class={`section${alt_bg ? ' section--alt' : ''}`}>
+  <div class="wrap">
+    <SecHead kicker={kicker} heading={heading} intro={intro} />
+    <div class="numcards">
+      {items.map((it, i) => (
+        <article class="numcard">
+          <span class="numcard__n">{String(i + 1).padStart(2, '0')}</span>
+          <div class="numcard__tick" aria-hidden="true">✓</div>
+          <h3>{it.title}</h3>
+          <p>{it.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

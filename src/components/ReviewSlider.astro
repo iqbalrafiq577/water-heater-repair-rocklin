@@ -1,0 +1,48 @@
+---
+import { reviews, site } from '../data/site';
+export interface Props { kicker?: string; heading?: string }
+const { kicker = 'What our customers say', heading = 'Reviews From Rocklin Homeowners' } = Astro.props;
+
+const avg = reviews.length
+  ? (reviews.reduce((t, r) => t + r.rating, 0) / reviews.length).toFixed(1)
+  : '0.0';
+const initials = (n: string) =>
+  n.split(' ').filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
+---
+<section class="rslider" id="reviews">
+  <div class="wrap">
+    <div class="rslider__head">
+      <div>
+        <p class="eyebrow">{kicker}</p>
+        <h2>{heading}</h2>
+      </div>
+      <div class="rslider__score">
+        <b>{avg}</b>
+        <div>
+          <div class="rcard__stars" style="margin:0">{'★'.repeat(5)}</div>
+          <small style="color:var(--muted)">Based on {site.reviewCount} reviews</small>
+        </div>
+      </div>
+    </div>
+
+    {/* BEFORE LAUNCH: these reviews are sample copy. Replace them in src/data/site.ts
+        with genuine, permissioned customer reviews, then set reviewSchemaEnabled to true. */}
+
+    <div class="rslider__track" tabindex="0" role="group" aria-label="Customer reviews">
+      {reviews.map((r) => (
+        <article class="rcard">
+          <div class="rcard__stars" aria-label={`${r.rating} out of 5 stars`}>{'★'.repeat(r.rating)}</div>
+          <p class="rcard__text">“{r.text}”</p>
+          <div class="rcard__who">
+            <span class="rcard__av" aria-hidden="true">{initials(r.name)}</span>
+            <div>
+              <div class="rcard__name">{r.name}</div>
+              <div class="rcard__meta">{r.area}</div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+    <p class="rslider__hint">Swipe or scroll sideways to read more →</p>
+  </div>
+</section>

@@ -1,0 +1,111 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Reviews from '../components/Reviews.astro';
+import CtaBand from '../components/CtaBand.astro';
+import AreasServed from '../components/AreasServed.astro';
+import ServiceLinks from '../components/ServiceLinks.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import SvcAbout from '../components/SvcAbout.astro';
+import TrustProof from '../components/TrustProof.astro';
+import NumCards from '../components/NumCards.astro';
+import ReviewSlider from '../components/ReviewSlider.astro';
+import Coverage from '../components/Coverage.astro';
+import { site } from '../data/site';
+import { breadcrumbSchema } from '../data/schema';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'About Us', href: '/about-us' },
+];
+
+const schema = [breadcrumbSchema(crumbs)];
+---
+<Base
+  title={`About ${site.name} | Water Heater Specialists`}
+  description="Meet the Rocklin, CA company that works on water heaters and nothing else — licensed and insured, up-front written pricing and a guarantee on every job."
+  path="/about-us"
+  schema={schema}
+>
+  <Hero
+    eyebrow="About our team"
+    h1={`About ${site.name}`}
+    lede={`We have looked after water heaters for Rocklin homes and small businesses since ${site.foundedYear}. Licensed, insured, and answering the phone when a tank goes cold at six in the morning.`}
+    points={['Water heaters only', 'Licensed & insured', 'Written price before work', 'Workmanship guaranteed']}
+    bg="/images/water-heater-team-rocklin-ca.webp"
+    bgAlt="Water heater technician working on a unit in Rocklin, California"
+    form={false}
+    center
+  />
+
+  <Breadcrumbs items={crumbs} />
+
+  <TrustStrip
+    items={[
+      { title: 'Upfront options', text: 'No work before you approve the number.' },
+      { title: 'Respectful service', text: 'Floors protected, belongings moved carefully.' },
+      { title: 'Real guarantees', text: 'Workmanship backed in writing.' },
+      { title: 'Local technicians', text: 'Licensed, insured and based in Rocklin.' },
+    ]}
+  />
+
+  <SvcAbout
+    kicker="How we got here"
+    heading="One trade, done properly"
+    img="/images/water-heater-technician-checking-valves-rocklin.webp"
+    alt="Technician checking the valves and pipework on a water heater in Rocklin, California"
+    ticks={[
+      'Licensed and fully insured, with permits pulled through the City of Rocklin',
+      'Thermocouples, valves, elements and common tankless parts stocked on the van',
+      'Written price before any work starts — the invoice matches it',
+      'Workmanship guaranteed, and new installs registered for warranty',
+    ]}
+    ctaLabel="See what we do →"
+    ctaHref="/"
+  >
+    <p>
+      We are a water heater company based in Rocklin, working across the 95677 and 95765 ZIP codes
+      and the nearby Placer and Sacramento County towns. Most of what we do is residential — the 40
+      and 50 gallon gas tanks in garages all over the city, electric units in utility closets, heat
+      pump heaters, and tankless systems hung on a wall.
+    </p>
+    <p>
+      Plenty of general plumbers are perfectly competent with water heaters. The difference is
+      repetition. Because we work on nothing else, we see the same faults every week and we stock
+      the parts that cause them, which is why most calls finish on the first visit rather than
+      turning into a parts run and a second appointment.
+    </p>
+    <p>
+      People usually find us at a bad moment — no hot water before work, a puddle under the tank,
+      an error code mid-shower. So the business is built around what matters in that position:
+      someone answers, you get a real arrival window, and you get an honest recommendation rather
+      than a sales performance.
+    </p>
+  </SvcAbout>
+
+  <TrustProof />
+
+  <NumCards
+    kicker="How we work"
+    heading="What you can expect from us"
+    intro="Three commitments that shape every job, from a weeping T&P valve to a full tank replacement."
+    items={[
+      { title: 'One technician, start to finish', text: 'The person who diagnoses the fault is the person who fixes it. Nothing is handed off to a subcontractor after you have agreed a price.' },
+      { title: 'We test before we replace', text: 'Elements, thermostats, gas pressure and draft are measured rather than guessed at. You see what we see, and you only pay for the part that actually failed.' },
+      { title: 'The quote is the invoice', text: 'You approve a number before work starts. If what we find on site changes the job, we stop and re-quote instead of adding it at the end.' },
+    ]}
+    alt_bg={true}
+  />
+
+  <ReviewSlider heading="What Rocklin Homeowners Say" />
+
+  <Coverage service="Our water heater service" />
+
+  <ServiceLinks exclude="/about-us" heading="What We Do" eyebrow="Our services" intro="" />
+
+  <CtaBand
+    heading="Need a water heater looked at in Rocklin?"
+    text="Call to check availability, or send a message describing what the unit is doing and we will come back with a time and a price range."
+  />
+</Base>

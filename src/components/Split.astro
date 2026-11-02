@@ -1,0 +1,30 @@
+---
+// Image-beside-text section. This is the main way images sit inside page
+// content — alternate `reverse` down the page so it does not read as a list.
+export interface Props {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  heading?: string;
+  eyebrow?: string;
+  reverse?: boolean;
+  alt_bg?: boolean;
+  id?: string;
+}
+const { src, alt, width = 1500, height = 1000, heading, eyebrow, reverse = false, alt_bg = false, id } = Astro.props;
+---
+<section class={`section${alt_bg ? ' section--alt' : ''}`} id={id}>
+  <div class="wrap">
+    <div class={`split${reverse ? ' split--rev' : ''}`}>
+      <div class="split__media">
+        <img src={src} alt={alt} width={width} height={height} loading="lazy" decoding="async" />
+      </div>
+      <div class="split__body">
+        {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+        {heading && <h2>{heading}</h2>}
+        <slot />
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,12 @@
+node_modules
+dist
+.astro
+.DS_Store
+
+# local working files (screenshots, references, scratch)
+.img/
+.ref/
+.tmp-review/
+review/
+_dev.log
+.claude/

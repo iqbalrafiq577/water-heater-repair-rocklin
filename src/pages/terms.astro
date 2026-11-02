@@ -1,0 +1,176 @@
+---
+// ============================================================================
+// LEGAL — REVIEW WITH YOUR OWN ATTORNEY BEFORE LAUNCH.
+// This is generic, plain-language boilerplate written for a California
+// home-services business. It is NOT legal advice and it has not been reviewed
+// by a lawyer. Before this site goes live, have a California attorney review
+// and amend it so that it matches the business's actual written contract,
+// deposit and cancellation terms, warranty periods, limitation-of-liability
+// wording, CSLB home-improvement contract requirements and the mandatory
+// three-day right-to-cancel notice. Update the "lastUpdated" date whenever
+// the text changes.
+// ============================================================================
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { site } from '../data/site';
+import { breadcrumbSchema } from '../data/schema';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Terms of Service', href: '/terms' },
+];
+
+const schema = [breadcrumbSchema(crumbs)];
+const lastUpdated = 'October 31, 2026';
+---
+<Base
+  title="Terms of Service | Water Heater Repair Rocklin, CA"
+  description="The terms that apply to using this website and to water heater work carried out by our Rocklin, CA company — estimates, pricing, warranty and liability."
+  path="/terms"
+  schema={schema}
+  noindex={false}
+>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="section">
+    <div class="wrap prose">
+      <h1>Terms of Service</h1>
+      <p class="note">Last updated: {lastUpdated}</p>
+
+      <p>
+        These terms cover two things: using this website, and hiring {site.legalName} to work on your
+        water heater. By using the site or booking work with us, you agree to them. Where a signed
+        written contract or work order for a specific job says something different, that document wins.
+      </p>
+
+      <h2>About Us</h2>
+      <p>
+        {site.legalName !== site.name ? `${site.legalName}, trading as ${site.name}` : site.name}, {site.address.street},
+        {site.address.city}, {site.address.region} {site.address.postalCode}. Phone
+        <a href={site.phoneHref}>{site.phone}</a>, email
+        <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+
+      <h2>Using This Website</h2>
+      <p>
+        The content here is general information about water heaters and our services. It is not a
+        diagnosis of your equipment and it is not an offer of a fixed price. Prices, ranges and
+        timescales shown on this site are typical figures for the Rocklin area and are illustrative
+        only — your actual price comes from an estimate given to you for your specific unit and
+        property. We may change the content of this site at any time without notice.
+      </p>
+      <p>
+        Please do not use this site to attempt unauthorised access, to scrape it at a volume that
+        disrupts it, or to copy its text and images for another business. The text, images, logo and
+        layout belong to us or our licensors.
+      </p>
+
+      <h2>Safety Information Is Not a Substitute for a Technician</h2>
+      <p>
+        Some pages describe steps such as closing a cold inlet valve or switching off a breaker. Those
+        are included to help you limit damage while you wait for us. Water heaters involve gas,
+        electricity, pressurised water and scalding temperatures. If you choose to work on your own
+        equipment you do so at your own risk, and we accept no responsibility for the outcome. If you
+        ever smell gas, leave the building and call your gas utility from outside before calling us.
+      </p>
+
+      <h2>Estimates and Pricing</h2>
+      <p>
+        We quote a diagnostic or service-call fee before we come out. On site we diagnose the fault and
+        give you a written price for the work. No work starts until you approve that price. If you
+        approve the repair, the diagnostic fee is credited against it.
+      </p>
+      <p>
+        An estimate assumes normal access and the conditions we could see at the time. If hidden
+        conditions appear once panels come off or a unit is drained — corroded piping, unsafe venting,
+        an undersized gas line, electrical faults, a missing pan or code upgrades required to pass
+        inspection — we will stop, explain, and give you a revised written price for your approval
+        before continuing. Estimates are valid for 30 days unless stated otherwise.
+      </p>
+
+      <h2>Scheduling, Access and Cancellation</h2>
+      <p>
+        Arrival windows are our best estimate and can move when an emergency call comes in; we will
+        tell you if that happens. You agree to give us safe, clear access to the water heater and to
+        secure pets during the visit. If we cannot access the unit, or nobody is home at the agreed
+        time, we may charge the service-call fee. Please give us as much notice as you can if you need
+        to cancel or reschedule.
+      </p>
+
+      <h2>Payment</h2>
+      <p>
+        Payment is due on completion of the work unless we have agreed otherwise in writing. Larger
+        replacement jobs may require a deposit, which will be set out in the written contract for that
+        job and will comply with California limits on contractor deposits. Equipment we supply remains
+        our property until it has been paid for in full.
+      </p>
+
+      <h2>Permits and Code Compliance</h2>
+      <p>
+        Water heater replacement in California normally requires a permit and an inspection. Where we replace a
+        unit we pull the permit and install to current code, including seismic strapping, correct
+        relief-valve discharge, drain pan and expansion tank where required. If you ask us to carry out
+        work that would not meet code, we will decline it.
+      </p>
+
+      <h2>Warranty</h2>
+      <p>
+        Our workmanship is guaranteed. If something we repaired or installed fails because of how we
+        did the work, tell us and we will come back and put it right at no charge for the labor.
+        Equipment and parts carry the manufacturer's own warranty, and the manufacturer's terms —
+        including any requirement that the unit be properly maintained — govern those claims. We will
+        help you make a claim and provide our records.
+      </p>
+      <p>
+        Our guarantee does not cover faults caused by misuse, freezing, water quality, work by others,
+        power or gas supply problems, sediment or scale damage on a unit that has not been maintained,
+        or an existing unit or component we advised you to replace and you chose to keep.
+      </p>
+
+      <h2>Pre-Existing Conditions and Water Damage</h2>
+      <p>
+        We are frequently called to equipment that is already leaking or already failed. We are not
+        responsible for damage that existed before we arrived, for damage caused by a failure that was
+        already in progress, or for consequential damage such as loss of use, mold remediation or
+        damaged belongings, except to the extent it was caused by our own negligence.
+      </p>
+
+      <h2>Limitation of Liability</h2>
+      <p>
+        To the fullest extent permitted by California law, our total liability arising out of any job is
+        limited to the amount you paid us for that job, and we are not liable for indirect, incidental
+        or consequential losses. Nothing in these terms limits any liability that cannot lawfully be
+        limited, and nothing here removes your rights under the California home improvement contract
+        rules, including your right to cancel within the statutory period where it applies.
+      </p>
+
+      <h2>Complaints</h2>
+      <p>
+        If something is wrong, call us first — most issues are fixed by sending a technician back. Email
+        <a href={`mailto:${site.email}`}>{site.email}</a> or call
+        <a href={site.phoneHref}>{site.phone}</a>. California licensed contractors are also subject to
+        the oversight of the {site.license.authority}, and you may contact that body about a licensed
+        contractor at any time.
+      </p>
+
+      <h2>Governing Law</h2>
+      <p>
+        These terms are governed by the laws of the State of California, and any dispute will be heard
+        in the courts serving Placer County, California.
+      </p>
+
+      <h2>Changes</h2>
+      <p>
+        We may update these terms; the date at the top shows when they last changed. The version in
+        force is the one published when you book your work.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions about these terms can go to <a href={`mailto:${site.email}`}>{site.email}</a> or
+        <a href={site.phoneHref}>{site.phone}</a>. See also our
+        <a href="/privacy-policy">privacy policy</a> and <a href="/contact-us">contact page</a>.
+      </p>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,31 @@
+---
+import { site } from '../data/site';
+export interface Props { kicker?: string; heading?: string; items?: string[] }
+const {
+  kicker = 'Proof you can check',
+  heading = 'Trust and Proof of Our Services',
+  items = [
+    'Licensed by the California Contractors State License Board',
+    'Fully insured · general liability and workers’ compensation',
+    'Water heaters only · not a general plumbing side line',
+    'Written estimate before any work begins',
+    'Permits pulled and inspections met through the City of Rocklin',
+    `Serving ${site.address.city}, California`,
+  ],
+} = Astro.props;
+---
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="trust-head">
+      <div>
+        <p class="kicker">{kicker}</p>
+        <h2 style="margin:0">{heading}</h2>
+      </div>
+    </div>
+    <ul class="proof">
+      {items.map((t) => (
+        <li><span class="arr" aria-hidden="true">↗</span><span>{t}</span></li>
+      ))}
+    </ul>
+  </div>
+</section>

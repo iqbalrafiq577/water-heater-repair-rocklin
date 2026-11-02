@@ -1,0 +1,76 @@
+---
+import { site } from '../data/site';
+import { services } from '../data/nav';
+import Icon from './Icon.astro';
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const inServices = services.some((s) => s.href === path && s.href !== '/');
+---
+<div class="topbar">
+  <div class="wrap">
+    <span>📞 <a href={site.phoneHref}>{site.phone}</a></span>
+    <span class="sep">|</span>
+    <span>Open 24/7 — emergency water heater service</span>
+    <span class="sep">|</span>
+    <span>Licensed &amp; insured</span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <span class="brand__tile"><Icon name="drop" /></span>
+      <span>
+        <span class="brand__name">{site.name}</span>
+        <span class="brand__tag">Water heaters only · Rocklin, CA</span>
+      </span>
+    </a>
+
+    <button class="navtoggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-navtoggle>
+      ☰ Menu
+    </button>
+
+    <nav class="main" id="primary-nav" aria-label="Primary">
+      <ul>
+        <li><a href="/" aria-current={path === '/' ? 'page' : undefined}>Home</a></li>
+        <li><a href="/about-us" aria-current={path === '/about-us' ? 'page' : undefined}>About Us</a></li>
+        <li class="hasdrop" data-drop>
+          <button type="button" aria-expanded="false" style={inServices ? 'border-bottom-color:var(--orange)' : undefined}>
+            Our Services
+          </button>
+          <ul class="dropdown">
+            {services.map((s) => (
+              <li><a href={s.href} aria-current={path === s.href ? 'page' : undefined}>{s.label}</a></li>
+            ))}
+          </ul>
+        </li>
+        <li><a href="/blog" aria-current={path.startsWith('/blog') ? 'page' : undefined}>Blog</a></li>
+        <li><a href="/contact-us" aria-current={path === '/contact-us' ? 'page' : undefined}>Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <a class="navcta" href={site.phoneHref}>{site.phone}</a>
+  </div>
+</header>
+
+<script is:inline>
+  // Mobile menu + touch-friendly dropdown. Desktop uses CSS hover/focus,
+  // so this only has to cover tap and keyboard on small screens.
+  (function () {
+    var toggle = document.querySelector('[data-navtoggle]');
+    var nav = document.getElementById('primary-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
+        var open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(open));
+      });
+    }
+    document.querySelectorAll('[data-drop] > button').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (window.innerWidth > 900) return;
+        var li = btn.parentElement;
+        var open = li.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(open));
+      });
+    });
+  })();
+</script>

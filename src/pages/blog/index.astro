@@ -1,0 +1,107 @@
+---
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/Hero.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { posts } from '../../data/posts';
+import { site } from '../../data/site';
+import { breadcrumbSchema } from '../../data/schema';
+
+const crumbs = [{ name: 'Home', href: '/' }, { name: 'Advice' }];
+
+const fmt = (iso: string) =>
+  new Date(`${iso}T12:00:00Z`).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC',
+  });
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  {
+    '@type': 'ItemList',
+    name: 'Water Heater Advice for Rocklin Homeowners',
+    itemListElement: posts.map((p, n) => ({
+      '@type': 'ListItem',
+      position: n + 1,
+      name: p.title,
+      url: `${site.url}/blog/${p.slug}`,
+    })),
+  },
+];
+---
+<Base
+  title="Water Heater Advice for Rocklin Homeowners"
+  description="Plain-English water heater advice from Rocklin plumbers: repair or replace, failure warning signs, lifespans, noises, permits and tank vs tankless."
+  path="/blog"
+  schema={schema}
+>
+  <Hero
+    eyebrow="Advice &amp; Guides"
+    h1="Water Heater Advice for Rocklin Homeowners"
+    lede="Everything here is written by the people who actually turn the wrenches. No fluff, no scare tactics — just the answers we end up giving on the phone two or three times a week."
+    points={['Written by working plumbers', 'Local to Placer County water', 'No sales pressure', 'Updated as code changes']}
+
+    form={false}
+    center
+  />
+
+  <Breadcrumbs items={crumbs} />
+
+  <section class="section">
+    <div class="wrap prose">
+      <h2>Start Here</h2>
+      <p>
+        Most people land on a water heater article at a bad moment — cold shower, puddle on the
+        garage floor, or a quote in hand that they are not sure they trust. These guides are
+        written for exactly that moment. Each one explains what is happening inside the unit,
+        how urgent it is, and what a fair fix looks like, so you can walk into any conversation
+        with a plumber already knowing the answer.
+      </p>
+      <p>
+        We work on water heaters in Rocklin every day, which means our water, our garages and our
+        permit process shape everything below. Where a number is a general industry range rather
+        than a measured figure, we say so plainly.
+      </p>
+
+      <div class="grid grid--2" style="margin-top:26px">
+        {posts.map((p) => (
+          <article class="card">
+            <h3><a href={`/blog/${p.slug}`} style="text-decoration:none">{p.title}</a></h3>
+            <p class="note" style="margin-top:-4px">
+              <time datetime={p.published}>{fmt(p.published)}</time>
+            </p>
+            <p>{p.excerpt}</p>
+            <a class="more" href={`/blog/${p.slug}`}>Read more</a>
+          </article>
+        ))}
+      </div>
+
+      <h2>Need the Service Pages Instead?</h2>
+      <p>
+        If you already know what you need doing, skip the reading. We cover
+        <a href="/">water heater repair</a>,
+        <a href="/water-heater-replacement-rocklin">replacement</a>,
+        <a href="/water-heater-installation-rocklin">new installation</a>,
+        <a href="/water-heater-leak-repair-rocklin">leak repair</a>,
+        <a href="/water-heater-maintenance-rocklin">annual maintenance</a> and the full range of
+        <a href="/tankless-water-heater-installation-rocklin">tankless work</a> across Rocklin and
+        the surrounding Placer County towns.
+      </p>
+      <ul class="chips">
+        <li>Tank</li>
+        <li>Tankless</li>
+        <li>Heat pump</li>
+        <li>Gas</li>
+        <li>Electric</li>
+        <li>Permitted installs</li>
+      </ul>
+    </div>
+  </section>
+
+  <CtaBand
+    heading="Still Not Sure What Your Water Heater Is Doing?"
+    text="Describe the symptom on the phone and we will tell you straight whether it needs a visit, a flush or a replacement."
+  />
+</Base>

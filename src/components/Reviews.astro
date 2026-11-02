@@ -1,0 +1,32 @@
+---
+import { reviews, site } from '../data/site';
+export interface Props { heading?: string }
+const { heading = 'What Rocklin Homeowners Say' } = Astro.props;
+---
+<section class="section" id="reviews">
+  <div class="wrap">
+    <h2>{heading}</h2>
+    <p>We are not publishing customer reviews yet. Every job finishes with a walkthrough, the old part in your hand if you want it, and an invoice that matches the estimate you approved.</p>
+    {import.meta.env.DEV && !site.reviewSchemaEnabled && (
+      <p class="note" style="background:#fff4f1;border:1px solid #c8381f;border-radius:12px;padding:14px 18px;color:#a62d17;font-weight:600;max-width:none">
+        ⚠ PRE-LAUNCH NOTE — no customer reviews are published yet, so this section is
+        intentionally empty. Add genuine reviews in <code>src/data/site.ts</code> and set
+        <code>reviewSchemaEnabled</code> to true to switch it on. Never publish invented quotes.
+      </p>
+    )}
+    {site.reviewSchemaEnabled && (
+      <div class="grid grid--3">
+        {reviews.map((r) => (
+          <figure class="review" style="margin:0">
+            <div class="stars" aria-label={`${r.rating} out of 5 stars`}>{'★'.repeat(r.rating)}</div>
+            <blockquote style="margin:10px 0 0;padding:0"><p>“{r.text}”</p></blockquote>
+            <cite>{r.name}<small>{r.area} · {r.date}</small></cite>
+          </figure>
+        ))}
+      </div>
+    )}
+    {site.social.gbp && (
+      <p style="margin-top:18px"><a class="btn btn--ghost" href={site.social.gbp} rel="noopener">Read every review on Google</a></p>
+    )}
+  </div>
+</section>

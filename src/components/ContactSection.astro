@@ -1,0 +1,72 @@
+---
+import { site } from '../data/site';
+import { services } from '../data/nav';
+export interface Props { kicker?: string; heading?: string; intro?: string }
+const {
+  kicker = 'Request an appointment',
+  heading = 'Get in Touch with Us',
+  intro = 'Tell us what the water heater is doing and where it lives. We come back with an arrival window and a price range before anyone drives out.',
+} = Astro.props;
+
+const steps = [
+  'We call back to confirm the symptom and the access',
+  'You get a real arrival window, not a nine-hour span',
+  'Written price on site, before any work starts',
+];
+---
+<section class="section section--alt" id="contact">
+  <div class="wrap">
+    <div class="contactsec">
+      <div class="contactsec__copy">
+        <p class="kicker">{kicker}</p>
+        <h2>{heading}</h2>
+        <p>{intro}</p>
+
+        <ul class="ticks ticks--dark">{steps.map((s) => <li>{s}</li>)}</ul>
+
+        <div class="contactsec__lines">
+          <a href={site.phoneHref}><strong>Call anytime</strong><span>{site.phone}</span></a>
+          <a href={`mailto:${site.email}`}><strong>Email the office</strong><span>{site.email}</span></a>
+          <div><strong>Office hours</strong><span>{site.hours}</span></div>
+        </div>
+      </div>
+
+      <div class="contactsec__form">
+        {/*  BEFORE LAUNCH: point `action` at the real form handler, add spam
+             protection and a success state, then send a live test.  */}
+        <form method="post" action="#">
+          <div class="field-row">
+            <div class="field">
+              <label for="cf-name">Name</label>
+              <input id="cf-name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+            </div>
+            <div class="field">
+              <label for="cf-phone">Phone</label>
+              <input id="cf-phone" name="phone" type="tel" autocomplete="tel" placeholder={site.phone} required />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="cf-email">Email</label>
+              <input id="cf-email" name="email" type="email" autocomplete="email" placeholder="you@email.com" />
+            </div>
+            <div class="field">
+              <label for="cf-service">Service needed</label>
+              <select id="cf-service" name="service">
+                <option value="">Choose a service</option>
+                {services.map((s) => <option value={s.label}>{s.label}</option>)}
+                <option value="Not sure">Not sure — please advise</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="cf-msg">What is it doing? <span style="font-weight:500;color:var(--muted);text-transform:none;letter-spacing:0">(optional)</span></label>
+            <textarea id="cf-msg" name="message" rows="2" placeholder="No hot water since last night, 50 gallon gas unit in the garage…"></textarea>
+          </div>
+          <button class="btn" type="submit">Request my appointment →</button>
+          <p class="fineprint">No spam, no obligation. Used only to respond to this request — see our <a href="/privacy-policy">privacy policy</a>.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

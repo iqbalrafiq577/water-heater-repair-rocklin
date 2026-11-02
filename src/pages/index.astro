@@ -1,0 +1,295 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Split from '../components/Split.astro';
+import Faq from '../components/Faq.astro';
+import Reviews from '../components/Reviews.astro';
+import CtaBand from '../components/CtaBand.astro';
+import AreasServed from '../components/AreasServed.astro';
+import ServiceLinks from '../components/ServiceLinks.astro';
+import QuickAnswers from '../components/QuickAnswers.astro';
+import IntroAbout from '../components/IntroAbout.astro';
+import TrustStatsBand from '../components/TrustStatsBand.astro';
+import WhyChooseUs from '../components/WhyChooseUs.astro';
+import WhereWeWork from '../components/WhereWeWork.astro';
+import PricingTable from '../components/PricingTable.astro';
+import Gallery from '../components/Gallery.astro';
+import ProcessRow from '../components/ProcessRow.astro';
+import FaqGrid from '../components/FaqGrid.astro';
+import ReviewSlider from '../components/ReviewSlider.astro';
+import StatsBar from '../components/StatsBar.astro';
+import TrustBand from '../components/TrustBand.astro';
+import { site } from '../data/site';
+import { faqSchema, serviceSchema } from '../data/schema';
+
+const faqs = [
+  { q: 'How much does water heater repair cost in Rocklin, CA?',
+    a: 'Most water heater repairs in Rocklin land between $150 and $700. A thermocouple or pilot assembly is at the low end, a heating element or thermostat sits in the middle, and a gas control valve is at the top. You get the figure in writing before we pick up a tool, and the diagnostic fee comes off the price if you go ahead.' },
+  { q: 'Is it cheaper to repair or replace a water heater?',
+    a: 'It depends on the age of the unit, its condition and what the repair actually costs. As a rough guide: under about eight years old a repair usually makes sense, and past about twelve years — or when the repair quote is more than half the price of a new unit — replacement tends to be the better buy. If the tank itself is leaking, repair is not an option — that is a replacement.' },
+  { q: 'Why is my water heater not heating water?',
+    a: 'On a gas unit it is usually the pilot, thermocouple or gas control valve. On an electric unit it is normally a tripped high-limit switch, a failed upper or lower element, or a dead thermostat. On tankless it is often an ignition or flow-sensor fault that shows as an error code on the display.' },
+  { q: 'Is a leaking water heater an emergency?',
+    a: 'A drip from the T&P valve or a fitting can usually wait a day. Water pooling under the tank cannot — that means the inner tank has corroded through and it will eventually let go. Close the cold water inlet valve and switch off the breaker on an electric unit, then call us. If you smell gas, leave the house first and call PG&amp;E or 911 from outside.' },
+  { q: 'Can you repair a water heater the same day?',
+    a: 'Yes, most of the time. We carry thermocouples, elements, thermostats, gas valves, T&P valves and common tankless parts on the van, so the majority of Rocklin calls are finished on the first visit.' },
+  { q: 'How long does a water heater last?',
+    a: 'Lifespan varies with the unit, the water and how it has been maintained, but a standard tank in the Rocklin area commonly runs around 10 to 13 years. Water in this part of Placer County tends to be hard, so sediment and anode rod wear matter — a flushed and maintained tank regularly beats that, a neglected one often does not.' },
+  { q: 'Do I need a permit to replace a water heater in California?',
+    a: 'In California a water heater replacement normally requires a permit, and the install has to meet the codes that apply to your property — typically double earthquake strapping, correct T&P discharge, a drain pan and an expansion tank where the system calls for one. Exact requirements depend on the install, and we confirm them with the City of Rocklin Building Division before we start. We pull the permit as part of the job.' },
+  { q: 'Who do I call to fix my water heater?',
+    a: 'A licensed plumber. Water heaters touch gas, water and electrical, and in California the work is permitted and inspected. We are a licensed Rocklin water heater repair company and that is all we do.' },
+  { q: 'Do you repair both gas and electric water heaters?',
+    a: 'Yes — gas, electric, heat pump and tankless. We work on Rheem, A.O. Smith, Bradford White, State, Navien, Rinnai, Noritz and Takagi units.' },
+  { q: 'What does a service call cost if I do not go ahead?',
+    a: 'You pay the diagnostic fee only. It is quoted on the phone before we come out, and it is credited against the repair if you approve the work.' },
+];
+
+const schema = [
+  serviceSchema({
+    name: 'Water Heater Repair in Rocklin, CA',
+    description: 'Same-day water heater repair for gas, electric, heat pump and tankless units across Rocklin, California. Licensed plumbers, written pricing, 24/7 emergency callouts.',
+    path: '/',
+    serviceType: 'Water heater repair',
+    offers: [
+      { name: 'Water heater diagnostic', low: '80', high: '160' },
+      { name: 'Thermocouple / pilot assembly replacement', low: '150', high: '350' },
+      { name: 'Heating element or thermostat replacement', low: '180', high: '450' },
+      { name: 'Gas control valve replacement', low: '300', high: '700' },
+      { name: 'T&P valve replacement', low: '150', high: '300' },
+      { name: 'Emergency / after-hours callout', low: '150', high: '400' },
+    ],
+  }),
+  faqSchema(faqs),
+];
+---
+<Base
+  title="Water Heater Repair Rocklin, CA | Same-Day Tank & Tankless"
+  description="Water heater repair in Rocklin, CA. No hot water, leaks and error codes fixed same day on gas, electric and tankless units. Licensed plumbers, written pricing."
+  path="/"
+  schema={schema}
+>
+  <Hero
+    eyebrow="Rocklin, CA · 95677 & 95765 · Open 24/7"
+    h1="Licensed Local Water Heater Repair in Rocklin, CA"
+    lede="We are a Rocklin water heater company — tank, tankless and heat pump. No hot water, leaks, noise and error codes diagnosed and, in most cases, fixed on the same visit. You get a written price before any work starts. We cover the neighborhoods around the city too, from Whitney Ranch and Stanford Ranch out to Sunset Whitney, Clover Valley and Springfield at Whitney Oaks."
+    bg="/images/water-heater-repair-rocklin-technician-servicing-unit.webp"
+    bgAlt="Plumber servicing a water heater in a Rocklin, California home"
+  />
+
+  <QuickAnswers
+    img="/images/water-heater-technician-checking-valves-rocklin.webp"
+    alt="Technician checking the valves and pipework on a water heater in Rocklin, California"
+  >
+    <p>
+      California licenses contractors through the CSLB, so ask any plumber for their license
+      number and check it. Get the estimate in writing before work starts.
+    </p>
+    <p>
+      Repair cost depends on the fault and the part. A thermocouple or igniter costs less than a
+      gas control valve or a control board.
+    </p>
+    <p>
+      If water is pooling under the tank, close the cold inlet valve and switch off the gas
+      control or the breaker, if you can reach them safely. If you smell gas, leave the property
+      and call 911 or your gas utility first.
+    </p>
+    <p>
+      Under about eight years old with a failed part, a repair usually wins. Past twelve, or when
+      the storage tank itself is leaking, <a href="/water-heater-replacement-rocklin">replacement</a>
+      makes more sense — a leaking tank cannot be repaired.
+    </p>
+  </QuickAnswers>
+
+  <IntroAbout
+    kicker="About us"
+    heading="Your Local Water Heater Team"
+    img="/images/water-heater-team-rocklin-ca.webp"
+    alt="Water heater technician working on a wall-mounted unit and storage cylinder in Rocklin, California"
+  >
+    <p>
+      We look after water heaters for homes and small businesses across Rocklin. We explain the
+      problem, put the price in writing, and only do the work you approve.
+    </p>
+    <p>
+      Repair, replacement, installation, leak repair, annual maintenance and the full range of
+      tankless work — all on tank, tankless and heat pump units. If it cannot wait, we answer the
+      phone around the clock.
+    </p>
+  </IntroAbout>
+
+  <TrustStatsBand
+    kicker="Why Rocklin homeowners trust us"
+    heading="Water Heater Work You Can Rely On"
+    badgeNum="24/7"
+    badgeLabel="Emergency service"
+    img1="/images/water-heater-repair-rocklin-emergency-callout.webp"
+    alt1="Plumber on an emergency water heater callout in Rocklin, California"
+    img2="/images/water-heater-repair-rocklin-technician-servicing-unit.webp"
+    alt2="Plumber servicing a water heater in a Rocklin, California home"
+    ticks={[
+      'Licensed and fully insured on every job',
+      'Parts and labor itemised on every invoice',
+      'Written price agreed before any work starts',
+      'Water heaters only — not a general plumbing side line',
+    ]}
+    ctaLabel="See our water heater services"
+    ctaHref="/water-heater-replacement-rocklin"
+  />
+
+  <ServiceLinks
+    exclude="/"
+    eyebrow="Our services"
+    heading="What We Fix"
+    intro="Whatever the job, you get a written estimate before work starts and the code items priced in from the beginning. We cover homes, rentals and small businesses across Rocklin."
+  />
+
+  <WhyChooseUs
+    heading="Why Choose Us"
+    cards={[
+      { title: 'Licensed & insured', text: 'We give you the license number before we quote, not after, and cover is in place on every job.' },
+      { title: 'One trade, done properly', text: 'Water heaters only. That focus is why we carry the right parts and finish on the first visit.' },
+      { title: 'Written price before work', text: 'A number you approve in writing. The invoice matches it — no extra line items added later.' },
+      { title: 'Straight answers', text: 'If a repair is not worth it we will tell you, even though a repair is the easier sale for us.' },
+    ]}
+    problemsHeading="Common Problems We Solve"
+    problemsIntro="If any of these sound familiar, book a diagnostic visit."
+    problems={[
+      'No hot water at all',
+      'Hot water running out too fast',
+      'Water pooling under the tank',
+      'Popping, rumbling or kettling',
+      'Rusty or smelly hot water',
+      'T&P valve weeping',
+      'Pilot that will not stay lit',
+      'Tankless error codes',
+    ]}
+    ctaLabel="Book a diagnostic visit"
+  />
+
+  <WhereWeWork />
+
+  <PricingTable
+    heading="What Water Heater Work Costs in Rocklin, CA"
+    intro="Most water heater repairs in Rocklin run about $150 to $700 depending on the fault and the part, plus an $80–$160 diagnostic fee that is credited toward the repair. Larger work such as a full tank replacement normally lands between $1,400 and $3,600."
+    bullets={[
+      'Diagnostic / service call typically costs $80–$160, credited against the repair.',
+      'Thermocouple or pilot assembly typically costs $150–$350.',
+      'Heating element or thermostat (electric) typically costs $180–$450.',
+      'Gas control valve typically costs $300–$700.',
+      'Tank flush and sediment removal typically costs $120–$250.',
+      'Tankless descale and service typically costs $200–$450.',
+      'Full tank replacement typically costs $1,400–$3,600.',
+    ]}
+  >
+      <div class="table-wrap">
+        <table>
+          <caption class="note" style="caption-side:bottom;text-align:left;padding:10px 16px">
+            Typical Rocklin pricing. Your written estimate is confirmed on site before any work starts.
+          </caption>
+          <thead><tr><th scope="col">Water heater job</th><th scope="col">Typical range</th></tr></thead>
+          <tbody>
+            <tr><td>Diagnostic / service call (credited against repair)</td><td>$80 – $160</td></tr>
+            <tr><td>Thermocouple or pilot assembly</td><td>$150 – $350</td></tr>
+            <tr><td>Heating element or thermostat (electric)</td><td>$180 – $450</td></tr>
+            <tr><td>Gas control valve</td><td>$300 – $700</td></tr>
+            <tr><td>T&amp;P relief valve</td><td>$150 – $300</td></tr>
+            <tr><td>Tank flush &amp; sediment removal</td><td>$120 – $250</td></tr>
+            <tr><td>Anode rod replacement</td><td>$150 – $300</td></tr>
+            <tr><td>Tankless descale &amp; service</td><td>$200 – $450</td></tr>
+            <tr><td>Full tank replacement (unit + labor + permit)</td><td>$1,400 – $3,600</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">
+        Ranges reflect Rocklin and Placer County labor rates for 2026 and assume standard
+        garage or utility-closet access. Tight attic installs and full code upgrades sit higher.
+      </p>
+  </PricingTable>
+
+  <Gallery
+    kicker="Recent work"
+    heading="Water Heater Work, Proven Results"
+    intro="The kind of work a Rocklin call-out actually involves — diagnosis, pipework, the code items and the finished install."
+    items={[
+      { img: '/images/water-heater-maintenance-rocklin-annual-service.webp', alt: 'Water heater opened up for its annual service with the element and wiring exposed' },
+      { img: '/images/water-heater-installation-rocklin-connecting-tank-pipework.webp', alt: 'Plumber connecting the supply pipework on a newly installed water heater' },
+      { img: '/images/water-heater-leak-repair-rocklin-tightening-pipe-fitting.webp', alt: 'Plumber tightening a water heater pipe fitting during a leak repair' },
+      { img: '/images/water-heater-maintenance-rocklin-pressure-gauge-valves.webp', alt: 'Water heater pressure gauge and valves checked during a service' },
+      { img: '/images/gas-water-heater-repair-rocklin-gas-pipework.webp', alt: 'Gas supply pipework feeding a residential water heater in Rocklin, California' },
+      { img: '/images/tankless-water-heater-rocklin-wall-mounted-unit.webp', alt: 'Wall-mounted tankless water heater installed in a Rocklin, California home' },
+      { img: '/images/electric-water-heater-repair-rocklin-parts-on-bench.webp', alt: 'Water heater elements and fittings laid out before an electric repair' },
+      { img: '/images/water-heater-installation-rocklin-utility-room.webp', alt: 'Water heater and laundry appliances in a Rocklin, California utility room' },
+    ]}
+  />
+
+  <ProcessRow
+    kicker="Our process"
+    heading="How We Work"
+    intro="From your first call to the final walkthrough, here is what to expect when you book with us."
+    steps={[
+      { title: 'Book the visit', text: 'We quote the diagnostic fee on the phone — no surprises on the doorstep — and give you a real arrival window.' },
+      { title: 'Proper diagnosis', text: 'We test the unit rather than reading its age off the label. You see what we see.' },
+      { title: 'Written price, your decision', text: 'Repair or replace, both numbers if it is close. Nothing starts until you say yes.' },
+      { title: 'Repair, test and walkthrough', text: 'Parts replaced, temperature verified, combustion and draft checked on gas units, then we show you the failed part and clean up.' },
+    ]}
+  />
+
+  <Split
+    src="/images/gas-water-heater-repair-rocklin-gas-pipework.webp"
+    alt="Gas supply pipework feeding a residential water heater in Rocklin, California"
+    width={1500}
+    height={1000}
+    heading="Gas Water Heater Repair in Rocklin, CA"
+    id="gas"
+    reverse
+  >
+    <p>Many Rocklin homes run a 40 or 50 gallon atmospheric gas tank in the garage. The faults repeat: a thermocouple that no longer holds the pilot, a dirty burner assembly starving for air, a gas control valve that has given up, or a flammable-vapour sensor that has tripped and needs resetting properly rather than bypassed. We test combustion and draft before we leave, because a water heater that heats but back-drafts is not a finished job.</p>
+    <p class="note">Gas work is tested for leaks and correct draft before we call a repair finished.</p>
+  </Split>
+
+  <Split
+    src="/images/electric-water-heater-repair-rocklin-parts-on-bench.webp"
+    alt="Water heater elements and fittings laid out before an electric water heater repair in Rocklin, CA"
+    width={1500}
+    height={1000}
+    heading="Electric Water Heater Repair in Rocklin"
+    id="electric"
+  >
+    <p>Electric units are simpler but more commonly misdiagnosed. No hot water is usually the reset button on the upper thermostat, a failed upper element, or a breaker that is tripping for a reason. Hot water running out fast is almost always the lower element. We test resistance on both elements and the thermostats rather than guessing and swapping parts you did not need.</p>
+    <p class="note">Elements and thermostats are tested, not guessed at — you only pay for the part that failed.</p>
+  </Split>
+
+  <Split
+    src="/images/water-heater-repair-rocklin-emergency-callout.webp"
+    alt="Plumber on an emergency water heater callout in Rocklin, California"
+    width={1500}
+    height={1000}
+    heading="Emergency &amp; Same-Day Water Heater Repair"
+    id="emergency"
+    reverse
+  >
+    <p>We answer the phone around the clock, every day of the year. A 24 hour water heater repair call in Rocklin normally gets a technician moving within the hour. Before we arrive, two things help: close the cold inlet valve on top of the heater, and switch off the breaker if it is an electric unit. If you smell gas at any point, do not touch any switch or valve — leave the house and call PG&amp;E or 911 from outside, then call us.</p>
+    <p class="note">Emergency callouts run around the clock, every day of the year.</p>
+  </Split>
+
+  <section class="section">
+    <div class="wrap prose">
+
+      <p>
+        Same-day repair is the norm, not an upsell. We stock the parts that fail most often, so
+        the majority of emergency calls are finished before we leave the driveway.
+      </p>
+    </div>
+  </section>
+
+  <ReviewSlider />
+
+  <FaqGrid items={faqs} />
+
+  <CtaBand
+    heading="Book your free Rocklin water heater estimate today."
+    text="A licensed technician will find the cause and give you a written price before any work begins. No obligation, no guesswork."
+  />
+  <StatsBar />
+</Base>

@@ -1,0 +1,31 @@
+---
+export interface Props {
+  kicker?: string; heading?: string; badgeNum?: string; badgeLabel?: string;
+  img1: string; alt1: string; img2: string; alt2: string;
+  ticks?: string[]; ctaLabel?: string; ctaHref?: string;
+}
+const {
+  kicker = 'Why homeowners trust us',
+  heading = 'Water Heater Work You Can Rely On',
+  badgeNum = '24/7', badgeLabel = 'Emergency service',
+  img1, alt1, img2, alt2,
+  ticks = [], ctaLabel = 'See our water heater services', ctaHref = '/',
+} = Astro.props;
+---
+<section class="tband">
+  <div class="wrap">
+    <div class="tband__grid">
+      <div class="tband__pics">
+        <div class="tband__badge"><b>{badgeNum}</b><span>{badgeLabel}</span></div>
+        <img src={img1} alt={alt1} width="1500" height="1000" loading="lazy" decoding="async" />
+        <img src={img2} alt={alt2} width="1500" height="1000" loading="lazy" decoding="async" />
+      </div>
+      <div>
+        <p class="eyebrow">{kicker}</p>
+        <h2>{heading}</h2>
+        {ticks.length > 0 && <ul class="ticks">{ticks.map((t) => <li>{t}</li>)}</ul>}
+        <a class="btn btn--navy" href={ctaHref}>{ctaLabel}</a>
+      </div>
+    </div>
+  </div>
+</section>

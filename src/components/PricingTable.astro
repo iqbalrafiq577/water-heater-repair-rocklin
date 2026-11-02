@@ -1,0 +1,17 @@
+---
+export interface Props { kicker?: string; heading: string; intro?: string; bullets?: string[] }
+const { kicker = 'Pricing', heading, intro, bullets = [] } = Astro.props;
+---
+<section class="section" id="pricing">
+  <div class="wrap">
+    <div class="sec-center">
+      <p class="eyebrow">{kicker}</p>
+      <h2>{heading}</h2>
+      {intro && <p>{intro}</p>}
+    </div>
+    {bullets.length > 0 && (
+      <ul style="max-width:72ch;margin:0 auto 30px">{bullets.map((b) => <li>{b}</li>)}</ul>
+    )}
+    <div class="prose" style="max-width:none"><slot /></div>
+  </div>
+</section>

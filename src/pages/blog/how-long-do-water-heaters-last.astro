@@ -1,0 +1,172 @@
+---
+import Post from '../../layouts/Post.astro';
+import { getPost } from '../../data/posts';
+
+const post = getPost('how-long-do-water-heaters-last');
+
+const faqs = [
+  { q: 'How long does a water heater last on average?',
+    a: 'As a general industry range, a conventional storage tank gives roughly 8 to 12 years, a tankless unit 15 to 20, and a heat pump unit somewhere in between. Water quality and maintenance move those numbers more than brand does.' },
+  { q: 'Does hard water shorten the life of a water heater?',
+    a: 'Yes. Harder water drops more mineral out as it heats, which builds sediment in a tank and scale on a tankless heat exchanger. That reduces efficiency and makes the heating surface run hotter than it was designed to, which is what shortens the life of the unit.' },
+  { q: 'How do I find out how old my water heater is?',
+    a: 'Look at the data plate on the side of the unit. Many manufacturers print the manufacture date outright. If not, the serial number usually contains a date code in its first few characters representing the year and the month or week of manufacture. The format differs by brand, so check the serial guide published by that manufacturer rather than applying a rule you read about a different make.' },
+  { q: 'Can maintenance really add years to a water heater?',
+    a: 'It can, and it is the cheapest lever you have. An annual flush, an anode rod replaced when it is spent, a relief valve test and a sensible thermostat setting address the three things that actually kill tanks: sediment, lost anode protection and overheating.' },
+  { q: 'Is it worth replacing a water heater before it fails?',
+    a: 'Often, yes — especially if the unit sits somewhere a failure would cause real water damage, such as an interior closet or an upstairs space. Planning the swap means you choose the unit and the timing instead of taking whatever can be fitted that afternoon.' },
+];
+---
+<Post
+  image="/images/water-heater-maintenance-rocklin-annual-service.webp"
+  imageAlt="Water heater opened up during a service to assess its remaining life"
+  imageW={1600}
+  imageH={2397}
+  imageCaption="Maintenance, water quality and usage matter far more than the badge on the front."
+  title={post.title}
+  description="Typical lifespans for tank, tankless and heat pump water heaters, what shortens them in hard-water areas, and how to work out the age of your own unit."
+  path={`/blog/${post.slug}`}
+  published={post.published}
+  excerpt={post.excerpt}
+  faqs={faqs}
+  ctaHeading="Not Sure How Much Life Yours Has Left?"
+  ctaText="An annual service tells you the honest answer — the state of the anode rod and how much sediment comes out says more than the date on the label."
+>
+  <p>
+    The honest answer is that a water heater lasts as long as its weakest consumable part allows,
+    and in a storage tank that part is the tank itself. Everything else &mdash; valves,
+    thermostats, elements, burners &mdash; can be replaced. The steel vessel holding forty or
+    fifty gallons of hot water cannot.
+  </p>
+  <p>
+    So lifespan is really a question about how fast that vessel degrades, which comes down to
+    water chemistry, operating temperature and whether anyone ever looked after it.
+  </p>
+
+  <h2>Typical Lifespans by Type</h2>
+  <div class="table-wrap">
+    <table>
+      <caption class="note" style="caption-side:bottom;text-align:left;padding:10px 16px">
+        These are general industry ranges, not measured guarantees. Local water quality and
+        maintenance history shift them in both directions.
+      </caption>
+      <thead><tr><th scope="col">Type</th><th scope="col">General range</th><th scope="col">What usually ends it</th></tr></thead>
+      <tbody>
+        <tr><td>Conventional gas storage tank</td><td>8&ndash;12 years</td><td>Internal corrosion once the anode rod is spent; sediment-driven overheating of the tank bottom.</td></tr>
+        <tr><td>Conventional electric storage tank</td><td>8&ndash;12 years</td><td>The same corrosion story, plus elements scaling over and burning out.</td></tr>
+        <tr><td>Tankless (gas, condensing or non-condensing)</td><td>15&ndash;20 years</td><td>Scale in the heat exchanger. No stored water means no tank to rust through.</td></tr>
+        <tr><td>Heat pump / hybrid electric</td><td>10&ndash;15 years</td><td>Tank corrosion as above, or the compressor and fan assembly reaching the end of their life.</td></tr>
+        <tr><td>Point-of-use / small electric</td><td>6&ndash;10 years</td><td>Element failure and corrosion, often with no maintenance access at all.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    Notice the pattern. Tankless units last longest because they have no reservoir of hot water
+    sitting against steel. They are not maintenance-free, though &mdash; they simply move the
+    maintenance from flushing a tank to descaling an exchanger, and skipping that shortens a
+    tankless unit just as reliably.
+  </p>
+
+  <h2>What Actually Shortens a Water Heater</h2>
+  <h3>Sediment and scale</h3>
+  <p>
+    As water heats, dissolved calcium and magnesium come out of solution. In a tank, that settles
+    on the bottom as a crust. In a tankless unit, it plates onto the walls of the heat exchanger.
+    Either way you have an insulating layer between the heat source and the water, which means
+    longer burn cycles, hotter metal and more thermal stress.
+  </p>
+  <h3>A spent anode rod</h3>
+  <p>
+    The anode rod is a sacrificial piece of magnesium or aluminum that corrodes <em>instead</em>
+    of your tank. It is the single most important part in a storage water heater and almost nobody
+    checks it. Once it is consumed, the tank starts corroding on its own schedule. Replacing a rod
+    is inexpensive; replacing a tank is not.
+  </p>
+  <h3>Temperature set too high</h3>
+  <p>
+    Every extra degree accelerates both scaling and corrosion, and raises the scald risk at the
+    tap. Around 120&deg;F is the usual recommendation for a domestic setting and it is a good
+    balance between safety, efficiency and tank longevity.
+  </p>
+  <h3>Water pressure and missing thermal expansion control</h3>
+  <p>
+    High static pressure stresses the tank, the fittings and the relief valve. Where a pressure
+    regulator or a check valve prevents water flowing back toward the street, heated water has
+    nowhere to expand to, and pressure spikes every time the burner fires. That is what a thermal
+    expansion tank is for, and a failed or uncharged one is a common hidden cause of a weeping
+    relief valve.
+  </p>
+  <h3>Short cycling and undersizing</h3>
+  <p>
+    A heater that is too small for the household runs almost constantly. More burn hours means
+    more wear on every component, so an undersized unit will not reach the same age as a correctly
+    sized one in the same house.
+  </p>
+  <h3>Installation quality</h3>
+  <p>
+    Dielectric separation at the connections, correct venting and draft on a gas unit, a clean
+    gas supply with a sediment trap, and a relief discharge routed properly all affect how long
+    the unit survives. A heater installed badly starts its life with a handicap.
+  </p>
+
+  <h2>Hard Water in Rocklin and Placer County</h2>
+  <p>
+    Water in the Rocklin and wider Placer County area is generally on the harder side, and it is
+    worth understanding what that means in practice rather than as a vague worry. Hardness varies
+    by source, by season and by exactly where in the system your house sits, so treat it as a
+    tendency rather than a fixed figure for your address &mdash; your water provider publishes an
+    annual water quality report if you want the local detail.
+  </p>
+  <p>
+    What we observe on the ground is consistent: tanks here produce more sediment than you would
+    see in a soft-water region, and tankless heat exchangers scale faster. The practical
+    consequences are simple:
+  </p>
+  <ul>
+    <li>Flush a storage tank annually rather than &ldquo;eventually&rdquo;.</li>
+    <li>Have the anode rod inspected around year three or four, not year ten.</li>
+    <li>Descale a tankless unit on the manufacturer&rsquo;s schedule &mdash; and treat that
+      schedule as a minimum, not a suggestion.</li>
+    <li>If you have a softener or a scale-reduction device, keep it working. A neglected softener
+      is worse than none, because you stop checking.</li>
+  </ul>
+  <p>
+    None of this is exotic. It is the reason two identical heaters installed on the same street in
+    the same year can be five years apart in condition. Our
+    <a href="/water-heater-maintenance-rocklin">water heater maintenance service</a> exists for
+    exactly this: an annual flush, anode rod check, relief valve test and burner inspection is the
+    cheapest way to get the top end of those lifespan ranges instead of the bottom.
+  </p>
+
+  <h2>How to Find the Age of Your Water Heater</h2>
+  <p>
+    Start with the data plate &mdash; the printed or stamped label on the side of the unit, usually
+    near the top or beside the controls. Work through these in order:
+  </p>
+  <ol class="steps">
+    <li><strong>Look for a printed manufacture date</strong> Many manufacturers simply print the month and year on the label. If it is there, you are done.</li>
+    <li><strong>Read the serial number</strong> Where no date is printed, the serial number usually encodes one, though the format varies by manufacturer. The date code is typically in the first few characters and represents the year together with either the month or the week of manufacture.</li>
+    <li><strong>Check that brand&rsquo;s own serial guide</strong> The format is not standardised &mdash; different manufacturers use different letter and digit patterns, and some have changed theirs over the years. Look up the decoder published by your heater&rsquo;s manufacturer rather than applying a rule you read about another brand.</li>
+    <li><strong>Fall back on other clues</strong> No legible plate? The installer&rsquo;s sticker, the permit record for the property, or your own closing paperwork from when you bought the house will often pin it down to within a year.</li>
+    <li><strong>Write it on the jacket</strong> Once you know, put the date on the unit in permanent marker. Future you, and every plumber who ever visits, will thank you.</li>
+  </ol>
+  <p class="note">
+    One caution: the manufacture date is not the installation date. A unit can sit in a warehouse
+    or on a showroom floor for months, so a heater can easily be a year older than the day it
+    started working in your house.
+  </p>
+
+  <h2>Planning the Replacement Instead of Reacting to It</h2>
+  <p>
+    If you know the age and you know the condition, you get to choose when. That matters more than
+    people expect. A planned swap means you pick the type and the capacity, you get the permit and
+    the inspection handled calmly, and you are not accepting whatever unit happens to be on the
+    truck on a Sunday afternoon while a wet shop vac runs in the background.
+  </p>
+  <p>
+    Our rough guidance: once a storage tank passes about ten years, have it looked at annually and
+    start putting money aside. Once it passes about thirteen, plan the replacement on your terms
+    &mdash; particularly if the heater lives anywhere that a failure would soak drywall, flooring
+    or a ceiling below.
+  </p>
+</Post>

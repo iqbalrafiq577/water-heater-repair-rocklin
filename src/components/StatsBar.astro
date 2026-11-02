@@ -1,0 +1,18 @@
+---
+export interface Props { items?: { num: string; label: string }[] }
+const {
+  items = [
+    { num: '24/7', label: 'Emergency service' },
+    { num: '8', label: 'Water heater services' },
+    { num: '2', label: 'Rocklin ZIP codes covered' },
+    { num: '100%', label: 'Written pricing before work' },
+  ],
+} = Astro.props;
+---
+<section class="statsbar">
+  <div class="wrap">
+    <div class="statsbar__grid">
+      {items.map((i) => (<div><b>{i.num}</b><span>{i.label}</span></div>))}
+    </div>
+  </div>
+</section>

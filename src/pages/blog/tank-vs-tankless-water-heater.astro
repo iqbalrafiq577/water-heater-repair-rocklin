@@ -1,0 +1,166 @@
+---
+import Post from '../../layouts/Post.astro';
+import { getPost } from '../../data/posts';
+
+const post = getPost('tank-vs-tankless-water-heater');
+
+const faqs = [
+  { q: 'Is tankless really cheaper to run than a tank?',
+    a: 'Generally yes, because there are no standby losses — you are not keeping fifty gallons hot around the clock. How much you save depends on how much hot water your household actually uses, and the saving is modest enough that it rarely pays back the extra install cost on its own.' },
+  { q: 'Will a tankless water heater give me unlimited hot water?',
+    a: 'Continuous, yes. Unlimited, no. A tankless unit heats water as it flows, so it will not run out — but it has a maximum flow rate, and if you exceed that by running several fixtures at once the temperature drops. Sizing is everything.' },
+  { q: 'Does a tankless water heater need more maintenance?',
+    a: 'It needs different maintenance. Instead of flushing sediment from a tank you descale the heat exchanger, and in hard water that needs doing on schedule. Skip it and you lose both efficiency and years of service life.' },
+  { q: 'Can I put a tankless unit where my old tank was?',
+    a: 'Sometimes, but it is rarely a straight swap. Gas tankless units typically need a larger gas supply, their own dedicated venting, and a condensate drain on condensing models. Those three items are what turn a simple replacement into a bigger project.' },
+  { q: 'Which lasts longer, a tank or a tankless water heater?',
+    a: 'Tankless, as a general rule — roughly 15 to 20 years against 8 to 12 for a conventional tank. A tankless unit has no reservoir of hot water sitting against steel, so it does not fail by rusting through.' },
+];
+---
+<Post
+  image="/images/tankless-water-heater-rocklin-wall-mounted-unit.webp"
+  imageAlt="Compact wall-mounted tankless water heater compared with a traditional storage tank"
+  imageW={1600}
+  imageH={1176}
+  imageCaption="Tankless wins on space and endless hot water, but not on every budget or every house."
+  title={post.title}
+  description="A plumber's comparison of tank and tankless water heaters: upfront cost, running cost, space, recovery, and the cases where tankless is the wrong choice."
+  path={`/blog/${post.slug}`}
+  published={post.published}
+  excerpt={post.excerpt}
+  faqs={faqs}
+  ctaHeading="Want a Straight Recommendation for Your House?"
+  ctaText="Tell us your bathroom count, your gas line and where the unit lives. We will tell you honestly which option makes sense — including when it is the cheaper one."
+>
+  <p>
+    Tankless water heaters get sold with a lot of enthusiasm and not much nuance. They are
+    genuinely excellent in the right house and genuinely a waste of money in the wrong one, and
+    the difference usually has nothing to do with the unit and everything to do with your gas
+    line, your layout and how your household uses hot water.
+  </p>
+  <p>
+    Here is the comparison without the sales pitch, including the part most people never get told:
+    when to say no.
+  </p>
+
+  <h2>How Each One Actually Works</h2>
+  <p>
+    A <strong>storage tank</strong> keeps a reservoir of water &mdash; typically 40 or 50 gallons
+    in a Rocklin home &mdash; heated and ready. Draw hot water and you get it instantly, at
+    whatever flow rate your plumbing allows, until the reservoir is depleted. Then you wait while
+    it recovers.
+  </p>
+  <p>
+    A <strong>tankless</strong> (or on-demand) unit stores nothing. When you open a hot tap, a
+    flow sensor fires the burner and water is heated as it passes through a heat exchanger. It
+    will keep doing that indefinitely, but only up to a maximum flow rate. Beyond that flow rate,
+    the temperature at the tap falls.
+  </p>
+  <p>
+    That single difference drives every trade-off below. A tank is limited by
+    <em>volume</em>. A tankless unit is limited by <em>simultaneous flow</em>.
+  </p>
+
+  <h2>Side by Side</h2>
+  <div class="table-wrap">
+    <table>
+      <caption class="note" style="caption-side:bottom;text-align:left;padding:10px 16px">
+        Lifespan figures are general industry ranges. Everything else reflects what we see on
+        typical Rocklin installs.
+      </caption>
+      <thead><tr><th scope="col"></th><th scope="col">Storage tank</th><th scope="col">Tankless</th></tr></thead>
+      <tbody>
+        <tr><td>Upfront cost</td><td>Lower &mdash; often substantially</td><td>Higher, and the gap widens if gas, venting or electrical work is needed</td></tr>
+        <tr><td>Running cost</td><td>Higher, because of standby heat loss</td><td>Lower, no standby loss</td></tr>
+        <tr><td>Typical life</td><td>8&ndash;12 years</td><td>15&ndash;20 years</td></tr>
+        <tr><td>Hot water limit</td><td>Finite volume, then recovery time</td><td>Continuous, but capped flow rate</td></tr>
+        <tr><td>Space used</td><td>A tall cylinder plus clearance</td><td>Wall-mounted, frees up floor area</td></tr>
+        <tr><td>Install complexity</td><td>Usually straightforward</td><td>Gas sizing, dedicated venting, condensate on condensing models</td></tr>
+        <tr><td>Maintenance</td><td>Annual flush, anode rod</td><td>Periodic descale, filter screen, no anode rod</td></tr>
+        <tr><td>Behavior in a power cut</td><td>Gas tank with a standing pilot keeps working</td><td>Electronics mean no hot water without power</td></tr>
+        <tr><td>Best suited to</td><td>Predictable use, tight budgets, simple swaps</td><td>Long-term ownership, space constraints, high or spread-out demand</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Upfront Cost vs Running Cost</h2>
+  <p>
+    This is where honesty matters most. Tankless units cost more to buy and usually more to
+    install, and they save money every month afterwards. Whether that adds up depends entirely on
+    the size of the install premium in <em>your</em> house.
+  </p>
+  <p>
+    A tankless conversion commonly needs some or all of the following: an upsized gas supply, a
+    new dedicated vent run to the exterior, a condensate drain, a 120V receptacle at the unit, and
+    isolation valves for servicing. On a garage wall near the gas meter, that can be
+    straightforward. In an interior closet with a long vent path and a small-diameter gas line,
+    it is a significant job.
+  </p>
+  <p>
+    So we treat the energy saving as a bonus rather than the justification. If the honest payback
+    period is longer than the unit is likely to last, buy tankless for the other reasons &mdash;
+    endless hot water, reclaimed space, longer service life &mdash; or buy a tank. What we will
+    not do is build you a savings projection to make the numbers look better than they are.
+  </p>
+
+  <h2>Space</h2>
+  <p>
+    A 50 gallon tank occupies a cylinder of floor space plus service clearance, which in a Rocklin
+    garage is often the difference between parking comfortably and not. A tankless unit mounts on
+    the wall, roughly the size of a carry-on suitcase. For garage conversions and closet remodels
+    this is frequently the real reason people switch &mdash; and it is a perfectly good one. It
+    just has nothing to do with energy efficiency.
+  </p>
+
+  <h2>Recovery and the Feel of the Hot Water</h2>
+  <p>
+    Tanks and tankless units feel different in daily use, and the difference surprises people.
+  </p>
+  <ul>
+    <li><strong>Back-to-back showers:</strong> tankless wins outright. There is no reservoir to deplete, so the fourth shower is the same as the first.</li>
+    <li><strong>Several fixtures at once:</strong> a tank wins until it empties. Run two showers and a dishwasher and a correctly sized tank delivers; an undersized tankless unit will sag in temperature.</li>
+    <li><strong>Very low flow draws:</strong> some tankless units will not fire for a trickle, so a barely-open tap can run cold. Modern units handle this far better than older ones, but it is still a real characteristic.</li>
+    <li><strong>Wait at the tap:</strong> both share the cold water sitting in the pipe between heater and fixture. Tankless adds a short ignition delay on top. A recirculation system fixes this for either type.</li>
+  </ul>
+  <p>
+    Sizing a tankless unit is not about bathroom count alone. It is about realistic worst-case
+    simultaneous demand and the incoming water temperature, because the unit has to raise cold
+    water to your set point and winter groundwater is colder than summer. A unit sized for a warm
+    inlet disappoints in January.
+  </p>
+
+  <h2>When Tankless Is NOT the Right Call</h2>
+  <p>
+    We talk people out of tankless regularly. The situations where we do:
+  </p>
+  <ol class="steps">
+    <li><strong>The tank failed yesterday and the budget is tight</strong> A tankless conversion is a planned project, not an emergency fix. Doing it in a rush, badly, to beat a flood is the worst of both worlds. Replace like for like now and plan the conversion properly later.</li>
+    <li><strong>You are not keeping the house long</strong> The payback lives in years ten to twenty. If you are moving in three, the money is better spent elsewhere &mdash; buyers rarely pay a premium for it.</li>
+    <li><strong>The gas supply cannot carry it without major work</strong> If feeding the unit means re-piping from the meter across the house, the install cost can double. Sometimes that is still worth it. Often it is not.</li>
+    <li><strong>There is no sensible vent path</strong> Tankless units need their own vent to the outside, routed to the manufacturer specification. An interior closet with no practical route is a genuine blocker, not a challenge to be improvised around.</li>
+    <li><strong>Hard water with no intention of maintaining it</strong> A tankless unit that is never descaled in hard water will lose efficiency and fail early. If an annual service is not going to happen, a tank is the more forgiving choice.</li>
+    <li><strong>Modest, predictable hot water use</strong> A one- or two-person household in a single-bathroom home with a working tank has very little to gain. The standby loss you are eliminating is small when the tank is small.</li>
+    <li><strong>You need hot water during outages</strong> An older gas tank with a standing pilot keeps heating when the power goes out. Every tankless unit needs electricity. In a house prone to outages, that is worth weighing.</li>
+  </ol>
+
+  <h2>So Which Should You Buy?</h2>
+  <p>
+    Choose a <strong>tank</strong> if the budget is the main constraint, if the install is a
+    straight swap, if your hot water use is modest and predictable, or if the old unit has just
+    failed and you need hot water today. There is nothing second-rate about a correctly sized,
+    properly installed and maintained tank &mdash; see
+    <a href="/water-heater-replacement-rocklin">water heater replacement</a> for how that job goes.
+  </p>
+  <p>
+    Choose <strong>tankless</strong> if you are staying put for the long run, if floor space
+    matters, if your household genuinely runs out of hot water, or if the gas and venting
+    situation makes the install reasonable. Our
+    <a href="/tankless-water-heater-installation-rocklin">tankless water heater installation</a>
+    page covers the gas sizing, venting and condensate work that a done-properly conversion
+    involves.
+  </p>
+  <p>
+    Either way, the install quality matters more than the badge on the front. A well-installed
+    mid-range unit outlives a premium one that was fitted badly, every single time.
+  </p>
+</Post>

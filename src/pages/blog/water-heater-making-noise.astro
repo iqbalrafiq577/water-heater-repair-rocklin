@@ -1,0 +1,203 @@
+---
+import Post from '../../layouts/Post.astro';
+import { getPost } from '../../data/posts';
+
+const post = getPost('water-heater-making-noise');
+
+const faqs = [
+  { q: 'Is a noisy water heater dangerous?',
+    a: 'Most noises are not dangerous in themselves — they are symptoms of sediment, which wastes energy and shortens the life of the tank. The exceptions worth acting on quickly are a sustained high-pitched kettling sound and any noise accompanied by a relief valve that is discharging.' },
+  { q: 'Why does my water heater pop when it heats up?',
+    a: 'Water trapped underneath a layer of hardened sediment on the tank bottom superheats and forces its way out through that layer. Each escape is the pop you hear. It means the tank needs flushing, and it usually means it has not been flushed for a while.' },
+  { q: 'Will flushing my water heater stop the noise?',
+    a: 'Often, yes. If the sediment is still loose it drains out and the noise stops. If it has hardened into a crust it may need agitating, and on a badly neglected tank some of it never comes out — in which case the noise may be reduced rather than eliminated.' },
+  { q: 'Why does my water heater tick after a shower?',
+    a: 'That is almost always thermal expansion — metal pipework and the heat trap nipples on top of the unit expanding and contracting as temperatures change, and the pipe rubbing slightly against framing or a strap. It is harmless.' },
+  { q: 'Can a noisy water heater be fixed or does it need replacing?',
+    a: 'Noise alone is rarely a reason to replace. A flush, a descale on tankless, or tightening a loose element usually deals with it. Age and condition decide replacement — noise is just the signal that the unit wants attention.' },
+];
+---
+<Post
+  image="/images/water-heater-maintenance-rocklin-pressure-gauge-valves.webp"
+  imageAlt="Valves and gauge on a water heater that has started making noise"
+  imageW={1600}
+  imageH={1068}
+  imageCaption="Popping and rumbling almost always trace back to hardened sediment in the tank."
+  title={post.title}
+  description="Popping, rumbling, kettling, ticking and screeching explained — what each water heater noise means, which are harmless and which need attention."
+  path={`/blog/${post.slug}`}
+  published={post.published}
+  excerpt={post.excerpt}
+  faqs={faqs}
+  ctaHeading="Hearing Something You Cannot Place?"
+  ctaText="Describe the sound and when it happens. We can usually tell you what it is on the phone, and whether a flush will sort it."
+>
+  <p>
+    A water heater should be close to silent. A soft whoosh as a gas burner lights, a faint hum
+    from a fan or a heat pump, the sound of water moving &mdash; that is about it. Anything louder
+    is the unit telling you something, and in the great majority of cases it is telling you the
+    same thing: there is sediment inside.
+  </p>
+  <p>
+    Below are the sounds we get described most often, what each one actually is, and how worried
+    you should be.
+  </p>
+
+  <h2>Why Sediment Causes Most Water Heater Noise</h2>
+  <p>
+    Water carries dissolved minerals, mainly calcium and magnesium. When it is heated, those
+    minerals come out of solution and settle. In a storage tank, they fall to the bottom &mdash;
+    which, on a gas unit, is the exact surface the burner is heating from below.
+  </p>
+  <p>
+    Over years that deposit builds into a crust. Water seeps underneath it, the burner heats the
+    steel, and the trapped water flashes to steam and blasts its way out through the sediment
+    layer. That is your popping. Loose granules churning in the convection currents are your
+    rumbling. Scale baked onto an electric element is your kettling. The noise is the symptom, the
+    sediment is the condition, and the real cost is the overheated steel and wasted fuel behind it.
+  </p>
+
+  <h2>Popping and Crackling</h2>
+  <p>
+    <strong>What it sounds like:</strong> irregular pops, like a distant stone hitting a window,
+    starting shortly after the burner fires and easing off once the cycle ends.
+  </p>
+  <p>
+    <strong>What it is:</strong> steam escaping from under hardened sediment, as above. Almost
+    exclusively a gas tank symptom, because the heat is applied to the bottom of the tank.
+  </p>
+  <p>
+    <strong>How worried to be:</strong> not alarmed, but do not ignore it. The noise itself is
+    harmless. The condition causing it makes the burner work longer, runs the bottom of the tank
+    hotter than designed, and is the leading contributor to early tank failure.
+  </p>
+  <p>
+    <strong>The fix:</strong> a proper flush. Not just opening the drain valve for thirty seconds
+    &mdash; a full drain with the sediment agitated and the tank refilled and bled.
+  </p>
+
+  <h2>Rumbling and Banging During Heating</h2>
+  <p>
+    <strong>What it sounds like:</strong> a deep rolling noise, sometimes a muffled thud, usually
+    at the start of a heating cycle or when a lot of hot water is being drawn.
+  </p>
+  <p>
+    <strong>What it is:</strong> loose sediment being lifted and tumbled by water movement inside
+    the tank. In a way this is better news than popping, because loose sediment drains out.
+  </p>
+  <p>
+    <strong>How worried to be:</strong> low concern, high priority for maintenance. This is a tank
+    asking to be flushed while flushing still works.
+  </p>
+  <p>
+    Note the different problem that sounds similar: a sharp bang in the pipework immediately after
+    a tap, toilet or appliance valve shuts. That is water hammer &mdash; a pressure wave in the
+    plumbing, not the heater. It points to high water pressure, a missing or failed expansion
+    tank, or unsecured pipe runs.
+  </p>
+
+  <h2>Kettling &mdash; a High-Pitched Boiling or Singing Sound</h2>
+  <p>
+    <strong>What it sounds like:</strong> exactly like a kettle coming to the boil: a sustained
+    hiss rising to a whine, sometimes with a sizzle underneath.
+  </p>
+  <p>
+    <strong>What it is:</strong> water boiling locally against an overheated surface. On an
+    electric unit, that is scale crusted onto an element, so the element surface runs far hotter
+    than the surrounding water. It can also indicate a thermostat set too high, a thermostat that
+    has failed closed, or restricted flow.
+  </p>
+  <p>
+    <strong>How worried to be:</strong> this is the one on the list we would look at soonest. A
+    heater that is genuinely producing steam is operating outside its design range, and it leans on
+    the relief valve &mdash; the last line of defense. If you hear kettling and you can see or hear
+    the T&amp;P valve discharging, turn the thermostat down, shut the unit off and call someone.
+  </p>
+  <p>
+    <strong>The fix:</strong> descale or replace the elements on an electric unit, verify and
+    recalibrate or replace the thermostat, confirm the set temperature is sensible (around
+    120&deg;F is the usual recommendation), and test the relief valve.
+  </p>
+
+  <h2>Ticking and Clicking</h2>
+  <p>
+    <strong>What it sounds like:</strong> a light, regular tick or click, typically after hot water
+    has been used and then stops, and again as everything cools.
+  </p>
+  <p>
+    <strong>What it is:</strong> thermal expansion. Copper and steel change dimension as they heat
+    and cool, and the resulting movement makes pipework tick against framing, straps or hangers.
+    The heat trap nipples on top of a modern heater have small internal flaps that can also click
+    as flow starts and stops.
+  </p>
+  <p>
+    <strong>How worried to be:</strong> not at all. This is the most common harmless noise a water
+    heater makes. If it bothers you, the cure is usually a bit of insulation or a cushioned clip
+    where a pipe passes through a hole, not anything on the heater.
+  </p>
+  <p>
+    One exception: a rhythmic tick-tick-tick coming from the gas control area of a unit trying and
+    failing to light is an ignition fault, not expansion. If it is accompanied by no hot water,
+    treat it as a fault.
+  </p>
+
+  <h2>Screeching, Whistling or Squealing</h2>
+  <p>
+    <strong>What it sounds like:</strong> a thin, sharp whistle or squeal, usually while water is
+    actually flowing rather than during a heating cycle.
+  </p>
+  <p>
+    <strong>What it is:</strong> water being forced through a restriction. The usual suspects are a
+    valve that is only partly open &mdash; often the cold inlet after someone worked on the system
+    &mdash; a partially blocked inlet screen or filter, a failing fill valve, or the relief valve
+    passing a small amount of water.
+  </p>
+  <p>
+    <strong>How worried to be:</strong> moderate. It is rarely the heater itself failing, but a
+    restriction starves the unit and a whistling relief valve needs investigating rather than
+    tolerating.
+  </p>
+  <p>
+    <strong>The fix:</strong> confirm all isolation valves are fully open, check inlet screens and
+    any whole-house filter, and test the relief valve.
+  </p>
+
+  <h2>Humming and Buzzing</h2>
+  <p>
+    A low, steady hum on an electric unit is usually an element that is not quite tight, vibrating
+    as water moves past it &mdash; a quick fix. On a heat pump or tankless unit, a hum or fan noise
+    is simply the compressor and fan doing their job. Not a fault, but worth knowing before you put
+    one in a wall shared with a bedroom.
+  </p>
+
+  <h2>A Quick Reference</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Sound</th><th scope="col">Most likely cause</th><th scope="col">Urgency</th></tr></thead>
+      <tbody>
+        <tr><td>Popping, crackling</td><td>Hardened sediment on the tank bottom</td><td>Book a flush</td></tr>
+        <tr><td>Rumbling, rolling</td><td>Loose sediment moving in the tank</td><td>Book a flush</td></tr>
+        <tr><td>Kettling, singing</td><td>Scaled element or overheating</td><td>Look at it soon</td></tr>
+        <tr><td>Ticking, clicking</td><td>Thermal expansion of pipework</td><td>Harmless</td></tr>
+        <tr><td>Screeching, whistling</td><td>Restricted flow or a passing valve</td><td>Investigate</td></tr>
+        <tr><td>Humming, buzzing</td><td>Loose element, or normal fan or compressor noise</td><td>Low</td></tr>
+        <tr><td>Sharp bang after a tap closes</td><td>Water hammer in the plumbing, not the heater</td><td>Worth fixing</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>What to Do About It</h2>
+  <p>
+    If your tank is popping or rumbling, it wants flushing &mdash; and in a hard-water area that is
+    an annual job, not a one-off. A flush with an anode rod inspection and a relief valve test is
+    the whole of our
+    <a href="/water-heater-maintenance-rocklin">water heater maintenance service</a>, and it is the
+    cheapest thing you can do for the life of the unit.
+  </p>
+  <p>
+    If you have kettling, a discharging relief valve, an ignition tick with no hot water, or a
+    noise you cannot place, that is a diagnosis rather than a service. Our
+    <a href="/">water heater repair</a> page covers how that visit works: we find the actual fault,
+    show you what we found, and price the fix before touching anything.
+  </p>
+</Post>

@@ -1,0 +1,33 @@
+---
+import SecHead from './SecHead.astro';
+export interface Props {
+  kicker?: string; heading: string; range: string;
+  ctaHref?: string;
+  factors: { title: string; text: string }[];
+}
+const { kicker = 'Transparent pricing', heading, range, ctaHref = '/contact-us', factors } = Astro.props;
+---
+<section class="section" id="pricing">
+  <div class="wrap">
+    <div class="pricing">
+      <div>
+        <p class="kicker">{kicker}</p>
+        <h2>{heading}</h2>
+        <p class="pricing__range">{range}</p>
+        <slot name="intro" />
+      </div>
+      <div class="pricing__cards">
+        {factors.map((f, i) => (
+          <article class={`pfac${i % 2 === 1 ? ' pfac--dark' : ''}`}>
+            <p class="eyebrow">Pricing factor {String(i + 1).padStart(2, '0')}</p>
+            <h3>{f.title}</h3>
+            <span class="affects">affects cost</span>
+            <p>{f.text}</p>
+            <a href={ctaHref}>Get a quote ↗</a>
+          </article>
+        ))}
+      </div>
+    </div>
+    <div class="prose" style="margin-top:40px"><slot /></div>
+  </div>
+</section>

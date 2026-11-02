@@ -1,0 +1,71 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { site } from '../data/site';
+import { services, company } from '../data/nav';
+import { posts } from '../data/posts';
+---
+<Base
+  title="Page Not Found | Rocklin Water Heater Pros"
+  description="That page does not exist. Here are the water heater services we cover in Rocklin, plus our phone number if you would rather just talk to someone."
+  path="/404"
+  noindex={true}
+>
+  <section class="section">
+    <div class="wrap prose">
+      <p class="note">Error 404</p>
+      <h1>We Cannot Find That Page</h1>
+      <p>
+        Either the link was wrong, the page has moved, or we broke something. Either way, nothing
+        here is going to get your hot water back on, so let us point you somewhere useful.
+      </p>
+      <p>
+        If you are in the middle of a problem right now &mdash; no hot water, water on the floor, an
+        error code on a tankless display &mdash; skip the browsing and call us on
+        <a href={site.phoneHref}><strong>{site.phone}</strong></a>. We answer around the clock,
+        every day.
+      </p>
+      <div class="cta" style="display:flex;gap:14px;flex-wrap:wrap;margin:22px 0 8px">
+        <a class="btn" href={site.phoneHref}>Call {site.phone}</a>
+        <a class="btn btn--ghost" href="/">Back to the homepage</a>
+      </div>
+
+      <h2>Water Heater Services in Rocklin</h2>
+      <div class="grid grid--3" style="margin-top:22px">
+        {services.map((s) => (
+          <article class="card">
+            <h3><a href={s.href} style="text-decoration:none">{s.label}</a></h3>
+            <p>{s.short}</p>
+            <a class="more" href={s.href}>Learn more</a>
+          </article>
+        ))}
+      </div>
+
+      <h2>Advice &amp; Guides</h2>
+      <p>
+        Looking for something you read here before? Every guide we have published is listed on the
+        <a href="/blog">advice hub</a>.
+      </p>
+      <ul>
+        {posts.map((p) => (
+          <li><a href={`/blog/${p.slug}`}>{p.title}</a></li>
+        ))}
+      </ul>
+
+      <h2>Or Get Hold of a Human</h2>
+      <ul class="chips">
+        {company.map((c) => <li><a href={c.href} style="text-decoration:none">{c.label}</a></li>)}
+      </ul>
+      <p style="margin-top:18px">
+        Phone <a href={site.phoneHref}>{site.phone}</a> &middot; email
+        <a href={`mailto:${site.email}`}>{site.email}</a> &middot; serving Rocklin
+        ({site.zips.join(' & ')}) and the surrounding Placer County towns.
+      </p>
+    </div>
+  </section>
+
+  <CtaBand
+    heading="Need a Water Heater Sorted in Rocklin?"
+    text="Tell us what it is doing and we will give you an arrival window and a price before we start."
+  />
+</Base>

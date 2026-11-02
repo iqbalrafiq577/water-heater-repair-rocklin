@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Water heater icon">
+  <rect width="64" height="64" rx="12" fill="#0b3d64"/>
+  <rect x="20" y="12" width="24" height="40" rx="10" fill="#fff"/>
+  <rect x="26" y="4" width="4" height="10" rx="2" fill="#c8381f"/>
+  <rect x="34" y="4" width="4" height="10" rx="2" fill="#c8381f"/>
+  <path d="M32 26c5 5 7 8 7 11a7 7 0 0 1-14 0c0-3 2-6 7-11z" fill="#c8381f"/>
+</svg>

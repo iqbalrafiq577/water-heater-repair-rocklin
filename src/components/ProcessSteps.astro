@@ -1,0 +1,40 @@
+---
+export interface Props {
+  kicker?: string; heading: string; img: string; alt: string;
+  steps: { title: string; text: string }[];
+  overlayLabel?: string;
+}
+const { kicker = 'From call to complete', heading, img, alt, steps, overlayLabel = 'Step 01' } = Astro.props;
+const first = steps[0];
+---
+<section class="section section--alt" id="process">
+  <div class="wrap">
+    <div class="proc">
+      <div>
+        <p class="kicker">{kicker}</p>
+        <h2>{heading}</h2>
+        <ol class="proc__list">
+          {steps.map((s, i) => (
+            <li>
+              <span class="proc__n">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <h3>{s.title}</h3>
+                <p>{s.text}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+      <div class="proc__media">
+        <img src={img} alt={alt} width="1500" height="1000" loading="lazy" decoding="async" />
+        {first && (
+          <div class="proc__cardover">
+            <p class="eyebrow">{overlayLabel}</p>
+            <strong>{first.title}</strong>
+            <p>{first.text}</p>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</section>

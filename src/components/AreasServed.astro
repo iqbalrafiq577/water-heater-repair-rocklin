@@ -1,0 +1,20 @@
+---
+import { site } from '../data/site';
+export interface Props { service?: string }
+const { service = 'water heater service' } = Astro.props;
+---
+<section class="section section--alt">
+  <div class="wrap">
+    <h2>Rocklin Neighborhoods We Cover</h2>
+    <p>
+      We run {service} across every part of Rocklin — ZIP codes {site.zips.join(' and ')} — including:
+    </p>
+    <ul class="chips">{site.neighborhoods.map((n) => <li>{n}</li>)}</ul>
+    <p style="margin-top:22px">
+      We also cover nearby Placer and Sacramento County towns:
+      {site.nearbyCities.map((c, i) => (
+        <span>{i > 0 ? ', ' : ''}{c.name} (about {c.miles} miles)</span>
+      ))}.
+    </p>
+  </div>
+</section>

@@ -1,0 +1,159 @@
+---
+import Post from '../../layouts/Post.astro';
+import { getPost } from '../../data/posts';
+
+const post = getPost('repair-or-replace-water-heater');
+
+const faqs = [
+  { q: 'What is the 50% rule for water heaters?',
+    a: 'If the repair quote comes to more than half the installed cost of a comparable new unit, you replace instead. It is a rule of thumb rather than a law of physics, but it stops people spending hundreds on a tank that has two winters left in it.' },
+  { q: 'Is it worth repairing a 12-year-old water heater?',
+    a: 'Only if the repair is genuinely small — a thermocouple, a relief valve, a thermostat. Anything in the hundreds on a twelve-year-old tank is money you will not get back, because the tank itself is the part that is aging and that part cannot be replaced.' },
+  { q: 'Can a leaking water heater be repaired?',
+    a: 'It depends where the leak is. Fittings, nipples, the drain valve and the T&amp;P relief valve are all repairable. A leak coming from the body of the tank is not — the steel has corroded through from the inside and the only fix is a new heater.' },
+  { q: 'Does a new water heater use less gas than my old one?',
+    a: 'Usually a little, yes. Newer tanks have better insulation and cleaner burners, and a tank free of sediment transfers heat properly. Do not expect a dramatic drop on a like-for-like tank swap, though — the larger efficiency gains come from heat pump or condensing tankless units.' },
+  { q: 'How long does a replacement take compared with a repair?',
+    a: 'Most repairs are an hour or two. A straight tank-for-tank replacement is usually a half day, including draining the old unit, bringing the strapping, pan and relief discharge up to standard, and filling and testing the new one.' },
+];
+---
+<Post
+  image="/images/water-heater-repair-rocklin-plumber-diagnosing-unit.webp"
+  imageAlt="Plumber weighing up whether a water heater is worth repairing in Rocklin, California"
+  imageW={1600}
+  imageH={2844}
+  imageCaption="The age of the unit and the size of the repair bill decide this, not a rule of thumb."
+  title={post.title}
+  description="Use the 50% rule, sensible age thresholds and a simple fault table to decide whether your water heater is worth repairing or whether it is time to replace."
+  path={`/blog/${post.slug}`}
+  published={post.published}
+  excerpt={post.excerpt}
+  faqs={faqs}
+  ctaHeading="Want Both Numbers Before You Decide?"
+  ctaText="We will quote the repair and the replacement on the same visit, in writing, and tell you which one we would pick if it were our own house."
+>
+  <p>
+    Nobody plans this decision. It arrives on a Tuesday morning with a cold shower, or on a
+    Saturday with a damp patch creeping out from under the tank. And because you are deciding
+    under pressure, it is easy to either throw good money at a dying heater or get talked into a
+    replacement you did not need.
+  </p>
+  <p>
+    Only three things actually matter: how old the unit is, what has failed, and what the repair
+    costs relative to a new install. Work through those in order and the answer is usually
+    obvious within a couple of minutes.
+  </p>
+
+  <h2>The 50% Rule</h2>
+  <p>
+    The trade shorthand is simple. <strong>If the repair costs more than half of what a
+    comparable new unit would cost installed, replace it.</strong> Spend a couple of hundred
+    dollars on a heater that would cost two thousand to replace and you have bought cheap time.
+    Spend most of that two thousand on the old unit and you have paid nearly new-unit money with
+    none of the warranty and none of the remaining service life.
+  </p>
+  <p>
+    The rule works because of the way water heaters fail. The expensive, failure-prone components
+    tend to go late in life, and they tend to go in clusters. A gas control valve dying at year
+    twelve is rarely the last thing that unit will ask for. So tighten the rule as the heater
+    ages: at year five, half the replacement cost is a fair ceiling; at year twelve, we would use
+    something closer to a third.
+  </p>
+
+  <h2>Age Does Most of the Deciding</h2>
+  <p>
+    A glass-lined steel tank is a consumable. Water sits in it above 120&deg;F for a decade while
+    the anode rod slowly sacrifices itself to protect the steel. Once that rod is used up, the
+    tank itself starts corroding from the inside, and no repair reverses that.
+  </p>
+  <ul>
+    <li><strong>0&ndash;6 years:</strong> repair, almost without exception. The unit may still be
+      covered by a manufacturer parts warranty, so ask &mdash; you may only be paying labor.</li>
+    <li><strong>7&ndash;10 years:</strong> repair small faults, think hard about big ones. This is
+      where the 50% rule earns its keep.</li>
+    <li><strong>11&ndash;13 years:</strong> replace unless the fix is trivial. You are at or past
+      the typical service life for a standard tank in a hard-water area.</li>
+    <li><strong>14 years and up:</strong> replace. Every month beyond this is borrowed time, and
+      the failure mode at the end is water on the floor, not a polite error code.</li>
+  </ul>
+  <p class="note">
+    Those brackets reflect the general industry range for conventional tanks and what we see
+    locally. A well-maintained unit can comfortably beat them; a neglected one often will not.
+  </p>
+
+  <h2>Cheap Faults vs Terminal Faults</h2>
+  <p>
+    Two heaters can both be broken and be in completely different situations. What failed matters
+    as much as how old the unit is.
+  </p>
+  <div class="table-wrap">
+    <table>
+      <caption class="note" style="caption-side:bottom;text-align:left;padding:10px 16px">
+        Verdicts assume a standard garage or utility-closet install. Your written estimate is
+        always confirmed on site before any work starts.
+      </caption>
+      <thead><tr><th scope="col">What failed</th><th scope="col">Verdict</th><th scope="col">Why</th></tr></thead>
+      <tbody>
+        <tr><td>Thermocouple or pilot assembly</td><td>Cheap repair</td><td>A wear part. Replacing it is routine on any age of unit.</td></tr>
+        <tr><td>Heating element or thermostat (electric)</td><td>Cheap repair</td><td>Designed to be replaced. Usually done in a single visit.</td></tr>
+        <tr><td>T&amp;P relief valve weeping</td><td>Cheap repair</td><td>Often a safety valve doing its job, or a tired valve past its best.</td></tr>
+        <tr><td>Sediment noise and slow recovery</td><td>Maintenance</td><td>A proper flush frequently restores performance and buys years.</td></tr>
+        <tr><td>Broken dip tube</td><td>Moderate repair</td><td>Worth doing on a younger tank, marginal value past year ten.</td></tr>
+        <tr><td>Gas control valve</td><td>Depends on age</td><td>The classic 50%-rule call. Sensible at year six, poor value at year twelve.</td></tr>
+        <tr><td>Tankless heat exchanger</td><td>Depends on age</td><td>The most expensive part in the unit. Compare it against a whole new tankless install.</td></tr>
+        <tr><td>Leak from the body of the tank</td><td>Terminal</td><td>Internal corrosion. There is nothing to repair &mdash; the tank is the failure.</td></tr>
+        <tr><td>Rust through the outer jacket or base ring</td><td>Terminal</td><td>By the time corrosion shows on the outside, the inside is long gone.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>A Decision Table You Can Use in Five Minutes</h2>
+  <p>
+    Find your age bracket, find the column that matches the quote you were given, and read off
+    the answer. Treat a small fault as one priced like a thermocouple or an element, a mid-cost
+    fault as one priced like a gas control valve, and a major fault as anything approaching the
+    cost of a new unit.
+  </p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Age of unit</th><th scope="col">Small fault</th><th scope="col">Mid-cost fault</th><th scope="col">Major fault or tank leak</th></tr></thead>
+      <tbody>
+        <tr><td>Under 6 years</td><td>Repair</td><td>Repair &mdash; check the warranty first</td><td>Repair unless the tank itself is leaking</td></tr>
+        <tr><td>6&ndash;10 years</td><td>Repair</td><td>Apply the 50% rule</td><td>Replace</td></tr>
+        <tr><td>11&ndash;13 years</td><td>Repair, and start budgeting</td><td>Replace</td><td>Replace</td></tr>
+        <tr><td>14 years or more</td><td>Repair only to buy time</td><td>Replace</td><td>Replace</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Four Things People Forget</h2>
+  <ol class="steps">
+    <li><strong>Where the heater lives changes the maths</strong> A tank in a finished laundry room or an upstairs closet carries far more downside than one sitting on a garage slab near a drain. Replace earlier where a failure would be expensive.</li>
+    <li><strong>A repair leaves you no paperwork</strong> A permitted replacement gives you documentation that helps at resale and on an insurance claim. A repair gives you an invoice and nothing else.</li>
+    <li><strong>The unit may have been the wrong size all along</strong> If your household has been running out of hot water for years, a repair simply restores the problem. A replacement is the moment to size it properly.</li>
+    <li><strong>Code upgrades ride along with a replacement</strong> Seismic strapping, relief-valve discharge, a drain pan and thermal expansion control where required all get brought up to current standard as part of a permitted swap.</li>
+  </ol>
+
+  <h2>The One Case Where There Is No Decision</h2>
+  <p>
+    If water is pooling under the tank and it is not coming from a fitting, the relief discharge
+    or condensation on the cold line, the inner tank has corroded through. There is no patch, no
+    weld and no sealant that makes that safe or durable. Shut the cold inlet valve on top of the
+    heater, turn the gas control to off or switch off the breaker, and get it replaced. Everything
+    else on this page is a judgment call; that one is not.
+  </p>
+
+  <h2>How We Handle a Borderline Call</h2>
+  <p>
+    When a unit sits right on the line we quote both options on the same visit and hand you the
+    two numbers together. You get an honest read on remaining life with it &mdash; not vague
+    warnings that it could go any day, but a real assessment of the tank, the state of the anode
+    rod, and how much sediment came out of the drain valve while we were there.
+  </p>
+  <p>
+    If the fix is sensible, we do the <a href="/">repair</a> and you keep your money. If it is
+    not, we show you the <a href="/water-heater-replacement-rocklin">replacement</a> numbers,
+    permit included, and let you decide without a countdown clock. A repair is the easier sale for
+    us on the day, which is precisely why you should trust us when we tell you not to bother.
+  </p>
+</Post>

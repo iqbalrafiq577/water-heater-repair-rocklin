@@ -1,0 +1,27 @@
+---
+import { site } from '../data/site';
+export interface Props {
+  kicker?: string; heading: string; img: string; alt: string;
+  ticks?: string[]; reverse?: boolean; ctaLabel?: string; ctaHref?: string;
+}
+const {
+  kicker = 'About this service', heading, img, alt, ticks = [],
+  reverse = false, ctaLabel, ctaHref = site.phoneHref,
+} = Astro.props;
+---
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="svc-about">
+      <div class="svc-about__media" style={reverse ? 'order:2' : ''}>
+        <img src={img} alt={alt} width="1500" height="1000" loading="lazy" decoding="async" />
+      </div>
+      <div>
+        <p class="kicker">{kicker}</p>
+        <h2>{heading}</h2>
+        <slot />
+        {ticks.length > 0 && <ul class="ticks">{ticks.map((t) => <li>{t}</li>)}</ul>}
+        {ctaLabel && <a class="btn" href={ctaHref}>{ctaLabel}</a>}
+      </div>
+    </div>
+  </div>
+</section>

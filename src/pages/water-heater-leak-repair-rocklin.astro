@@ -1,0 +1,504 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Figure from '../components/Figure.astro';
+import Split from '../components/Split.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Faq from '../components/Faq.astro';
+import ReviewSlider from '../components/ReviewSlider.astro';
+import CtaBand from '../components/CtaBand.astro';
+import AreasServed from '../components/AreasServed.astro';
+import ServiceLinks from '../components/ServiceLinks.astro';
+import SvcAbout from '../components/SvcAbout.astro';
+import NumCards from '../components/NumCards.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import ProblemsBand from '../components/ProblemsBand.astro';
+import PricingFactors from '../components/PricingFactors.astro';
+import TrustProof from '../components/TrustProof.astro';
+import RelatedServices from '../components/RelatedServices.astro';
+import Coverage from '../components/Coverage.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { site } from '../data/site';
+import { faqSchema, serviceSchema, breadcrumbSchema } from '../data/schema';
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Water Heater Leak Repair', href: '/water-heater-leak-repair-rocklin' },
+];
+
+const faqs = [
+  { q: 'Is a leaking water heater an emergency?',
+    a: 'It depends where the water is coming from. A slow weep from the T&P valve or a fitting is urgent but not a crisis — shut the cold inlet valve and book a visit. Water pooling under the middle of the tank is an emergency, because that is the inner tank corroded through and there is no way to predict when it will open up completely. A 50 gallon tank emptying across a finished floor is an expensive afternoon.' },
+  { q: 'Why is my water heater leaking from the bottom?',
+    a: 'There are three realistic causes. The drain valve at the bottom is weeping past its washer — cheap and repairable. A lower element gasket on an electric unit is seeping — also repairable. Or the glass lining inside the steel tank has failed and the tank is rusting through from the inside, which shows up as clean water appearing under the center of the unit with nothing wet above it. The third one is not repairable at any price. The tank has to be replaced.' },
+  { q: 'Can a leaking water heater be repaired?',
+    a: 'Usually, yes. Most leaks we are called to in Rocklin turn out to be valves, nipples, flex connectors, unions or a T&P discharge, and all of those are straightforward repairs costing a fraction of a new unit. The one exception is the tank itself. Once the vessel is perforated, welding, epoxy and sealants are all wasted money — the lining cannot be restored and the leak only grows.' },
+  { q: 'Why is water coming out of the T&P valve?',
+    a: 'The temperature and pressure relief valve is doing its job: a residential T&P valve typically opens when the water temperature approaches 210F or pressure reaches its rated limit, commonly 150 psi. The usual culprits are a thermostat set far too high, a failed gas control valve, a missing or waterlogged thermal expansion tank, or high incoming street pressure. Sometimes the valve itself has scaled up and no longer seats. Never cap or plug a discharging T&P valve — it is the only thing standing between a pressurised tank and a serious failure. Get the cause diagnosed instead.' },
+  { q: 'How much does water heater leak repair cost in Rocklin?',
+    a: 'Most leak repairs land between $150 and $650. A drain valve or T&P valve replacement is at the low end, nipples, unions and flex connectors sit in the middle, and an expansion tank or a pressure-reducing valve to fix the underlying pressure problem is at the top. If the tank itself has failed you are looking at replacement instead, typically $1,400 to $3,600 installed and permitted. You get the number in writing before any work starts.' },
+  { q: 'Will my insurance cover the damage from a leaking water heater?',
+    a: 'We are plumbers, not adjusters, so treat this as general guidance only. Coverage depends on your individual policy, the cause of the leak and the circumstances of the damage, so confirm it with your provider. Broadly, policies often treat sudden and accidental damage differently from damage that built up slowly from a leak that was already known about. That second exclusion is the reason not to sit on a drip. Photograph everything before anyone mops up, keep our written diagnosis and invoice, and call your carrier the same day.' },
+  { q: 'How long can I leave a leaking water heater?',
+    a: 'Do not assume a leaking water heater is safe to leave unattended. Shut off the water supply if it is safe to do so, follow the shutdown precautions above, and arrange a prompt inspection. If the leak is from the tank body, treat it as hours rather than days — and do not leave the house with the water on. Corroded tanks fail progressively and then suddenly.' },
+  { q: 'Is the water under my water heater condensation or a leak?',
+    a: 'Condensation is common on a cold morning, on a newly refilled tank, and on high-efficiency units, and it shows as beads on the cold piping and the outside of the jacket rather than a trail. The test is simple: dry everything completely, lay dry paper towel under the unit, and check an hour later. Condensation returns as light general dampness. A leak returns as a wet patch in one spot that grows.' },
+  { q: 'Why is my electric water heater leaking?',
+    a: 'On an electric unit the extra suspects are the two element gaskets. The fiber gasket behind an element hardens over the years, and a tiny seep turns into a steady trickle that runs down the jacket and appears at the base. It is a cheap fix if caught early, and it is worth catching early — water tracking across a live element and its wiring is an electrical hazard, so switch the breaker off before you investigate.' },
+];
+
+const schema = [
+  serviceSchema({
+    name: 'Water Heater Leak Repair in Rocklin, CA',
+    description: 'Same-day water heater leak repair in Rocklin, California. We trace leaks from the T&P valve, drain valve, nipples, unions and tank body on gas, electric and tankless units, then tell you honestly whether it is a repair or a replacement.',
+    path: '/water-heater-leak-repair-rocklin',
+    serviceType: 'Water heater leak repair',
+    offers: [
+      { name: 'Leak diagnosis and pressure test', low: '80', high: '160' },
+      { name: 'Drain valve replacement', low: '150', high: '300' },
+      { name: 'T&P relief valve replacement', low: '150', high: '300' },
+      { name: 'Inlet / outlet nipple or union repair', low: '180', high: '450' },
+      { name: 'Flex connector replacement', low: '150', high: '350' },
+      { name: 'Thermal expansion tank installation', low: '250', high: '500' },
+      { name: 'Emergency shutdown and tank drain-down', low: '150', high: '400' },
+    ],
+  }),
+  breadcrumbSchema(crumbs),
+  faqSchema(faqs),
+];
+---
+<Base
+  title="Water Heater Leak Repair Rocklin, CA | Same-Day Service"
+  description="Need water heater leak repair in Rocklin, CA? We diagnose leaking valves, fittings, connections and tanks. Call for repair options and upfront pricing."
+  path="/water-heater-leak-repair-rocklin"
+  schema={schema}
+>
+  <Hero
+    eyebrow="Rocklin, CA · 95677 & 95765 · Leaks answered 24/7"
+    h1="Water Heater Leak Repair in Rocklin, CA"
+    lede="Water on the garage floor, a drip from the relief valve, or a damp patch under the tank — we trace exactly where it is coming from, stop it today where it is repairable, and tell you straight when it is not."
+    points={['Emergency shutdown guidance on the phone','Leak traced, not guessed','Written price before work','Repair or replace — honest answer']}
+    bg="/images/water-heater-leak-repair-rocklin-tightening-pipe-fitting.webp"
+    bgAlt="Plumber stopping a water heater leak in Rocklin, California"
+    form={false}
+    center
+  />
+
+  <Breadcrumbs items={crumbs} />
+
+  <SvcAbout
+    heading="What water heater leak repair actually covers"
+    img="/images/water-heater-leak-repair-rocklin-old-tank-pipework.webp"
+    alt="Water heater pipework, valves and pressure gauge of the kind that starts weeping in older Rocklin, CA homes"
+    ticks={[
+      'The source traced on the unit rather than guessed from the puddle',
+      'Written price before anything is touched',
+      'Valves, nipples, flex lines, gaskets and expansion tanks carried on the van',
+      'A straight answer when the tank itself is the problem',
+    ]}
+    ctaLabel="Get a written price →"
+    ctaHref="/contact-us"
+  >
+    <p>
+      A water heater leak is one of those faults that gets more expensive every hour you leave it.
+      Almost every call starts the same way: someone walks into the garage, finds a puddle, and
+      assumes the worst. In fairness that is the right instinct — but it is wrong more often than
+      it is right. The majority of the leaks we are called to in Rocklin are valves and fittings,
+      and those are cheap, quick, permanent repairs. Only a minority are the tank itself.
+    </p>
+    <p>
+      The difference between those two outcomes is a few hundred dollars versus a few thousand, so
+      it is worth getting an actual diagnosis rather than a guess over the phone. That is what this
+      visit is. We find the source, show it to you, and give you the written number for the fix
+      before we touch anything. If the answer is that the tank is gone, we say so plainly and put
+      the <a href="/water-heater-replacement-rocklin">replacement</a> figure next to it, so you can
+      decide with both numbers in front of you.
+    </p>
+    <p>
+      We answer the phone around the clock, and we provide water heater leak diagnosis and repair
+      for Rocklin homeowners, including emergency service when we have availability. If you have
+      shut the inlet valve and the heat, you have already done the part that limits the damage.
+      Everything after that can be done properly rather than in a panic.
+    </p>
+  </SvcAbout>
+
+  <NumCards
+    kicker="Our standard"
+    heading="How we work a leak call"
+    intro="Gravity makes every leak look like a bottom-of-tank leak if you start at the floor, so the diagnosis comes before the price and the price comes before the work."
+    items={[
+      { title: 'Licensed & insured', text: `Licensed and fully insured, and every replacement permitted through the City of Rocklin.` },
+      { title: 'We tell you if it is the tank', text: 'No sealant tricks, no patching a perforated vessel to get you through the week. If it is terminal you hear it on the first visit.' },
+      { title: 'Parts on the van', text: 'Relief valves, drain valves, nipples, flex lines, gaskets and expansion tanks — so most leak calls finish the same day.' },
+      { title: 'Price before work', text: 'A written number you approve, and an invoice that matches it. The diagnostic fee is credited against the repair.' },
+    ]}
+  />
+
+  <ProcessSteps
+    heading="How we find the leak"
+    img="/images/water-heater-leak-repair-rocklin-tightening-pipe-fitting.webp"
+    alt="Plumber tightening a pipe fitting to stop a water heater leak in Rocklin, California"
+    steps={[
+      { title: 'Make it safe', text: 'Water off, gas or breaker off, area cleared. If the tank is scalding we let it cool or drain it down safely rather than working around it.' },
+      { title: 'Dry everything and start at the top', text: 'We towel the whole unit down, then work from the inlet and outlet nipples, unions and flex lines downward. A dry jacket shows a fresh drip within minutes.' },
+      { title: 'Test the pressure', text: 'A gauge on a hose bibb tells us static street pressure and whether thermal expansion is spiking it. Anything over about 80 psi is above the commonly recommended residential limit and needs investigating — high pressure and thermal expansion can both contribute to T&P discharge, though the actual cause still has to be diagnosed. The fix is usually a pressure-reducing valve rather than another relief valve.' },
+      { title: 'Check the T&P and the expansion tank', text: 'We confirm the relief valve seats, that the discharge pipe is routed to code, and tap-test the expansion tank — a waterlogged one is doing nothing at all.' },
+      { title: 'Inspect the pan, the base ring and the flue', text: 'Rust staining on the base, a stained pan and corrosion around the burner skirt tell us how long this has been going on and whether the tank is still sound.' },
+      { title: 'Verdict in plain English', text: 'Repairable, repairable but not worth it, or terminal. Written price either way, and the decision is yours.' },
+    ]}
+  />
+
+  <NumCards
+    kicker="What is included"
+    heading="What we can put right on the first visit"
+    intro="Everything bolted to the outside of a water heater is a part, and parts get replaced — normally on the first visit, because we carry them on the van."
+    items={[
+      { title: 'Relief and drain valves', text: 'A discharging T&P valve or a weeping drain spigot. Both are repairable, and so is the pressure or temperature problem behind a relief valve that keeps opening.' },
+      { title: 'Nipples, unions and flex lines', text: 'The threaded connections on top, the braided or corrugated supply lines and their unions. A classic top-down leak that masquerades as a tank failure.' },
+      { title: 'Element gaskets on electric units', text: 'The fiber seals behind the upper and lower elements harden with age and heat cycling. Replacing the element and gasket rescues an otherwise healthy tank.' },
+      { title: 'Expansion tanks and pressure control', text: 'A waterlogged expansion tank or high incoming street pressure works every joint in the system. A correctly charged tank, and a pressure-reducing valve where the pressure needs it.' },
+    ]}
+    alt_bg={true}
+  />
+
+  <section class="section">
+    <div class="wrap prose prose--wide">
+      <div class="card" style="border-left:5px solid var(--red);background:#fff6f4">
+        <h2 style="margin-top:0">Leaking right now? Make it safe first.</h2>
+        <p style="margin:10px 0 0">
+          Only do the following if you can reach the heater safely and there is no gas smell, no
+          electrical hazard and no standing water near electrical equipment. If you smell gas, leave
+          the property and call your gas utility or 911 from a safe place. Do not touch wet
+          electrical equipment — call us and we will talk you through it.
+        </p>
+        <ol class="steps" style="margin-top:14px">
+          <li><strong>Close the cold inlet valve</strong> It is the handle or lever on the cold pipe entering the top of the heater. Turn it clockwise until it stops, or a quarter turn if it is a lever. That cuts the supply feeding the leak. If you cannot find it, shut the main house valve instead.</li>
+          <li><strong>Turn the heat off</strong> Gas unit: turn the gas control dial on the front to OFF, not PILOT. Electric unit: switch off the water heater breaker in the panel. Never let a tank keep firing while it is emptying — a dry-fired burner or element is a damaged unit at best.</li>
+          <li><strong>Leave the T&amp;P valve alone</strong> If the water is hot or steaming, do not lift the test lever on the relief valve and do not try to open the drain valve. You will get scalded. Let it cool, keep people and pets clear, and call us.</li>
+        </ol>
+        <p style="margin:16px 0 0"><a class="btn" href={site.phoneHref}>Active leak? Call {site.phone} now</a></p>
+        <p class="note" style="margin:10px 0 0">We can talk you through the safe shutdown steps while help is on the way.</p>
+        <p style="margin-bottom:0">
+          Then move anything that can be damaged — boxes, carpet, stored belongings — out of the path of
+          the water, and take a few photos before anyone mops up. Those photos matter if you end up making
+          an insurance claim. <a href={site.phoneHref}>Call {site.phone}</a> and we will talk you through
+          the rest.
+        </p>
+      </div>
+
+      <div class="sec-head">
+        <div>
+          <p class="kicker">Leak sources</p>
+          <h2 style="margin:0">Where Water Heater Leaks Come From — and What Each One Means</h2>
+        </div>
+        <p class="sec-head__intro">
+          Water travels: a leak at the top runs down the jacket and shows at the base, which is why
+          sound tanks get condemned.
+        </p>
+      </div>
+
+      <div class="grid grid--3">
+        <article class="card">
+          <h3>T&amp;P valve discharge</h3>
+          <p>
+            The valve is not the fault — it is reporting one. Excess temperature or pressure, no
+            working expansion tank, or a valve too scaled to re-seat.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Drain valve</h3>
+          <p>
+            A weep from the spigot at the bottom front, often right after a DIY flush. Plastic
+            valves stop sealing once sediment passes the washer. Cheap, same-visit repair.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Inlet and outlet nipples</h3>
+          <p>
+            Dissimilar metals plus water means galvanic corrosion, and the dielectric nipples give
+            up. A top-down leak routinely mistaken for tank failure. Repairable.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Unions and flex connectors</h3>
+          <p>
+            Braided or corrugated supply lines loosen, split or corrode. The easiest leak to fix and
+            the most often missed — it hides behind the straps.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Condensation, not a leak</h3>
+          <p>
+            Beads on cold piping and the jacket on a cold morning, or a refilled tank sweating.
+            General dampness, not a growing wet spot.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Bottom of the tank</h3>
+          <p>
+            Clean water under the center with nothing wet above it. The glass lining has failed and
+            the steel is rusting through — no sealant, weld or patch is a legitimate repair.
+            <a href="/water-heater-replacement-rocklin">Replacement →</a>
+          </p>
+        </article>
+      </div>
+
+      <div class="sec-head" style="margin-top:56px">
+        <div>
+          <p class="kicker">Electric units</p>
+          <h2 id="electric" style="margin:0">Electric Water Heater Leak Repair in Rocklin</h2>
+        </div>
+        <p class="sec-head__intro">
+          Two leak points gas units do not have, and one hazard worth respecting.
+        </p>
+      </div>
+
+      <div class="twoup">
+        <article>
+          <h3>The element gaskets</h3>
+          <ul class="ticks ticks--dark">
+            <li>Fiber seals behind both elements harden with age and heat cycling</li>
+            <li>First sign is a rust-colored streak below an access panel</li>
+            <li>Left alone, the seep becomes a trickle down to the floor</li>
+            <li><strong>Element and gasket replaced — a cheap fix that rescues a healthy tank</strong></li>
+          </ul>
+        </article>
+        <article>
+          <h3>Before you pull a panel off</h3>
+          <ul class="ticks ticks--dark">
+            <li><strong>Switch the water heater breaker off at the panel first</strong></li>
+            <li>Water inside the jacket runs across live element terminals and the thermostat</li>
+            <li>If the access panel is already wet, do not touch it</li>
+            <li>Kill the breaker, shut the cold inlet valve, leave it to us</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="sec-head" style="margin-top:56px">
+        <div>
+          <p class="kicker">Tankless</p>
+          <h2 id="tankless" style="margin:0">Tankless Water Heater Leak Repair in Rocklin</h2>
+        </div>
+        <p class="sec-head__intro">
+          No storage vessel to rust through, so most tankless leaks are repairable.
+        </p>
+      </div>
+
+      <div class="twoup">
+        <article>
+          <h3>Where tankless units leak</h3>
+          <ul class="ticks ticks--dark">
+            <li>Isolation valves and service ports left part-open after a descale</li>
+            <li>Pressure relief valve, or the cold and hot fittings on the manifold</li>
+            <li>A split internal water line after a freeze, or the condensate trap</li>
+            <li><strong>A cracked heat exchanger — usually a covered part inside warranty</strong></li>
+          </ul>
+        </article>
+        <article>
+          <h3>Scale is usually behind it</h3>
+          <ul class="ticks ticks--dark">
+            <li>Hard water deposits raise pressure and temperature inside the exchanger</li>
+            <li>That stresses seals which would otherwise have lasted years longer</li>
+            <li><strong>Leaking and never descaled? The two are related</strong></li>
+            <li>Error codes and descaling: <a href="/tankless-water-heater-repair-rocklin">tankless water heater repair</a></li>
+          </ul>
+        </article>
+      </div>
+      <div class="callout">
+        <p>
+          A cracked exchanger or major internal failure can still make replacement the better option
+          — model, warranty and repair cost decide it.
+        </p>
+      </div>
+
+      <div class="sec-head" style="margin-top:56px">
+        <div>
+          <p class="kicker">Repair or terminal</p>
+          <h2 style="margin:0">What Is Repairable and What Is Terminal</h2>
+        </div>
+        <p class="sec-head__intro">
+          We would far rather sell a $200 valve than a $2,500 tank. A physical distinction, not a
+          sales one.
+        </p>
+      </div>
+
+      <div class="twoup">
+        <article>
+          <h3>Repairable — parts on the van</h3>
+          <ul class="ticks ticks--dark">
+            <li>Relief valves, drain valves, nipples, unions and flex lines</li>
+            <li>Element gaskets, isolation valves and condensate traps</li>
+            <li>Expansion tanks and pressure-reducing valves</li>
+            <li><strong>Normally finished on the first visit</strong></li>
+          </ul>
+        </article>
+        <article>
+          <h3>Terminal — the tank itself</h3>
+          <ul class="ticks ticks--dark">
+            <li>Steel vessel, thin glass lining, sacrificial anode rod protecting it</li>
+            <li>Anode spent, lining pinholes, steel corroding from the inside out</li>
+            <li><strong>Epoxy, patch kits and tightened fittings fix none of it</strong></li>
+            <li>Replacement brings the code upgrades — strapping, T&amp;P discharge, pan and drain line, expansion tank</li>
+          </ul>
+        </article>
+      </div>
+      <div class="callout">
+        <p>
+          Age is the tiebreaker. Under eight years, repair the fitting. Past twelve, if the repair is
+          over about half the cost of a new install, replace it before it fails on a weekend.
+        </p>
+      </div>
+
+      <div class="sec-head" style="margin-top:56px">
+        <div>
+          <p class="kicker">Water damage</p>
+          <h2 style="margin:0">Why a Small Leak Turns Into a Big Bill</h2>
+        </div>
+        <p class="sec-head__intro">
+          Where the heater sits decides what a slow drip costs you.
+        </p>
+      </div>
+
+      <div class="grid grid--3">
+        <article class="card">
+          <h3>Garage on a slab</h3>
+          <p>Hard floor, usually a drain nearby. The good scenario — you spot it early and nothing valuable gets wet.</p>
+        </article>
+        <article class="card">
+          <h3>Utility closet or laundry room</h3>
+          <p>Often no pan, a pan with no drain line, or one that rusted out years ago. Remediation on a wall cavity costs more than the heater did.</p>
+        </article>
+        <article class="card">
+          <h3>Upstairs platform</h3>
+          <p>Water wicks under laminate and engineered wood and reaches the subfloor long before anyone notices a smell.</p>
+        </article>
+      </div>
+      <div class="callout">
+        <p>
+          A slow leak is also the kind insurers push back on, because it was gradual. Call the day you
+          see water and keep the problem at the cost of a valve.
+        </p>
+      </div>
+
+      <div class="sec-head" style="margin-top:56px">
+        <div>
+          <p class="kicker">Prevention</p>
+          <h2 style="margin:0">Stopping the Next One</h2>
+        </div>
+        <p class="sec-head__intro">
+          Leaks are mostly a maintenance story — three checks, about the cost of one valve repair.
+        </p>
+      </div>
+
+      <div class="grid grid--3">
+        <article class="card">
+          <h3>Annual flush</h3>
+          <p>Sediment traps heat against the bottom of the tank and accelerates corrosion. Flushing it out is the biggest single win.</p>
+        </article>
+        <article class="card">
+          <h3>Anode rod check</h3>
+          <p>A consumable part nobody thinks about. Once it is spent, the glass lining takes the abuse instead.</p>
+        </article>
+        <article class="card">
+          <h3>Pressure and pan</h3>
+          <p>High street pressure works every joint. We read static pressure, tap-test the expansion tank and check the pan drains.</p>
+        </article>
+      </div>
+
+      <p class="note" style="margin-top:26px">
+        Unit still healthy? See <a href="/water-heater-maintenance-rocklin">water heater maintenance
+        in Rocklin</a>. Already failed? The
+        <a href="/water-heater-replacement-rocklin">replacement page</a> covers sizing, permits and
+        code-compliant installs. Not sure? Start with <a href="/">water heater repair</a>.
+      </p>
+    </div>
+  </section>
+
+  <BeforeAfter
+    serviceLabel="Water heater leak repair"
+    heading="Typical jobs, before and after."
+    items={[
+      {
+        title: 'Water running from the relief valve',
+        before: 'A T&P valve dribbling into its discharge pipe near the floor — the valve reporting a fault rather than being one. A thermostat set too high, a waterlogged expansion tank or high street pressure behind it.',
+        after: 'Static pressure measured at a hose bibb, the expansion tank tap-tested and the cause fixed — a correctly charged tank, or a pressure-reducing valve where the incoming pressure needed one — rather than another relief valve fitted on top of the same problem.',
+        img: '/images/water-heater-maintenance-rocklin-pressure-gauge-valves.webp',
+        alt: 'Pressure gauge and valves on water heater pipework in Rocklin, California',
+      },
+      {
+        title: 'A weep from the drain valve after a flush attempt',
+        before: 'A plastic drain spigot at the bottom front that stopped sealing once sediment worked past the washer — often starting straight after a DIY flush.',
+        after: 'Valve replaced on the same visit at a fraction of the cost of a new unit, with the pan and drain line checked while the unit was isolated.',
+        img: '/images/water-heater-leak-repair-rocklin-tightening-pipe-fitting.webp',
+        alt: 'Plumber tightening a water heater pipe fitting in Rocklin, California',
+      },
+      {
+        title: 'A top-down leak mistaken for a failed tank',
+        before: 'A puddle at the base of an older tank with corroded nipples and unions above it — water tracking down the outside of the jacket, hidden behind the straps and an insulation wrap.',
+        after: 'Unit dried down and traced from the top, the corroded connections and flex lines replaced, and the tank kept. Where the water is instead coming from the body of the tank we say so plainly and quote the replacement.',
+        img: '/images/water-heater-leak-repair-rocklin-old-tank-pipework.webp',
+        alt: 'Corroded water heater pipework and valves in a Rocklin, California home',
+      },
+    ]}
+  />
+
+  <ProblemsBand
+    heading="What this service actually fixes"
+    intro="Where the water is coming from decides whether this is a valve or a new heater, so that is the first thing we establish."
+    ctaLabel="Ask a technician →"
+    items={[
+      { title: 'A puddle you cannot trace', text: 'Water travels, so a leak at the top of a tank appears at the base. We dry the unit down and work from the nipples, unions and flex lines downward rather than guessing from the floor.' },
+      { title: 'A T&P valve that keeps discharging', text: 'The valve is reporting excess temperature or pressure, a missing or waterlogged expansion tank, or high street pressure. Never cap or plug it — we diagnose the cause instead.' },
+      { title: 'A tank leaking from the body', text: 'Clean water under the center of the unit with nothing wet above it means the lining has failed and the steel is corroding through. No sealant or patch is a legitimate repair, so we price the replacement alongside it.' },
+    ]}
+  />
+
+  <PricingFactors
+    heading="Water Heater Leak Repair Pricing in Rocklin"
+    range="$150 – $650 for most leak repairs, plus an $80 – $160 diagnosis; more if the tank itself has failed"
+    factors={[
+      { title: 'Which component is leaking', text: 'A drain valve or relief valve replacement sits at the low end. Nipples, unions, flex connectors and electric element gaskets sit in the middle.' },
+      { title: 'Whether the underlying cause needs fixing too', text: 'A relief valve that keeps opening usually points at pressure. An expansion tank, or a pressure-reducing valve to bring static pressure down, sits at the top of the repair range.' },
+      { title: 'Access and location', text: 'Standard garage or utility-closet access is the straightforward case. Upstairs platforms, tight closets and full code upgrades sit higher.' },
+    ]}
+  >
+      <h2>What Water Heater Leak Repair Costs in Rocklin, CA</h2>
+      <div class="table-wrap">
+        <table>
+          <caption class="note" style="caption-side:bottom;text-align:left;padding:10px 16px">
+            Our estimated water heater leak repair prices in Rocklin, not verified market averages. Phone estimates are free; on-site leak diagnosis is charged and credited toward an approved repair. Replacement pricing depends on capacity, fuel type, access, disposal and any applicable code upgrades. Your written estimate identifies the included work and any additional charges before anything starts.
+          </caption>
+          <thead><tr><th scope="col">Leak repair job</th><th scope="col">Typical range</th></tr></thead>
+          <tbody>
+            <tr><td>Leak diagnosis &amp; pressure test (credited against repair)</td><td>$80 – $160</td></tr>
+            <tr><td>Drain valve replacement</td><td>$150 – $300</td></tr>
+            <tr><td>T&amp;P relief valve replacement</td><td>$150 – $300</td></tr>
+            <tr><td>Flex connector / supply line replacement</td><td>$150 – $350</td></tr>
+            <tr><td>Inlet or outlet nipple / union repair</td><td>$180 – $450</td></tr>
+            <tr><td>Electric element &amp; gasket replacement</td><td>$180 – $450</td></tr>
+            <tr><td>Thermal expansion tank fitted</td><td>$250 – $500</td></tr>
+            <tr><td>Pressure-reducing valve fitted</td><td>$350 – $650</td></tr>
+            <tr><td>Drain pan &amp; drain line installed</td><td>$250 – $600</td></tr>
+            <tr><td>Emergency shutdown &amp; drain-down</td><td>$150 – $400</td></tr>
+            <tr><td>Tank replacement (unit + labor + permit)</td><td>$1,400 – $3,600</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">
+        Ranges reflect Rocklin and Placer County labor rates for 2026 and assume standard garage or
+        utility-closet access. Upstairs platforms, tight closets and full code upgrades sit higher.
+      </p>
+  </PricingFactors>
+
+  <TrustProof />
+  <ReviewSlider />
+  <Faq items={faqs} heading="Water Heater Leak Questions Rocklin Homeowners Ask" />
+  <RelatedServices exclude="/water-heater-leak-repair-rocklin" />
+  <Coverage service="Water heater leak repair" />
+  <CtaBand
+    heading="Water on the floor? Shut the inlet valve, then call us."
+    text="Same-day water heater leak repair across Rocklin and Placer County, with emergency callouts around the clock."
+  />
+  <ContactSection />
+</Base>

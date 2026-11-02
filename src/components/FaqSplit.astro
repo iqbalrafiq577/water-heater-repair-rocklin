@@ -1,0 +1,40 @@
+---
+import { site } from '../data/site';
+export interface Props {
+  kicker?: string; heading?: string; intro?: string;
+  img: string; alt: string;
+  ctaLabel?: string; ctaHref?: string;
+  items: { q: string; a: string }[];
+}
+const {
+  kicker = 'FAQs', heading = 'Water Heater Questions We Get Asked Most',
+  intro = 'The questions Rocklin homeowners and landlords ask most before they book.',
+  img, alt, ctaLabel = 'Ask us a question →', ctaHref = '/contact-us', items,
+} = Astro.props;
+---
+<section class="section section--alt" id="faq">
+  <div class="wrap">
+    <div class="faqsplit">
+      <div class="faqsplit__panel">
+        <img src={img} alt={alt} width="1500" height="1000" loading="lazy" decoding="async" />
+        <div>
+          <span class="tag">{kicker}</span>
+          <h2>{heading}</h2>
+          <p style="color:#cfdeea;margin:0">{intro}</p>
+        </div>
+        <div>
+          <p style="margin:0 0 10px;font-weight:700">Have other questions?</p>
+          <a class="btn" href={ctaHref}>{ctaLabel}</a>
+        </div>
+      </div>
+      <div class="faq">
+        {items.map((f, i) => (
+          <details open={i === 0}>
+            <summary>{f.q}</summary>
+            <div class="ans"><p set:html={f.a} /></div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
