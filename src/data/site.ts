@@ -8,7 +8,7 @@
 export const site = {
   name: 'Rocklin Water Heater Pros',
   legalName: 'Rocklin Water Heater Pros',
-  url: 'https://www.waterheaterrepairrocklin.com', // TODO: real domain
+  url: 'https://waterheaterrepairrocklin.com', // TODO: real domain
   logo: '/images/logo.svg',
   defaultImage: '/images/water-heater-repair-rocklin-technician-servicing-unit.webp',
 
